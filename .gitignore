@@ -1,0 +1,48 @@
+# Paraline MSAgent .gitignore
+
+# Environment & secrets
+.env
+*.env.local
+
+# AI Models (large files — download separately)
+models-cache/
+*.onnx
+*.bin
+*.safetensors
+*.pt
+*.pth
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.egg-info/
+dist/
+build/
+.venv/
+venv/
+
+# Docker volumes (local dev)
+postgres-data/
+redis-data/
+session-data/
+
+# Logs
+logs/
+*.log
+
+# IDE
+.vscode/
+.idea/
+*.swp
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Test outputs
+test_output/
+*.wav
+*.png.tmp
