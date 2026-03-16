@@ -126,21 +126,46 @@ python -m client.ui.main_app
 2. Bật **Developer mode**
 3. **Load unpacked** → chọn thư mục `chrome_extension/`
 
-### 2) Chạy app client
-Trên Windows (máy đang join Meet):
+### 2) Chuẩn bị audio (VB-Audio Virtual Cable)
+- Cài **VB-Audio Virtual Cable** và restart máy
+- Trong **Google Meet** → Settings:
+  - **Speaker**: chọn **`CABLE Input`** (để app thu “virtual speaker/inbound”)
+  - **Microphone**: chọn mic bạn muốn dùng để nói (real mic)
+- Trong app / env:
+  - `VIRTUAL_SPEAKER_NAME="CABLE Output"`
+
+### 3) Chạy app client (Windows)
+Trên máy sẽ join Meet:
 
 ```powershell
 cd paraline-msagent\client
 pip install -r requirements.txt
+$env:PARALINE_SERVER_WS   = "ws://<IP_SERVER>:8765"
+$env:PARALINE_SERVER_REST = "http://<IP_SERVER>:8056"
+$env:CLIENT_API_KEY       = "<client-api-key>"
+$env:VIRTUAL_SPEAKER_NAME = "CABLE Output"
+$env:MEET_BRIDGE_PORT     = "9877"
 python -m client.ui.main_app
 ```
 
-### 3) Join Google Meet
-- Join meeting trên Chrome: `meet.google.com/...`
-- Click icon **Paraline Meet Bridge**:
-  - **Bridge (Python)**: `Connected`
-  - **Cuộc họp**: `Active`
-- Khi outbound có text, extension sẽ tự **inject** vào Meet chat.
+### 4) Join Google Meet theo flow “paste link + bấm Join”
+1. Copy link Meet từ đối tác (ví dụ `https://meet.google.com/abc-defg-hij`)
+2. Trong app, **dán link vào ô Join** → bấm **Join**
+3. Chrome sẽ mở Meet. Khi vào meeting:
+   - App sẽ tự start phiên dịch sau ~2s
+   - Outbound text sẽ được đẩy lên **chat chung** (qua extension)
+
+### 5) Dịch slide trong lúc họ trình chiếu
+- Dùng Snipping Tool (Win+Shift+S) chụp vùng slide → **Ctrl+V** vào app
+- App sẽ OCR + dịch chữ sang tiếng Việt và giữ bố cục ảnh
+
+### 6) Checklist nhanh nếu “không thấy chat/không nghe”
+- **Extension popup**:
+  - **Bridge (Python)** = `Connected`
+  - **Cuộc họp** = `Active`
+- **Meet Speaker** = `CABLE Input`
+- **App env**: `VIRTUAL_SPEAKER_NAME="CABLE Output"`
+- **Port**: `MEET_BRIDGE_PORT=9877` (không bị app khác chiếm)
 
 > Chi tiết hơn xem `docs/SETUP.md` (mục “Google Meet Integration Setup”).
 

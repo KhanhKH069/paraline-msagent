@@ -27,6 +27,7 @@ from PyQt6.QtWidgets import (
     QApplication, QFrame, QHBoxLayout, QLabel, QMainWindow,
     QProgressBar, QPushButton, QTextEdit, QVBoxLayout, QWidget, QMenu,
     QSizeGrip, QSystemTrayIcon
+    , QLineEdit
 )
 
 from ..audio_router.audio_manager import AudioManager
@@ -270,6 +271,7 @@ class ParalineMainWindow(QMainWindow):
 
         # Meeting auto-join
         self._join_delay_timer: Optional[QTimer] = None
+        self._pending_join_url: Optional[str] = None
         self.meeting_monitor = MeetBridgeServer(
             on_meeting_started=lambda url: self.sig_meeting_started.emit(url),
             on_meeting_ended=lambda: self.sig_meeting_ended.emit(),
@@ -353,6 +355,19 @@ class ParalineMainWindow(QMainWindow):
         btn_row.addWidget(self._btn_start)
         btn_row.addWidget(self._btn_stop)
         layout.addLayout(btn_row)
+
+        # ── Join Google Meet ──────────────────────────────
+        join_row = QHBoxLayout()
+        self._meet_url = QLineEdit()
+        self._meet_url.setPlaceholderText("Dán link Google Meet rồi bấm Join…")
+        self._meet_url.returnPressed.connect(self._join_meet_from_input)
+        self._btn_join = QPushButton("Join")
+        self._btn_join.setObjectName("btn_secondary")
+        self._btn_join.setFixedWidth(70)
+        self._btn_join.clicked.connect(self._join_meet_from_input)
+        join_row.addWidget(self._meet_url)
+        join_row.addWidget(self._btn_join)
+        layout.addLayout(join_row)
 
         # ── Latency display ───────────────────────────────
         self._latency_label = QLabel("latency: —")
@@ -533,8 +548,14 @@ class ParalineMainWindow(QMainWindow):
         self._monitor_badge.setText("🟢 Meet bắt đầu — chuẩn bị phiên dịch...")
         self._monitor_badge.setStyleSheet("color:#4caf50; font-size:10px; font-weight:600;")
 
-        # (Tuỳ chọn) Nếu muốn auto-open Meet link khi extension báo event:
-        # self.meet_client.join_meeting(join_url)
+        # Nếu user bấm Join trước đó, ưu tiên link họ dán
+        if self._pending_join_url:
+            join_url = self._pending_join_url
+            self._pending_join_url = None
+
+        # Nếu Meet chưa mở, có thể auto-open link (Chrome nên là browser mặc định)
+        if join_url:
+            self.meet_client.join_meeting(join_url)
 
         # Delay ngắn để user/audio routing ổn định rồi start session
         timer = QTimer(self)
@@ -542,6 +563,34 @@ class ParalineMainWindow(QMainWindow):
         timer.timeout.connect(self._delayed_start_session)
         timer.start(1200)  # 1.2 giây
         self._join_delay_timer = timer
+
+    def _join_meet_from_input(self):
+        """
+        Flow theo yêu cầu:
+        - User paste link Meet + bấm Join
+        - App mở Meet (Chrome)
+        - Sau một delay ngắn sẽ start phiên dịch (inbound/outbound)
+        """
+        if self.session_id:
+            self._subtitle.add_line("⚠️ Đang phiên dịch — hãy Kết thúc trước khi Join cuộc họp mới")
+            return
+
+        url = (self._meet_url.text() or "").strip()
+        if not url:
+            self._subtitle.add_line("⚠️ Hãy dán link Google Meet trước khi Join")
+            return
+
+        self._pending_join_url = url
+        self._monitor_badge.setText("🟢 Đang mở Google Meet…")
+        self._monitor_badge.setStyleSheet("color:#4caf50; font-size:10px; font-weight:600;")
+        self.meet_client.join_meeting(url)
+
+        # Start session sau delay. Extension sẽ lo phần chat inject.
+        t = QTimer(self)
+        t.setSingleShot(True)
+        t.timeout.connect(self._delayed_start_session)
+        t.start(2000)
+        self._join_delay_timer = t
 
     def _delayed_start_session(self):
         """Gọi sau delay để Teams đã load xong audio routing."""
