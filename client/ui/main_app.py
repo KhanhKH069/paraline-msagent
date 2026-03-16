@@ -8,7 +8,6 @@ Thiết kế:
 - < 3000MB RAM
 - Không che khuất cửa sổ Teams chính
 """
-import base64
 import io
 import logging
 import os
@@ -19,16 +18,15 @@ from typing import Optional
 import requests
 from PIL import Image as PILImage
 from PyQt6.QtCore import (
-    Qt, QTimer, QThread, pyqtSignal, QPropertyAnimation, QEasingCurve,
+    Qt, QTimer, pyqtSignal,
 )
 from PyQt6.QtGui import (
-    QColor, QFont, QIcon, QImage, QKeySequence, QPixmap, QShortcut,
+    QImage, QKeySequence, QPixmap, QShortcut,
 )
 from PyQt6.QtWidgets import (
     QApplication, QFrame, QHBoxLayout, QLabel, QMainWindow,
-    QProgressBar, QPushButton, QScrollArea, QSizeGrip,
-    QSystemTrayIcon, QTextEdit, QVBoxLayout, QWidget, QMenu,
-    QSplitter,
+    QProgressBar, QPushButton, QTextEdit, QVBoxLayout, QWidget, QMenu,
+    QSizeGrip, QSystemTrayIcon
 )
 
 from ..audio_router.audio_manager import AudioManager
@@ -39,8 +37,8 @@ from ..image_handler.image_handler import ImageHandler
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger("paraline.ui")
 
-SERVER_WS   = os.getenv("PARALINE_SERVER_WS",   "ws://192.168.1.100:8765")
-SERVER_REST = os.getenv("PARALINE_SERVER_REST",  "http://192.168.1.100:8056")
+SERVER_WS   = os.getenv("PARALINE_SERVER_WS",   "ws://127.0.0.1:8765")
+SERVER_REST = os.getenv("PARALINE_SERVER_REST",  "http://127.0.0.1:8056")
 API_KEY     = os.getenv("CLIENT_API_KEY", "")
 
 # ─────────────────────────────────────────────
@@ -162,11 +160,12 @@ class SubtitleWidget(QTextEdit):
         lat = f" [{latency_ms:.0f}ms]" if latency_ms > 0 else ""
         self._lines.append(f"{text}{lat}")
         if len(self._lines) > self.MAX_LINES:
-            self._lines = self._lines[-self.MAX_LINES:]
+            self._lines.pop(0)
         self.setPlainText("\n".join(self._lines))
         # Auto-scroll to bottom
         sb = self.verticalScrollBar()
-        sb.setValue(sb.maximum())
+        if sb:
+            sb.setValue(sb.maximum())
 
 
 class ImagePanel(QWidget):
@@ -223,22 +222,28 @@ class ImagePanel(QWidget):
         qimg.loadFromData(buf.getvalue())
         return qimg
 
-    def dragEnterEvent(self, event):
-        if event.mimeData().hasImage():
-            event.acceptProposedAction()
+    def dragEnterEvent(self, a0):
+        if a0 is not None:
+            mime = a0.mimeData()
+            if mime is not None and mime.hasImage():
+                a0.acceptProposedAction()
 
-    def dropEvent(self, event):
-        if event.mimeData().hasImage():
-            qimg = event.mimeData().imageData()
-            if isinstance(qimg, QImage):
-                self._emit_from_qimage(qimg)
+    def dropEvent(self, a0):
+        if a0 is not None:
+            mime = a0.mimeData()
+            if mime is not None and mime.hasImage():
+                qimg = mime.imageData()
+                if isinstance(qimg, QImage):
+                    self._emit_from_qimage(qimg)
 
     def _emit_from_qimage(self, qimg: QImage):
         buf = io.BytesIO()
-        ba  = qimg.bits().asarray(qimg.sizeInBytes())
-        PILImage.frombytes("RGBA", (qimg.width(), qimg.height()), bytes(ba), "raw", "BGRA").save(buf, "PNG")
-        pil = PILImage.open(io.BytesIO(buf.getvalue())).convert("RGB")
-        self.translate_requested.emit(pil)
+        ptr = qimg.bits()
+        if ptr is not None:
+            ba  = ptr.asarray(qimg.sizeInBytes())
+            PILImage.frombytes("RGBA", (qimg.width(), qimg.height()), bytes(ba), "raw", "BGRA").save(buf, "PNG")
+            pil = PILImage.open(io.BytesIO(buf.getvalue())).convert("RGB")
+            self.translate_requested.emit(pil)
 
 
 class ParalineMainWindow(QMainWindow):
@@ -283,9 +288,11 @@ class ParalineMainWindow(QMainWindow):
             Qt.WindowType.WindowStaysOnTopHint |
             Qt.WindowType.Tool,
         )
-        screen = QApplication.primaryScreen().geometry()
-        W, H = 300, screen.height() - 80
-        self.setGeometry(screen.width() - W - 8, 40, W, H)
+        screen = QApplication.primaryScreen()
+        if screen is not None:
+            geom = screen.geometry()
+            W, H = 300, geom.height() - 80
+            self.setGeometry(geom.width() - W - 8, 40, W, H)
         self.setMinimumWidth(260)
 
     def _build_ui(self):
@@ -387,7 +394,9 @@ class ParalineMainWindow(QMainWindow):
         menu = QMenu()
         menu.addAction("Mở Paraline", self.show)
         menu.addSeparator()
-        menu.addAction("Thoát", QApplication.instance().quit)
+        app_instance = QApplication.instance()
+        if app_instance is not None:
+            menu.addAction("Thoát", app_instance.quit)
         self._tray.setContextMenu(menu)
         self._tray.setToolTip("Paraline MSAgent")
         self._tray.show()
@@ -470,7 +479,8 @@ class ParalineMainWindow(QMainWindow):
     def _on_outbound_text(self, original: str, translated: str):
         self._outbound_log.append(f"→ {translated}")
         sb = self._outbound_log.verticalScrollBar()
-        sb.setValue(sb.maximum())
+        if sb:
+            sb.setValue(sb.maximum())
         self.teams_client.send_translation(original, translated)
 
     def _on_tts_audio(self, audio_b64: str):
@@ -481,11 +491,12 @@ class ParalineMainWindow(QMainWindow):
             self._subtitle.add_line("⚠️ Cần bắt đầu phiên trước khi dịch ảnh")
             return
         self._img_panel.show_input(pil_img)
-        self.image_handler.translate_image(
-            pil_img,
-            on_success=lambda img, blocks: self.sig_img_result.emit(img),
-            on_error=  lambda msg:         self.sig_img_error.emit(msg),
-        )
+        if self.image_handler:
+            self.image_handler.translate_image(
+                pil_img,
+                on_success=lambda img, blocks: self.sig_img_result.emit(img),
+                on_error=  lambda msg:         self.sig_img_error.emit(msg),
+            )
 
     # ─────────────────────────────────────────────
     # Teams polling
@@ -504,14 +515,17 @@ class ParalineMainWindow(QMainWindow):
 
     def _handle_paste(self):
         from PyQt6.QtWidgets import QApplication as _App
-        mime = _App.clipboard().mimeData()
-        if mime.hasImage():
-            qimg = _App.clipboard().image()
-            if not qimg.isNull():
-                buf = io.BytesIO()
-                ba  = qimg.bits().asarray(qimg.sizeInBytes())
-                pil = PILImage.frombytes("RGBA", (qimg.width(), qimg.height()), bytes(ba), "raw", "BGRA").convert("RGB")
-                self._on_image_paste(pil)
+        clipboard = _App.clipboard()
+        if clipboard is not None:
+            mime = clipboard.mimeData()
+            if mime is not None and mime.hasImage():
+                qimg = clipboard.image()
+                if qimg is not None and not qimg.isNull():
+                    ptr = qimg.bits()
+                    if ptr is not None:
+                        ba  = ptr.asarray(qimg.sizeInBytes())
+                        pil = PILImage.frombytes("RGBA", (qimg.width(), qimg.height()), bytes(ba), "raw", "BGRA").convert("RGB")
+                        self._on_image_paste(pil)
 
     def _toggle_visibility(self):
         self.hide() if self.isVisible() else self.show()
@@ -519,8 +533,10 @@ class ParalineMainWindow(QMainWindow):
     def _set_status(self, state: str, text: str):
         self._status_dot.setText(text)
         self._status_dot.setObjectName(f"status_{state}")
-        self._status_dot.style().unpolish(self._status_dot)
-        self._status_dot.style().polish(self._status_dot)
+        style = self._status_dot.style()
+        if style is not None:
+            style.unpolish(self._status_dot)
+            style.polish(self._status_dot)
 
     @staticmethod
     def _divider() -> QFrame:
@@ -536,14 +552,14 @@ class ParalineMainWindow(QMainWindow):
         return lbl
 
     # Drag frameless window
-    def mousePressEvent(self, event):
-        if event.button() == Qt.MouseButton.LeftButton:
-            self._drag_pos = event.globalPosition().toPoint()
+    def mousePressEvent(self, a0):
+        if a0 is not None and a0.button() == Qt.MouseButton.LeftButton:
+            self._drag_pos = a0.globalPosition().toPoint()
 
-    def mouseMoveEvent(self, event):
-        if event.buttons() == Qt.MouseButton.LeftButton and hasattr(self, "_drag_pos"):
-            self.move(self.pos() + event.globalPosition().toPoint() - self._drag_pos)
-            self._drag_pos = event.globalPosition().toPoint()
+    def mouseMoveEvent(self, a0):
+        if a0 is not None and a0.buttons() == Qt.MouseButton.LeftButton and hasattr(self, "_drag_pos"):
+            self.move(self.pos() + a0.globalPosition().toPoint() - self._drag_pos)
+            self._drag_pos = a0.globalPosition().toPoint()
 
 
 # ─────────────────────────────────────────────
