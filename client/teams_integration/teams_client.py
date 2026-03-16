@@ -11,8 +11,11 @@ Auto-detect mode từ .env:
 """
 import logging
 import os
+import subprocess
 import time
+import webbrowser
 from typing import Optional
+from urllib.parse import quote
 
 import requests
 
@@ -182,3 +185,62 @@ class TeamsClient:
         if WEBHOOK_URL:
             return "webhook"
         return "none"
+
+    # ─────────────────────────────────────────────
+    # Meeting Join / Leave (Windows deep link)
+    # ─────────────────────────────────────────────
+
+    def join_meeting(self, join_url: str) -> bool:
+        """
+        Tự động join Teams meeting.
+
+        Cách làm:
+        1. Thử mở qua protocol handler `msteams://` (Teams desktop app)
+        2. Nếu thất bại hoặc không có Teams app → mở browser
+        Returns True nếu lệnh được gởi thành công.
+        """
+        if not join_url:
+            logger.warning("join_meeting: join_url trống")
+            return False
+
+        # Chuyển https:// link thành msteams:// deep link
+        deep_link = join_url.replace(
+            "https://teams.microsoft.com/",
+            "msteams://",
+        )
+        # Encode lại spaces/special chars nếu cần
+        if " " in deep_link:
+            # Giữ scheme, encode phần còn lại
+            scheme, rest = deep_link.split("://", 1)
+            deep_link = f"{scheme}://{quote(rest, safe='/:@?=&%#')}"
+
+        logger.info(f"Joining meeting via deep link: {deep_link[:80]}...")
+
+        try:
+            # Dùng `start` của Windows để trigger protocol handler
+            subprocess.Popen(
+                ["cmd", "/c", "start", "", deep_link],
+                stdout=subprocess.DEVNULL,
+                stderr=subprocess.DEVNULL,
+                shell=False,
+            )
+            logger.info("✅ Teams meeting join command sent")
+            return True
+        except Exception as e:
+            logger.warning(f"Deep link failed ({e}), fallback to browser")
+            try:
+                webbrowser.open(join_url)
+                return True
+            except Exception as e2:
+                logger.error(f"Browser fallback also failed: {e2}")
+                return False
+
+    def leave_meeting(self):
+        """
+        Gửi Alt+Q vào cửa sổ Teams để leave meeting.
+        Chỉ hoạt động nếu Teams window đang ở foreground hoặc dùng pywinauto.
+        Hiện tại: log warning, không force kill process.
+        """
+        logger.info("leave_meeting: Yêu cầu kết thúc — user cần close meeting trên Teams")
+        # TODO: nếu cần force leave, có thể dùng pywinauto để gửi phím vào Teams window
+

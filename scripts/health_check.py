@@ -30,9 +30,12 @@ def check(server: str):
             if r.ok:
                 data = r.json()
                 extra = ""
-                if "model"  in data: extra = f" | model={data['model']}"
-                if "voice"  in data: extra = f" | voice={data['voice']}"
-                if "device" in data: extra += f" | device={data['device']}"
+                if "model" in data:
+                    extra = f" | model={data['model']}"
+                if "voice" in data:
+                    extra = f" | voice={data['voice']}"
+                if "device" in data:
+                    extra += f" | device={data['device']}"
                 print(f"  ✅ {name:<30} port={port}{extra}")
             else:
                 print(f"  ❌ {name:<30} port={port} HTTP {r.status_code}")

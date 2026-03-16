@@ -31,7 +31,8 @@ from PyQt6.QtWidgets import (
 
 from ..audio_router.audio_manager import AudioManager
 from ..websocket_client.ws_client import ParalineWSClient
-from ..teams_integration.teams_client import TeamsClient
+from ..meet_integration.meet_client import MeetClient
+from ..meet_integration.bridge_server import MeetBridgeServer
 from ..image_handler.image_handler import ImageHandler
 
 logging.basicConfig(level=logging.INFO)
@@ -250,20 +251,29 @@ class ParalineMainWindow(QMainWindow):
     """Side-panel window — always-on-top, docked right side of screen."""
 
     # Signals from background threads → UI thread
-    sig_subtitle      = pyqtSignal(str, float)
-    sig_outbound_text = pyqtSignal(str, str)
-    sig_tts_audio     = pyqtSignal(str)
-    sig_img_result    = pyqtSignal(object)
-    sig_img_error     = pyqtSignal(str)
+    sig_subtitle        = pyqtSignal(str, float)
+    sig_outbound_text   = pyqtSignal(str, str)
+    sig_tts_audio       = pyqtSignal(str)
+    sig_img_result      = pyqtSignal(object)
+    sig_img_error       = pyqtSignal(str)
+    sig_meeting_started = pyqtSignal(str)   # join_url
+    sig_meeting_ended   = pyqtSignal()
 
     def __init__(self):
         super().__init__()
 
         self.session_id: Optional[str] = None
         self.ws_client:  Optional[ParalineWSClient] = None
-        self.audio_mgr   = AudioManager()
-        self.teams_client = TeamsClient()
+        self.audio_mgr    = AudioManager()
+        self.meet_client  = MeetClient()
         self.image_handler: Optional[ImageHandler] = None
+
+        # Meeting auto-join
+        self._join_delay_timer: Optional[QTimer] = None
+        self.meeting_monitor = MeetBridgeServer(
+            on_meeting_started=lambda url: self.sig_meeting_started.emit(url),
+            on_meeting_ended=lambda: self.sig_meeting_ended.emit(),
+        )
 
         self._setup_window()
         self._build_ui()
@@ -271,10 +281,9 @@ class ParalineMainWindow(QMainWindow):
         self._setup_hotkeys()
         self._setup_tray()
 
-        # Teams command polling
-        self._poll_timer = QTimer()
-        self._poll_timer.timeout.connect(self._poll_teams)
-        self._poll_timer.start(2000)
+        # Start meeting monitor background thread (Google Meet bridge)
+        self.meeting_monitor.start()
+        self._update_monitor_badge()
 
     # ─────────────────────────────────────────────
     # Window setup
@@ -320,6 +329,13 @@ class ParalineMainWindow(QMainWindow):
         hdr.addWidget(close_btn)
         layout.addLayout(hdr)
 
+        # ── Monitor badge ─────────────────────────────────
+        self._monitor_badge = QLabel("")
+        self._monitor_badge.setStyleSheet(
+            "color:#666; font-size:10px; padding:1px 0;"
+        )
+        layout.addWidget(self._monitor_badge)
+
         # ── Divider ──────────────────────────────────────
         layout.addWidget(self._divider())
 
@@ -361,7 +377,7 @@ class ParalineMainWindow(QMainWindow):
         layout.addWidget(self._divider())
 
         # ── Outbound log section ──────────────────────────
-        layout.addWidget(self._section("💬 ĐÃ ĐẨY VÀO TEAMS"))
+        layout.addWidget(self._section("💬 ĐÃ ĐẨY VÀO MEET"))
         self._outbound_log = QTextEdit()
         self._outbound_log.setObjectName("outbound_log")
         self._outbound_log.setReadOnly(True)
@@ -384,6 +400,8 @@ class ParalineMainWindow(QMainWindow):
         self.sig_tts_audio.connect(self._on_tts_audio)
         self.sig_img_result.connect(self._img_panel.show_result)
         self.sig_img_error.connect(self._img_panel.show_error)
+        self.sig_meeting_started.connect(self._on_meeting_started)
+        self.sig_meeting_ended.connect(self._on_meeting_ended)
 
     def _setup_hotkeys(self):
         QShortcut(QKeySequence("Ctrl+V"),         self, self._handle_paste)
@@ -426,7 +444,7 @@ class ParalineMainWindow(QMainWindow):
         self._set_status("active", "● ACTIVE")
         self._btn_start.setEnabled(False)
         self._btn_stop.setEnabled(True)
-        self.teams_client.send_welcome()
+        self.meet_client.send_welcome()
         logger.info(f"Session started: {self.session_id[:8]}")
 
     def _stop_session(self):
@@ -465,8 +483,8 @@ class ParalineMainWindow(QMainWindow):
             msg += "✅ **Action Items:**\n"
             for item in items:
                 msg += f"• [{item.get('priority','').upper()}] {item.get('task','')} — {item.get('assignee','?')}\n"
-        self.teams_client.send_raw(msg)
-        self._subtitle.add_line("✅ Đã gửi biên bản họp vào Teams")
+        self.meet_client.send_raw(msg)
+        self._subtitle.add_line("✅ Đã gửi biên bản họp vào Meet")
 
     # ─────────────────────────────────────────────
     # Signal handlers
@@ -481,7 +499,7 @@ class ParalineMainWindow(QMainWindow):
         sb = self._outbound_log.verticalScrollBar()
         if sb:
             sb.setValue(sb.maximum())
-        self.teams_client.send_translation(original, translated)
+        self.meet_client.send_translation(original, translated)
 
     def _on_tts_audio(self, audio_b64: str):
         self.audio_mgr.play_tts(audio_b64)
@@ -499,15 +517,64 @@ class ParalineMainWindow(QMainWindow):
             )
 
     # ─────────────────────────────────────────────
-    # Teams polling
+    # Meeting auto-join handlers
     # ─────────────────────────────────────────────
 
-    def _poll_teams(self):
-        cmd = self.teams_client.poll_command()
-        if cmd == "start" and not self.session_id:
+    def _on_meeting_started(self, join_url: str):
+        """
+        Gọi từ MeetBridgeServer khi phát hiện Meet tab bắt đầu.
+        Thường Meet đã mở sẵn trên Chrome, chỉ cần delay ngắn rồi start session.
+        """
+        if self.session_id:
+            logger.info("Meeting detected nhưng session đang chạy — bỏ qua")
+            return
+
+        logger.info(f"Auto-join meeting: {join_url[:60]}...")
+        self._monitor_badge.setText("🟢 Meet bắt đầu — chuẩn bị phiên dịch...")
+        self._monitor_badge.setStyleSheet("color:#4caf50; font-size:10px; font-weight:600;")
+
+        # (Tuỳ chọn) Nếu muốn auto-open Meet link khi extension báo event:
+        # self.meet_client.join_meeting(join_url)
+
+        # Delay ngắn để user/audio routing ổn định rồi start session
+        timer = QTimer(self)
+        timer.setSingleShot(True)
+        timer.timeout.connect(self._delayed_start_session)
+        timer.start(1200)  # 1.2 giây
+        self._join_delay_timer = timer
+
+    def _delayed_start_session(self):
+        """Gọi sau delay để Teams đã load xong audio routing."""
+        if not self.session_id:   # Double-check chưa start
+            self._monitor_badge.setText("🟢 Đang phiên dịch cuộc họp")
             self._start_session()
-        elif cmd == "stop" and self.session_id:
+
+    def _on_meeting_ended(self):
+        """Gọi từ MeetingMonitor khi cuộc họp kết thúc."""
+        logger.info("Meeting kết thúc — dừng phiên dịch")
+        self._monitor_badge.setText("🔴 Cuộc họp kết thúc")
+        self._monitor_badge.setStyleSheet("color:#c0392b; font-size:10px;")
+
+        # Huỷ timer join nếu đang đợi
+        t = self._join_delay_timer
+        if t is not None and t.isActive():
+            t.stop()
+
+        if self.session_id:
             self._stop_session()
+
+        # Reset badge sau 5s
+        QTimer.singleShot(5000, self._update_monitor_badge)
+
+
+    def _update_monitor_badge(self):
+        """Cập nhật badge trạng thái monitor."""
+        if self.meeting_monitor.is_enabled():
+            self._monitor_badge.setText("👁 Đang giám sát Google Meet (Chrome Extension)")
+            self._monitor_badge.setStyleSheet("color:#555; font-size:10px;")
+        else:
+            self._monitor_badge.setText("⚠ Monitor tắt")
+            self._monitor_badge.setStyleSheet("color:#7a5c00; font-size:10px;")
 
     # ─────────────────────────────────────────────
     # Utils
@@ -560,6 +627,12 @@ class ParalineMainWindow(QMainWindow):
         if a0 is not None and a0.buttons() == Qt.MouseButton.LeftButton and hasattr(self, "_drag_pos"):
             self.move(self.pos() + a0.globalPosition().toPoint() - self._drag_pos)
             self._drag_pos = a0.globalPosition().toPoint()
+
+
+    def closeEvent(self, a0):
+        """Dừng MeetingMonitor khi đóng cửa sổ."""
+        self.meeting_monitor.stop()
+        super().closeEvent(a0)
 
 
 # ─────────────────────────────────────────────

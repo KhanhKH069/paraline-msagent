@@ -12,7 +12,6 @@ Tests:
 import argparse
 import base64
 import sys
-import time
 
 import requests
 
@@ -25,7 +24,7 @@ def test_translation(base: str):
     }, timeout=30)
     assert r.ok, f"HTTP {r.status_code}"
     d = r.json()
-    print(f"   Input:  こんにちは、今日の会議を始めましょう。")
+    print("   Input:  こんにちは、今日の会議を始めましょう。")
     print(f"   Output: {d['translated_text']}")
     print(f"   Latency: {d['latency_ms']:.0f}ms")
     assert d["translated_text"], "Empty translation"
@@ -50,7 +49,7 @@ def test_image_translate(base: str):
     print("\n[3] Image Translation (EN slide → VN):")
     # Create a tiny test PNG with PIL
     try:
-        from PIL import Image, ImageDraw, ImageFont
+        from PIL import Image, ImageDraw
         import io
         img = Image.new("RGB", (400, 100), color=(255, 255, 255))
         draw = ImageDraw.Draw(img)

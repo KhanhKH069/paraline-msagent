@@ -91,8 +91,8 @@ open http://localhost:8056/docs
 ### Bước 1: Cài VB-Audio Virtual Cable
 1. Download từ https://vb-audio.com/Cable/
 2. Cài đặt → Restart máy
-3. Vào `Sound Settings` → Đặt `CABLE Output` làm thiết bị playback của Teams:
-   - Teams → Settings → Devices → Speaker: **CABLE Input**
+3. Vào `Sound Settings` → đảm bảo thấy thiết bị `CABLE Input / CABLE Output`
+4. Trong **Google Meet** (hoặc Chrome) → chọn **Speaker** là `CABLE Input` để app bắt được audio cuộc họp (inbound).
 
 ### Bước 2: Cài Python dependencies
 ```powershell
@@ -107,6 +107,10 @@ $env:PARALINE_SERVER_WS   = "ws://192.168.1.100:8765"
 $env:PARALINE_SERVER_REST = "http://192.168.1.100:8056"
 $env:CLIENT_API_KEY       = "your-client-api-key"
 $env:VIRTUAL_SPEAKER_NAME = "CABLE Output"
+
+# Google Meet Bridge (Chrome extension ↔ Python)
+$env:MEET_BRIDGE_PORT     = "9877"
+$env:MEET_CHAT_QUEUE_MAX  = "200"
 ```
 
 ### Bước 4: Chạy
@@ -116,7 +120,26 @@ python -m client.ui.main_app
 
 ---
 
-## Teams Integration Setup
+## Google Meet Integration Setup (khuyến dùng)
+
+### Bước 1: Cài Chrome Extension
+1. Mở Chrome → vào `chrome://extensions`
+2. Bật **Developer mode**
+3. Chọn **Load unpacked**
+4. Trỏ đến thư mục: `paraline-msagent/chrome_extension`
+
+### Bước 2: Kiểm tra kết nối Bridge
+1. Chạy `python -m client.ui.main_app`
+2. Click icon extension **Paraline Meet Bridge**
+3. Nếu thấy **Bridge (Python) = Connected** là OK
+
+### Bước 3: Join cuộc họp
+1. Join Google Meet trên Chrome: `meet.google.com/...`
+2. Khi vào meeting, extension sẽ tự detect và app sẽ tự start phiên dịch (sau delay ngắn)
+
+---
+
+## Teams Integration Setup (tuỳ chọn)
 
 ### Option A: Incoming Webhook (Dễ, Phase 4 early testing)
 1. Mở Teams channel muốn nhận bản dịch
@@ -144,17 +167,10 @@ python -m client.ui.main_app
 
 ## Sử dụng trong cuộc họp
 
-### Trigger bằng Teams chat
-Gõ trong chat cuộc họp:
-```
-@VMG_Translator start
-```
-→ App tự động bật lên, bắt đầu phiên dịch
-
-```
-@VMG_Translator stop
-```
-→ Kết thúc phiên, tự động tạo biên bản
+### Google Meet (Chrome)
+- Mở Google Meet trên Chrome và đảm bảo extension **Paraline Meet Bridge** đang bật
+- App sẽ tự start khi meeting bắt đầu (extension detect)
+- Outbound text sẽ được đẩy vào Meet chat tự động
 
 ### Dịch slide thủ công
 1. Dùng **Snipping Tool** (Win+Shift+S) chụp vùng slide
@@ -167,10 +183,11 @@ Gõ trong chat cuộc họp:
 
 | Vấn đề | Nguyên nhân | Giải pháp |
 |---|---|---|
-| Không nghe thấy âm thanh dịch | VB-Audio chưa cấu hình đúng | Đảm bảo Teams dùng `CABLE Input` làm speaker |
+| Không bắt được audio cuộc họp | VB-Audio/Meet chưa cấu hình đúng | Đảm bảo Meet Speaker = `CABLE Input` và `VIRTUAL_SPEAKER_NAME=CABLE Output` |
 | Latency > 2s | Server quá tải / network chậm | Dùng Whisper `medium` thay vì `large-v3` |
 | OCR không nhận ký tự Nhật | Font quá nhỏ / ảnh mờ | Chụp ảnh resolution cao hơn |
-| Teams không nhận message | Graph API token hết hạn | Kiểm tra Azure AD app permissions |
+| Meet không thấy chat lên | Bridge/Extension không chạy | Mở popup extension xem `Connected`; kiểm tra `MEET_BRIDGE_PORT=9877` |
+| Teams không nhận message | Graph API token hết hạn | Kiểm tra Azure AD app permissions (nếu dùng Teams) |
 | GPU OOM | VRAM không đủ | Đặt `WHISPER_DEVICE=cpu` hoặc dùng model nhỏ hơn |
 
 ---

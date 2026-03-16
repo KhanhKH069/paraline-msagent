@@ -1,6 +1,6 @@
 # 🟠 Paraline MSAgent
 
-> **Hệ thống Phiên dịch Thời gian thực & Trợ lý AI cho Microsoft Teams**
+> **Hệ thống Phiên dịch Thời gian thực & Trợ lý AI cho Google Meet (Chrome Extension)**
 > Hoạt động 100% offline trên mạng nội bộ VMG_STAFF — không có byte nào rời khỏi hệ thống công ty.
 
 ---
@@ -14,7 +14,7 @@ Paraline MSAgent được xây dựng dựa trên **core pattern của Vexa AI**
 ║                    CLIENT GUI APP (Windows)                  ║
 ║  ┌─────────────┐  ┌──────────────┐  ┌───────────────────┐   ║
 ║  │Virtual Spkr │  │  Real Mic    │  │  Screenshot/Paste  │   ║
-║  │(Teams Audio)│  │              │  │  (Ctrl+V)          │   ║
+║  │(Meet Audio) │  │              │  │  (Ctrl+V)          │   ║
 ║  └──────┬──────┘  └──────┬───────┘  └────────┬──────────┘   ║
 ║         │ JP/EN Raw      │ VN/EN Raw          │ Image B64    ║
 ║         ▼                ▼                    ▼              ║
@@ -52,7 +52,7 @@ Paraline MSAgent được xây dựng dựa trên **core pattern của Vexa AI**
           ║        OUTPUTS                            ║
           ║  🎧 VN Audio → Real Headphone             ║
           ║  📝 Subtitle → Side-panel overlay         ║
-          ║  💬 JP/EN Text → Microsoft Teams Chat     ║
+          ║  💬 Text → Google Meet Chat (Extension)   ║
           ║  🖼️  Translated Slide Image → Side-panel   ║
           ╚════════════════════════════════════════════╝
 ```
@@ -75,9 +75,11 @@ paraline-msagent/
 ├── client/                       # Windows GUI App — nhẹ, cài trên máy nhân viên
 │   ├── audio_router/             # VB-Audio Virtual Cable routing
 │   ├── websocket_client/         # WebSocket stream controller (inbound + outbound)
-│   ├── teams_integration/        # Microsoft Graph API + Incoming Webhook
+│   ├── meet_integration/         # Google Meet bridge server + client
+│   ├── teams_integration/        # (tuỳ chọn) Microsoft Graph API + Incoming Webhook
 │   ├── image_handler/            # Chụp màn hình, paste ảnh, hiển thị kết quả
-│   └── ui/                       # PyQt6 Side-panel — dock cạnh Teams
+│   └── ui/                       # PyQt6 Side-panel — dock cạnh cửa sổ họp
+├── chrome_extension/             # Google Meet extension (detect meeting + inject chat)
 ├── shared/                       # Schemas, utils dùng chung client ↔ server
 ├── scripts/                      # Download models, setup, health check
 ├── docs/                         # Tài liệu kỹ thuật chi tiết
@@ -91,7 +93,7 @@ paraline-msagent/
 | Pipeline | Flow | Target Latency |
 |---|---|---|
 | **Inbound** (JP/EN → VN) | Virtual Speaker → Whisper → NLLB → Piper → Headphone + Subtitle | **< 1.0s** |
-| **Outbound** (VN/EN → Teams) | Real Mic → Whisper → NLLB → Teams Chat API | **< 1.0s** |
+| **Outbound** (VN/EN → Meet) | Real Mic → Whisper → NLLB → Meet Chat (Extension) | **< 1.0s** |
 | **Image** (Slide JP/EN → VN) | Screenshot → PaddleOCR → NLLB → Inpaint → Pillow Render | **< 3.0s** |
 | **Agent** (Transcript → Minutes) | Full session text → Ollama Llama 3 → Summary + Action Items | Post-meeting |
 
@@ -101,7 +103,7 @@ paraline-msagent/
 # 1. Clone & cấu hình
 git clone <repo> && cd paraline-msagent
 cp .env.example .env
-# Sửa VMG_SERVER_IP, TEAMS_* trong .env
+# Sửa VMG_SERVER_IP, CLIENT_API_KEY, MEET_* trong .env
 
 # 2. Download AI models
 make download-models
@@ -114,8 +116,33 @@ make health
 
 # 5. Cài Client App trên máy nhân viên
 cd client && pip install -r requirements.txt
-python -m ui.main_app
+python -m client.ui.main_app
 ```
+
+## Quick Start (Google Meet)
+
+### 1) Cài Chrome Extension
+1. Mở Chrome → `chrome://extensions`
+2. Bật **Developer mode**
+3. **Load unpacked** → chọn thư mục `chrome_extension/`
+
+### 2) Chạy app client
+Trên Windows (máy đang join Meet):
+
+```powershell
+cd paraline-msagent\client
+pip install -r requirements.txt
+python -m client.ui.main_app
+```
+
+### 3) Join Google Meet
+- Join meeting trên Chrome: `meet.google.com/...`
+- Click icon **Paraline Meet Bridge**:
+  - **Bridge (Python)**: `Connected`
+  - **Cuộc họp**: `Active`
+- Khi outbound có text, extension sẽ tự **inject** vào Meet chat.
+
+> Chi tiết hơn xem `docs/SETUP.md` (mục “Google Meet Integration Setup”).
 
 ## Tech Stack
 
@@ -129,7 +156,8 @@ python -m ui.main_app
 | LLM | Ollama — Llama 3 8B / Gemma 3 9B |
 | Audio Routing | VB-Audio Virtual Cable (Windows) |
 | Transport | WebSocket over LAN (< 1ms latency) |
-| Teams | Microsoft Graph API / Incoming Webhook |
+| Meet | Chrome Extension + local bridge (HTTP) |
+| Teams | (tuỳ chọn) Microsoft Graph API / Incoming Webhook |
 | GUI | PyQt6 (frameless side-panel) |
 | Server | FastAPI + uvicorn |
 | Orchestration | Docker Compose (Vexa pattern) |

@@ -14,8 +14,8 @@ from typing import List, Optional
 
 import asyncpg
 import uvicorn
-from fastapi import FastAPI, HTTPException
-from pydantic import BaseModel, Field
+from fastapi import FastAPI
+from pydantic import BaseModel
 import uuid
 
 logger = logging.getLogger("paraline.collector")

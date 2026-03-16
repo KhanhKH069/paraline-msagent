@@ -103,9 +103,13 @@ async def _call_llm(prompt: str) -> str:
 
 
 def _parse_summary(raw: str):
-    lines = [l.strip() for l in raw.strip().splitlines() if l.strip()]
+    lines = [line.strip() for line in raw.strip().splitlines() if line.strip()]
     summary = lines[0] if lines else raw.strip()
-    key_points = [l.lstrip("-•* ").strip() for l in lines[1:] if l.startswith(("-", "•", "*", "–"))]
+    key_points = [
+        line.lstrip("-•* ").strip()
+        for line in lines[1:]
+        if line.startswith(("-", "•", "*", "–"))
+    ]
     return summary, key_points[:10]
 
 

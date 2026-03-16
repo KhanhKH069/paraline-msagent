@@ -6,7 +6,6 @@ import os
 import httpx
 from fastapi import APIRouter, HTTPException
 from pydantic import BaseModel
-from typing import Optional
 
 router = APIRouter()
 _http = httpx.AsyncClient(timeout=20.0)

@@ -8,7 +8,6 @@ Duy trì 2 WebSocket connections song song:
   /ws/audio/{session_id}?direction=outbound  ← Real Microphone
 """
 import asyncio
-import base64
 import json
 import logging
 import threading

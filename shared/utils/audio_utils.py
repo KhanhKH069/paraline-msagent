@@ -6,7 +6,6 @@ import base64
 import io
 import struct
 import wave
-from typing import Optional
 
 import numpy as np
 
