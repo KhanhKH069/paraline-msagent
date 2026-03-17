@@ -1,10 +1,16 @@
 # services/whisperlive-wrapper/Dockerfile
-FROM nvidia/cuda:12.1.0-cudnn8-runtime-ubuntu22.04
+# CPU-only image: do not pull NVIDIA CUDA layers.
+FROM python:3.11-slim
 
-RUN apt-get update && apt-get install -y python3 python3-pip ffmpeg curl && rm -rf /var/lib/apt/lists/*
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    ffmpeg \
+    curl \
+  && rm -rf /var/lib/apt/lists/*
+
 WORKDIR /app
 COPY requirements.txt .
-RUN pip3 install --no-cache-dir -r requirements.txt
+RUN pip install --no-cache-dir -r requirements.txt
 COPY . .
+
 EXPOSE 8001
-CMD ["python3", "main.py"]
+CMD ["python", "main.py"]
