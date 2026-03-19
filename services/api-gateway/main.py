@@ -18,6 +18,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from routers.sessions import router as sessions_router
 from routers.images   import router as images_router
 from routers.agent    import router as agent_router
+from routers.mock     import router as mock_router
 from pipeline import AudioPipeline
 from connection_manager import ConnectionManager
 
@@ -58,6 +59,7 @@ app.add_middleware(
 app.include_router(sessions_router, prefix="/sessions", tags=["Sessions"])
 app.include_router(images_router,   prefix="/translate", tags=["Image Translation"])
 app.include_router(agent_router,    prefix="/agent",     tags=["Meeting Agent"])
+app.include_router(mock_router,     prefix="/mock",      tags=["Mock Testing"])
 
 # Singletons
 connection_manager = ConnectionManager()

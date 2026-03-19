@@ -18,7 +18,7 @@ from PIL import Image, ImageGrab
 
 logger = logging.getLogger("paraline.image")
 
-SERVER_REST = os.getenv("PARALINE_SERVER_REST", "http://192.168.1.100:8056")
+SERVER_REST = os.getenv("PARALINE_SERVER_REST", "http://127.0.0.1:8056")
 
 
 class ImageHandler:
@@ -75,7 +75,7 @@ class ImageHandler:
                         "tgt_lang":   tgt_lang,
                     },
                     headers={"X-API-Key": self.api_key},
-                    timeout=15,
+                    timeout=90,
                 )
                 resp.raise_for_status()
                 data = resp.json()

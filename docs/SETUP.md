@@ -100,6 +100,23 @@ cd paraline-msagent/client
 pip install -r requirements.txt
 ```
 
+> Lưu ý quan trọng:
+> - **Chỉ cài dependencies trong `client/requirements.txt` trên Windows.**
+> - Các thư mục `services/*` là **server microservices** và được chạy bằng **Docker Compose** (Linux containers).  
+>   Không chạy kiểu “cài tất cả `requirements.txt` trong repo” trên Windows vì sẽ kéo theo các package server (ví dụ `faster-whisper`/`av`, `paddlepaddle`) dễ lỗi build/wheel.
+>
+> Nếu bạn gặp lỗi kiểu `No module named pip` trong virtualenv:
+> ```powershell
+> # tạo lại venv có pip
+> py -3.11 -m venv .venv
+> .\.venv\Scripts\python -m ensurepip --upgrade
+> .\.venv\Scripts\python -m pip install --upgrade pip
+> 
+> # cài deps cho client
+> cd .\client
+> ..\.venv\Scripts\python -m pip install -r requirements.txt
+> ```
+
 ### Bước 3: Cấu hình
 ```powershell
 # Set environment variables (hoặc tạo client/.env)

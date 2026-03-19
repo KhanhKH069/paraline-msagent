@@ -95,6 +95,13 @@ services:
       - MODEL_CACHE_DIR=/models/whisper
     networks: [paraline-net]
     restart: unless-stopped
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost:8001/health"]
       interval: 60s
@@ -213,6 +220,13 @@ services:
       - models-cache:/root/.ollama
     networks: [paraline-net]
     restart: unless-stopped
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
 
   # ──────────────────────────────────────────────────────────
   # PostgreSQL — Session, transcript, meeting minutes storage

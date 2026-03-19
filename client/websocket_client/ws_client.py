@@ -64,7 +64,13 @@ class ParalineWSClient:
 
     def stop(self):
         self._running = False
-        self._loop.call_soon_threadsafe(self._loop.stop)
+        # Do not force loop.stop(), let tasks finish naturally via timeout
+        if self._loop.is_running():
+            self._loop.call_soon_threadsafe(self._cancel_all_tasks)
+
+    def _cancel_all_tasks(self):
+        for task in asyncio.all_tasks(self._loop):
+            task.cancel()
 
     def send_inbound_chunk(self, pcm_b64: str):
         """Call from audio thread: push inbound audio chunk."""
@@ -84,10 +90,15 @@ class ParalineWSClient:
 
     def _run(self):
         asyncio.set_event_loop(self._loop)
-        self._loop.run_until_complete(asyncio.gather(
-            self._inbound_ws_loop(),
-            self._outbound_ws_loop(),
-        ))
+        try:
+            self._loop.run_until_complete(asyncio.gather(
+                self._inbound_ws_loop(),
+                self._outbound_ws_loop(),
+            ))
+        except asyncio.CancelledError:
+            pass
+        except Exception as e:
+            logger.debug(f"WS loop exit: {e}")
 
     def _ws_url(self, direction: str) -> str:
         return (f"{self.base_url}/ws/audio/{self.session_id}"

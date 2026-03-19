@@ -148,6 +148,10 @@ $env:MEET_BRIDGE_PORT     = "9877"
 python -m client.ui.main_app
 ```
 
+> Lưu ý (Windows):
+> - **Chỉ cài dependencies trong `client/requirements.txt`.** Các `services/*` chạy bằng Docker (Linux containers).
+> - Khuyến nghị dùng **Python 3.11** (repo có `.python-version=3.11.9`). Nếu dùng Python 3.13 có thể gặp lỗi thiếu wheel / build native (ví dụ `paddlepaddle`, `av`).
+
 ### 4) Join Google Meet theo flow “paste link + bấm Join”
 1. Copy link Meet từ đối tác (ví dụ `https://meet.google.com/abc-defg-hij`)
 2. Trong app, **dán link vào ô Join** → bấm **Join**

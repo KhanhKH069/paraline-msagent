@@ -26,8 +26,7 @@ from PyQt6.QtGui import (
 from PyQt6.QtWidgets import (
     QApplication, QFrame, QHBoxLayout, QLabel, QMainWindow,
     QProgressBar, QPushButton, QTextEdit, QVBoxLayout, QWidget, QMenu,
-    QSizeGrip, QSystemTrayIcon
-    , QLineEdit
+    QSizeGrip, QSystemTrayIcon, QLineEdit, QComboBox
 )
 
 from ..audio_router.audio_manager import AudioManager
@@ -39,9 +38,9 @@ from ..image_handler.image_handler import ImageHandler
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger("paraline.ui")
 
-SERVER_WS   = os.getenv("PARALINE_SERVER_WS",   "ws://127.0.0.1:8765")
+SERVER_WS   = os.getenv("PARALINE_SERVER_WS",   "ws://127.0.0.1:8056")
 SERVER_REST = os.getenv("PARALINE_SERVER_REST",  "http://127.0.0.1:8056")
-API_KEY     = os.getenv("CLIENT_API_KEY", "")
+API_KEY     = os.getenv("CLIENT_API_KEY", "paraline_client_secret_key_local")
 
 # ─────────────────────────────────────────────
 # Stylesheet
@@ -143,6 +142,14 @@ QPushButton#btn_secondary:hover { background: #2a2a45; color: #ff6b35; }
 }
 """
 
+class ClickableLabel(QLabel):
+    clicked = pyqtSignal()
+
+    def mousePressEvent(self, ev):
+        if ev.button() == Qt.MouseButton.LeftButton:
+            self.clicked.emit()
+        super().mousePressEvent(ev)
+
 
 class SubtitleWidget(QTextEdit):
     """Rolling subtitle display — shows last N translations."""
@@ -172,7 +179,7 @@ class SubtitleWidget(QTextEdit):
 
 class ImagePanel(QWidget):
     """Drag-and-drop / Ctrl+V image translation panel."""
-    translate_requested = pyqtSignal(object)  # PIL Image
+    translate_requested = pyqtSignal(object, str)  # PIL Image, src_lang
 
     def __init__(self):
         super().__init__()
@@ -183,14 +190,28 @@ class ImagePanel(QWidget):
 
     def _setup_ui(self):
         layout = QVBoxLayout(self)
+
+        lang_layout = QHBoxLayout()
+        lang_layout.setAlignment(Qt.AlignmentFlag.AlignCenter)
+        lbl_lang = QLabel("Ngôn ngữ gốc:")
+        lbl_lang.setStyleSheet("color:#aaa; font-size:11px;")
+        self._combo_lang = QComboBox()
+        self._combo_lang.setStyleSheet("background:#1e1e35; color:#ccc; border:1px solid #2a2a4a; padding:2px; font-size:11px;")
+        self._combo_lang.addItem("Tiếng Anh", "eng_Latn")
+        self._combo_lang.addItem("Tiếng Nhật", "jpn_Jpan")
+        lang_layout.addWidget(lbl_lang)
+        lang_layout.addWidget(self._combo_lang)
+        layout.addLayout(lang_layout)
+
         self._label = QLabel("📸 Ctrl+V để dán ảnh slide\nhoặc kéo thả vào đây")
         self._label.setAlignment(Qt.AlignmentFlag.AlignCenter)
         self._label.setWordWrap(True)
         layout.addWidget(self._label)
 
-        self._img_display = QLabel()
+        self._img_display = ClickableLabel()
         self._img_display.setAlignment(Qt.AlignmentFlag.AlignCenter)
         self._img_display.hide()
+        self._img_display.clicked.connect(self._zoom_image)
         layout.addWidget(self._img_display)
 
         self._progress = QProgressBar()
@@ -206,11 +227,24 @@ class ImagePanel(QWidget):
     def show_result(self, pil_img):
         self._progress.hide()
         self._label.setText("✅ Slide đã dịch (click để zoom)")
-        # Scale to fit
-        qimg = self._pil_to_qimage(pil_img)
-        pm   = QPixmap.fromImage(qimg).scaledToWidth(260, Qt.TransformationMode.SmoothTransformation)
+        self._current_qimg = self._pil_to_qimage(pil_img)
+        pm   = QPixmap.fromImage(self._current_qimg).scaledToWidth(260, Qt.TransformationMode.SmoothTransformation)
         self._img_display.setPixmap(pm)
         self._img_display.show()
+
+    def _zoom_image(self):
+        if not hasattr(self, '_current_qimg'):
+            return
+        from PyQt6.QtWidgets import QDialog
+        dlg = QDialog(self)
+        dlg.setWindowTitle("Zoom Slide")
+        layout = QVBoxLayout(dlg)
+        lbl = QLabel()
+        pm = QPixmap.fromImage(self._current_qimg)
+        # Giới hạn chiều cao lớn nhất
+        lbl.setPixmap(pm.scaledToHeight(800, Qt.TransformationMode.SmoothTransformation))
+        layout.addWidget(lbl)
+        dlg.exec()
 
     def show_error(self, msg: str):
         self._progress.hide()
@@ -227,16 +261,26 @@ class ImagePanel(QWidget):
     def dragEnterEvent(self, a0):
         if a0 is not None:
             mime = a0.mimeData()
-            if mime is not None and mime.hasImage():
+            if mime is not None and (mime.hasImage() or mime.hasUrls()):
                 a0.acceptProposedAction()
 
     def dropEvent(self, a0):
         if a0 is not None:
             mime = a0.mimeData()
-            if mime is not None and mime.hasImage():
-                qimg = mime.imageData()
-                if isinstance(qimg, QImage):
-                    self._emit_from_qimage(qimg)
+            if mime is not None:
+                if mime.hasImage():
+                    qimg = mime.imageData()
+                    if isinstance(qimg, QImage):
+                        self._emit_from_qimage(qimg)
+                elif mime.hasUrls():
+                    for url in mime.urls():
+                        if url.isLocalFile():
+                            try:
+                                pil = PILImage.open(url.toLocalFile()).convert("RGB")
+                                self.translate_requested.emit(pil, self._combo_lang.currentData())
+                                break # Chỉ dịch ảnh đầu tiên nếu chọn nhiều ảnh
+                            except Exception:
+                                pass
 
     def _emit_from_qimage(self, qimg: QImage):
         buf = io.BytesIO()
@@ -245,7 +289,7 @@ class ImagePanel(QWidget):
             ba  = ptr.asarray(qimg.sizeInBytes())
             PILImage.frombytes("RGBA", (qimg.width(), qimg.height()), bytes(ba), "raw", "BGRA").save(buf, "PNG")
             pil = PILImage.open(io.BytesIO(buf.getvalue())).convert("RGB")
-            self.translate_requested.emit(pil)
+            self.translate_requested.emit(pil, self._combo_lang.currentData())
 
 
 class ParalineMainWindow(QMainWindow):
@@ -259,6 +303,7 @@ class ParalineMainWindow(QMainWindow):
     sig_img_error       = pyqtSignal(str)
     sig_meeting_started = pyqtSignal(str)   # join_url
     sig_meeting_ended   = pyqtSignal()
+    sig_mock_result     = pyqtSignal(list)  # list of {original, translated}
 
     def __init__(self):
         super().__init__()
@@ -356,6 +401,12 @@ class ParalineMainWindow(QMainWindow):
         btn_row.addWidget(self._btn_stop)
         layout.addLayout(btn_row)
 
+        # ── Mock Test button ─────────────────────────────────
+        self._btn_mock = QPushButton("🧪 Test: Dịch Mock (EN→VI)")
+        self._btn_mock.setObjectName("btn_secondary")
+        self._btn_mock.clicked.connect(self._run_mock_test)
+        layout.addWidget(self._btn_mock)
+
         # ── Join Google Meet ──────────────────────────────
         join_row = QHBoxLayout()
         self._meet_url = QLineEdit()
@@ -417,6 +468,7 @@ class ParalineMainWindow(QMainWindow):
         self.sig_img_error.connect(self._img_panel.show_error)
         self.sig_meeting_started.connect(self._on_meeting_started)
         self.sig_meeting_ended.connect(self._on_meeting_ended)
+        self.sig_mock_result.connect(self._on_mock_result)
 
     def _setup_hotkeys(self):
         QShortcut(QKeySequence("Ctrl+V"),         self, self._handle_paste)
@@ -519,7 +571,7 @@ class ParalineMainWindow(QMainWindow):
     def _on_tts_audio(self, audio_b64: str):
         self.audio_mgr.play_tts(audio_b64)
 
-    def _on_image_paste(self, pil_img):
+    def _on_image_paste(self, pil_img, src_lang="eng_Latn"):
         if not self.session_id:
             self._subtitle.add_line("⚠️ Cần bắt đầu phiên trước khi dịch ảnh")
             return
@@ -527,9 +579,51 @@ class ParalineMainWindow(QMainWindow):
         if self.image_handler:
             self.image_handler.translate_image(
                 pil_img,
+                src_lang=src_lang,
                 on_success=lambda img, blocks: self.sig_img_result.emit(img),
                 on_error=  lambda msg:         self.sig_img_error.emit(msg),
             )
+
+    def _run_mock_test(self):
+        """Inject mock English sentences into the translation pipeline (no STT needed)."""
+        import threading
+
+        src_lang = "eng_Latn"  # English by default
+        session = self.session_id or "mock-test-session"
+
+        self._subtitle.add_line("🧪 Đang chạy mock test EN→VI...")
+        self._btn_mock.setEnabled(False)
+
+        def _worker():
+            try:
+                resp = requests.post(
+                    f"{SERVER_REST}/mock/inject",
+                    json={"session_id": session, "src_lang": src_lang, "tgt_lang": "vie_Latn"},
+                    timeout=60,
+                )
+                resp.raise_for_status()
+                results = resp.json().get("results", [])
+                self.sig_mock_result.emit(results)
+            except Exception as e:
+                logger.error(f"Mock test error: {e}")
+                self.sig_mock_result.emit([])
+
+        threading.Thread(target=_worker, daemon=True).start()
+
+    def _on_mock_result(self, results: list):
+        """Display mock translation results in the subtitle area."""
+        self._btn_mock.setEnabled(True)
+        if not results:
+            self._subtitle.add_line("❌ Mock test thất bại — kiểm tra kết nối server.")
+            return
+        self._subtitle.add_line("✅ Mock test hoàn tất:")
+        for item in results:
+            orig  = item.get("original",   "")[:50]
+            trans = item.get("translated", "")[:60]
+            self._subtitle.add_line(f"  EN: {orig}")
+            # Push VI text to "ĐÃ ĐẨY VÀO MEET" log
+            self.sig_outbound_text.emit(orig, trans)
+
 
     # ─────────────────────────────────────────────
     # Meeting auto-join handlers
@@ -634,14 +728,24 @@ class ParalineMainWindow(QMainWindow):
         clipboard = _App.clipboard()
         if clipboard is not None:
             mime = clipboard.mimeData()
-            if mime is not None and mime.hasImage():
-                qimg = clipboard.image()
-                if qimg is not None and not qimg.isNull():
-                    ptr = qimg.bits()
-                    if ptr is not None:
-                        ba  = ptr.asarray(qimg.sizeInBytes())
-                        pil = PILImage.frombytes("RGBA", (qimg.width(), qimg.height()), bytes(ba), "raw", "BGRA").convert("RGB")
-                        self._on_image_paste(pil)
+            if mime is not None:
+                if mime.hasImage():
+                    qimg = clipboard.image()
+                    if qimg is not None and not qimg.isNull():
+                        ptr = qimg.bits()
+                        if ptr is not None:
+                            ba  = ptr.asarray(qimg.sizeInBytes())
+                            pil = PILImage.frombytes("RGBA", (qimg.width(), qimg.height()), bytes(ba), "raw", "BGRA").convert("RGB")
+                            self._on_image_paste(pil, self._img_panel._combo_lang.currentData())
+                elif mime.hasUrls():
+                    for url in mime.urls():
+                        if url.isLocalFile():
+                            try:
+                                pil = PILImage.open(url.toLocalFile()).convert("RGB")
+                                self._on_image_paste(pil, self._img_panel._combo_lang.currentData())
+                                break
+                            except Exception:
+                                pass
 
     def _toggle_visibility(self):
         self.hide() if self.isVisible() else self.show()
