@@ -1,0 +1,85 @@
+# configs/train_config.yaml
+# Cấu hình fine-tuning NLLB
+
+model:
+  name_or_path: facebook/nllb-200-distilled-600M
+  # Alternatives:
+  # facebook/nllb-200-distilled-1.3B  (chất lượng cao hơn, cần nhiều VRAM hơn)
+  # facebook/nllb-200-1.3B
+  tokenizer: facebook/nllb-200-distilled-600M
+
+# LoRA / PEFT (optional — giảm memory khi VRAM < 16GB)
+peft:
+  enabled: false           # set true nếu dùng LoRA
+  method: lora
+  r: 16
+  lora_alpha: 32
+  target_modules:
+    - q_proj
+    - v_proj
+    - k_proj
+    - out_proj
+  lora_dropout: 0.05
+  bias: none
+
+training:
+  output_dir: models/finetuned
+  num_train_epochs: 5
+  per_device_train_batch_size: 16
+  per_device_eval_batch_size: 16
+  gradient_accumulation_steps: 4
+  learning_rate: 5.0e-5
+  lr_scheduler_type: cosine
+  warmup_ratio: 0.05
+  weight_decay: 0.01
+  fp16: true               # set false nếu GPU không hỗ trợ
+  bf16: false
+  optim: adamw_torch
+  save_strategy: epoch
+  evaluation_strategy: epoch
+  load_best_model_at_end: true
+  metric_for_best_model: bleu
+  greater_is_better: true
+  logging_steps: 50
+  save_total_limit: 3
+  predict_with_generate: true
+  generation_max_length: 256
+  seed: 42
+
+# Contextual chunk training — loss weighting
+chunk_training:
+  enabled: true
+  # Thêm auxiliary loss trên chunk-level predictions
+  chunk_loss_weight: 0.3     # 0.0 = disable, 1.0 = equal weight với sentence loss
+  context_window: 2          # số câu context trước/sau
+  use_chunk_position_ids: true
+
+data:
+  processed_dir: data/processed
+  train_file: train.jsonl
+  validation_file: valid.jsonl
+  test_file: test.jsonl
+  max_train_samples: null    # null = dùng toàn bộ
+  max_eval_samples: 2000
+
+# Logging
+logging:
+  wandb:
+    enabled: false
+    project: paraline-nllb
+    run_name: nllb-ja-en-vi-v1
+  tensorboard: true
+
+# Evaluation
+evaluation:
+  metrics:
+    - bleu
+    - chrf
+    - ter
+  lang_pairs_eval:
+    - src: jpn_Jpan
+      tgt: vie_Latn
+    - src: eng_Latn
+      tgt: vie_Latn
+    - src: jpn_Jpan
+      tgt: eng_Latn

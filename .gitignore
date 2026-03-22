@@ -1,0 +1,50 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+*.egg-info/
+dist/
+build/
+
+# Models (large binary files)
+models/pretrained/
+models/finetuned/
+models/checkpoints/
+*.bin
+*.safetensors
+*.pt
+*.pth
+
+# Data (raw downloads)
+data/raw/ja_en/src.txt
+data/raw/ja_en/tgt.txt
+data/raw/en_vi/src.txt
+data/raw/en_vi/tgt.txt
+data/raw/ja_vi/src.txt
+data/raw/ja_vi/tgt.txt
+
+# Processed data (regenerate from raw)
+data/processed/*.jsonl
+data/augmented/
+
+# Env
+.env
+*.env
+
+# Logs
+logs/
+*.log
+runs/
+wandb/
+tensorboard_logs/
+
+# Jupyter checkpoints
+.ipynb_checkpoints/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Evaluation outputs
+eval_*.json

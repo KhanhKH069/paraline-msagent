@@ -1,0 +1,91 @@
+ja	en	vi	category
+API	API	API	tech
+サーバー	server	máy chủ	tech
+データベース	database	cơ sở dữ liệu	tech
+バグ	bug	lỗi	tech
+デバッグ	debug	gỡ lỗi	tech
+デプロイ	deploy	triển khai	tech
+リリース	release	phát hành	tech
+ブランチ	branch	nhánh	tech
+マージ	merge	hợp nhất	tech
+コミット	commit	commit	tech
+プルリクエスト	pull request	yêu cầu kéo	tech
+リポジトリ	repository	kho lưu trữ	tech
+コンテナ	container	container	tech
+クラウド	cloud	đám mây	tech
+マイクロサービス	microservices	microservices	tech
+キャッシュ	cache	bộ nhớ đệm	tech
+ログ	log	nhật ký	tech
+エラー	error	lỗi	tech
+例外	exception	ngoại lệ	tech
+スタック	stack	ngăn xếp	tech
+キュー	queue	hàng đợi	tech
+スレッド	thread	luồng	tech
+非同期	asynchronous	bất đồng bộ	tech
+同期	synchronous	đồng bộ	tech
+テスト	test	kiểm thử	tech
+ユニットテスト	unit test	kiểm thử đơn vị	tech
+インテグレーション	integration	tích hợp	tech
+フレームワーク	framework	framework	tech
+ライブラリ	library	thư viện	tech
+依存関係	dependency	phụ thuộc	tech
+設定	configuration	cấu hình	tech
+環境変数	environment variable	biến môi trường	tech
+本番環境	production environment	môi trường production	tech
+ステージング環境	staging environment	môi trường staging	tech
+開発環境	development environment	môi trường phát triển	tech
+バックアップ	backup	sao lưu	tech
+リストア	restore	khôi phục	tech
+暗号化	encryption	mã hóa	tech
+認証	authentication	xác thực	tech
+認可	authorization	phân quyền	tech
+セキュリティ	security	bảo mật	tech
+脆弱性	vulnerability	lỗ hổng bảo mật	tech
+パッチ	patch	bản vá	tech
+アップデート	update	cập nhật	tech
+スケールアップ	scale up	mở rộng theo chiều dọc	tech
+スケールアウト	scale out	mở rộng theo chiều ngang	tech
+負荷分散	load balancing	cân bằng tải	tech
+レイテンシ	latency	độ trễ	tech
+スループット	throughput	thông lượng	tech
+パフォーマンス	performance	hiệu suất	tech
+監視	monitoring	giám sát	tech
+アラート	alert	cảnh báo	tech
+ダッシュボード	dashboard	bảng điều khiển	tech
+メトリクス	metrics	số liệu	tech
+インフラ	infrastructure	hạ tầng	tech
+ネットワーク	network	mạng	tech
+ファイアウォール	firewall	tường lửa	tech
+プロキシ	proxy	proxy	tech
+ロードバランサー	load balancer	bộ cân bằng tải	tech
+コード	code	mã nguồn	tech
+アルゴリズム	algorithm	thuật toán	tech
+データ構造	data structure	cấu trúc dữ liệu	tech
+スプリント	sprint	sprint	meeting
+アジャイル	agile	agile	meeting
+スクラム	scrum	scrum	meeting
+スタンドアップ	standup	standup	meeting
+レトロスペクティブ	retrospective	cải tiến	meeting
+議事録	meeting minutes	biên bản cuộc họp	meeting
+アクションアイテム	action item	mục hành động	meeting
+フォローアップ	follow-up	theo dõi	meeting
+締め切り	deadline	hạn chót	meeting
+優先度	priority	mức độ ưu tiên	meeting
+マイルストーン	milestone	mốc quan trọng	meeting
+ロードマップ	roadmap	lộ trình	meeting
+ステークホルダー	stakeholder	các bên liên quan	meeting
+要件定義	requirements definition	định nghĩa yêu cầu	meeting
+仕様書	specification	tài liệu đặc tả	meeting
+設計書	design document	tài liệu thiết kế	meeting
+進捗報告	progress report	báo cáo tiến độ	meeting
+課題管理	issue management	quản lý vấn đề	meeting
+リスク管理	risk management	quản lý rủi ro	meeting
+品質保証	quality assurance	đảm bảo chất lượng	meeting
+契約	contract	hợp đồng	business
+請求書	invoice	hóa đơn	business
+見積もり	estimate	ước tính	business
+納期	delivery date	ngày giao hàng	business
+予算	budget	ngân sách	business
+承認	approval	phê duyệt	business
+提案書	proposal	đề xuất	business
+報告書	report	báo cáo	business

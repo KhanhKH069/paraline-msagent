@@ -1,0 +1,73 @@
+# configs/data_config.yaml
+# Cấu hình dataset và preprocessing
+
+data:
+  raw_dir: data/raw
+  processed_dir: data/processed
+  augmented_dir: data/augmented
+
+  # Language pairs để train
+  language_pairs:
+    - src: jpn_Jpan   # Nhật → Anh
+      tgt: eng_Latn
+      dir: ja_en
+    - src: eng_Latn   # Anh → Việt
+      tgt: vie_Latn
+      dir: en_vi
+    - src: jpn_Jpan   # Nhật → Việt (pivot qua Anh hoặc direct)
+      tgt: vie_Latn
+      dir: ja_vi
+    # Reverse pairs (augmentation)
+    - src: eng_Latn
+      tgt: jpn_Jpan
+      dir: en_ja
+    - src: vie_Latn
+      tgt: eng_Latn
+      dir: vi_en
+
+  # Split ratio
+  splits:
+    train: 0.90
+    validation: 0.05
+    test: 0.05
+
+  # Filtering
+  filter:
+    min_tokens: 3
+    max_tokens: 128
+    max_length_ratio: 4.5   # tgt/src length ratio filter
+    dedup: true
+
+  # Chunking settings
+  chunker:
+    enabled: true
+    models:
+      ja: ja_core_news_sm
+      en: en_core_web_sm
+      vi: vi_core_news_lg
+    chunk_types:
+      - NP    # Noun Phrase
+      - VP    # Verb Phrase
+      - PP    # Prepositional Phrase
+      - SBAR  # Subordinate clause
+      - ADJP  # Adjective Phrase
+    max_chunk_tokens: 24
+    overlap_tokens: 2       # overlap để giữ context boundary
+
+# Augmentation
+augmentation:
+  back_translation:
+    enabled: true
+    rounds: 1
+  noise:
+    enabled: true
+    word_drop_prob: 0.05
+    word_swap_prob: 0.03
+
+# Tokenizer
+tokenizer:
+  model_name_or_path: facebook/nllb-200-distilled-600M
+  max_input_length: 256
+  max_target_length: 256
+  padding: max_length
+  truncation: true
