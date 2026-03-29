@@ -1,0 +1,86 @@
+{
+  "_comment": "Danh sách giọng đọc. Thêm entry mới khi add speaker. Đừng xóa entry cũ (sẽ lệch speaker_id).",
+  "speakers": [
+    {
+      "id": 0,
+      "name": "my_voice",
+      "display_name": "my_voice",
+      "gender": "female",
+      "region": "north",
+      "description": "",
+      "audio_sample": "data\\synthetic_audio\\clip_000000.wav",
+      "embedding_path": "D:\\vits2\\speakers\\embeddings\\my_voice.pt",
+      "training_hours": 0.0,
+      "added_at": "2026-03-26",
+      "notes": ""
+    },
+    {
+      "id": 1,
+      "name": "nam_nam",
+      "display_name": "Nam - Miền Nam",
+      "gender": "male",
+      "region": "south",
+      "description": "Giọng nam Sài Gòn, thân thiện",
+      "audio_sample": "data/raw_audio/nam_nam_sample.wav",
+      "embedding_path": "speakers/embeddings/nam_nam.pt",
+      "training_hours": 0.0,
+      "added_at": "2024-01-01",
+      "notes": ""
+    },
+    {
+      "id": 2,
+      "name": "nam_trung",
+      "display_name": "Nam - Miền Trung",
+      "gender": "male",
+      "region": "central",
+      "description": "Giọng nam Huế / Đà Nẵng",
+      "audio_sample": "data/raw_audio/nam_trung_sample.wav",
+      "embedding_path": "speakers/embeddings/nam_trung.pt",
+      "training_hours": 0.0,
+      "added_at": "2024-01-01",
+      "notes": ""
+    },
+    {
+      "id": 3,
+      "name": "nu_bac",
+      "display_name": "Nữ - Miền Bắc",
+      "gender": "female",
+      "region": "north",
+      "description": "Giọng nữ chuẩn Hà Nội, rõ ràng",
+      "audio_sample": "data/raw_audio/nu_bac_sample.wav",
+      "embedding_path": "speakers/embeddings/nu_bac.pt",
+      "training_hours": 0.0,
+      "added_at": "2024-01-01",
+      "notes": ""
+    },
+    {
+      "id": 4,
+      "name": "nu_nam",
+      "display_name": "Nữ - Miền Nam",
+      "gender": "female",
+      "region": "south",
+      "description": "Giọng nữ Sài Gòn, nhẹ nhàng",
+      "audio_sample": "data/raw_audio/nu_nam_sample.wav",
+      "embedding_path": "speakers/embeddings/nu_nam.pt",
+      "training_hours": 0.0,
+      "added_at": "2024-01-01",
+      "notes": ""
+    },
+    {
+      "id": 5,
+      "name": "nu_trung",
+      "display_name": "Nữ - Miền Trung",
+      "gender": "female",
+      "region": "central",
+      "description": "Giọng nữ Huế / Đà Nẵng",
+      "audio_sample": "data/raw_audio/nu_trung_sample.wav",
+      "embedding_path": "speakers/embeddings/nu_trung.pt",
+      "training_hours": 0.0,
+      "added_at": "2024-01-01",
+      "notes": ""
+    }
+  ],
+  "total_speakers": 6,
+  "embedding_dim": 256,
+  "model_version": "vits2-vi-multispeaker-v1"
+}

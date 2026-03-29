@@ -1,0 +1,45 @@
+# Python
+__pycache__/
+*.py[cod]
+*.so
+*.egg-info/
+dist/
+build/
+.eggs/
+
+# Environments
+.env
+.venv
+venv/
+env/
+
+# Data (không commit lên git)
+data/raw_audio/
+data/sliced_audio/
+checkpoints/
+logs/
+outputs/
+
+# PhoBERT cache
+*.bin
+*.safetensors
+tokenizer.json
+vocab.txt
+config.json
+
+# IDE
+.vscode/
+.idea/
+*.swp
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Jupyter
+.ipynb_checkpoints/
+*.ipynb
+
+# VnCoreNLP
+vncorenlp/
+*.jar

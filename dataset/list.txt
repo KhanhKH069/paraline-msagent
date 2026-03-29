@@ -1,0 +1,590 @@
+D:\vits2\data\synthetic_audio\clip_000158.wav|Hạn chế rượu bia bảo vệ gan và hệ thần kinh trung ương.|0
+D:\vits2\data\synthetic_audio\clip_000434.wav|Tôi đang ăn sáng với bánh mì và cà phê.|0
+D:\vits2\data\synthetic_audio\clip_000201.wav|Cồng chiêng Tây Nguyên được UNESCO công nhận là di sản văn hóa phi vật thể.|0
+D:\vits2\data\synthetic_audio\clip_000281.wav|Ga metro Bến Thành là điểm trung chuyển quan trọng ở thành phố Hồ Chí Minh.|0
+D:\vits2\data\synthetic_audio\clip_000570.wav|Bộ sách giáo khoa mới được biên soạn theo hướng tư duy sáng tạo.|0
+D:\vits2\data\synthetic_audio\clip_000184.wav|Hợp đồng lao động cần ghi rõ quyền lợi và nghĩa vụ của hai bên.|0
+D:\vits2\data\synthetic_audio\clip_000582.wav|Phú Quốc với bãi biển dài và nắng vàng là đảo thiên đường của Việt Nam.|0
+D:\vits2\data\synthetic_audio\clip_000217.wav|Mô hình ngôn ngữ lớn đang được nghiên cứu và triển khai rộng rãi.|0
+D:\vits2\data\synthetic_audio\clip_000120.wav|Hoa giấy trước cổng nhà hàng xóm nở rất đẹp.|0
+D:\vits2\data\synthetic_audio\clip_000017.wav|Lớp học đảo ngược cho phép học sinh tự học lý thuyết trước và thực hành ở trường.|0
+D:\vits2\data\synthetic_audio\clip_000260.wav|Mạng xã hội có ảnh hưởng lớn đến hành vi mua sắm của người tiêu dùng.|0
+D:\vits2\data\synthetic_audio\clip_000377.wav|Ngày mai là thứ Ba.|0
+D:\vits2\data\synthetic_audio\clip_000136.wav|Toán học là môn học quan trọng giúp rèn luyện tư duy logic và suy luận.|0
+D:\vits2\data\synthetic_audio\clip_000137.wav|Deadline dự án là ngày mai, nhóm đang chạy nước rút hoàn tất.|0
+D:\vits2\data\synthetic_audio\clip_000510.wav|Hộ chiếu cần còn hạn ít nhất sáu tháng khi xin visa du lịch.|0
+D:\vits2\data\synthetic_audio\clip_000290.wav|Đi bộ ba mươi phút mỗi ngày giúp cải thiện sức khỏe tim mạch.|0
+D:\vits2\data\synthetic_audio\clip_000282.wav|Lực ma sát cản trở chuyển động tương đối giữa hai bề mặt tiếp xúc.|0
+D:\vits2\data\synthetic_audio\clip_000194.wav|Trợ lý ảo thông minh giúp người dùng quản lý lịch làm việc hiệu quả.|0
+D:\vits2\data\synthetic_audio\clip_000084.wav|Tranh Đông Hồ là dòng tranh dân gian độc đáo của làng nghề Bắc Ninh.|0
+D:\vits2\data\synthetic_audio\clip_000055.wav|Sinh học phân tử giải mã cơ chế hoạt động của tế bào sống.|0
+D:\vits2\data\synthetic_audio\clip_000089.wav|Bộ môn đấu kiếm đang được nhiều trường học đưa vào chương trình ngoại khóa.|0
+D:\vits2\data\synthetic_audio\clip_000229.wav|Tôi khỏe, cảm ơn bạn.|0
+D:\vits2\data\synthetic_audio\clip_000254.wav|Tháng này có ba mươi mốt ngày.|0
+D:\vits2\data\synthetic_audio\clip_000171.wav|Mắm cá linh miền Tây là nguyên liệu đặc trưng của ẩm thực Nam Bộ.|0
+D:\vits2\data\synthetic_audio\clip_000287.wav|Ẩm thực Việt Nam được tạp chí nước ngoài xếp hạng tốt nhất châu Á.|0
+D:\vits2\data\synthetic_audio\clip_000011.wav|Nghiên cứu vật liệu mới giúp tạo ra pin điện có dung lượng cao hơn.|0
+D:\vits2\data\synthetic_audio\clip_000183.wav|Bánh cuốn Thanh Trì mỏng mịn, ăn với chả quế và hành khô.|0
+D:\vits2\data\synthetic_audio\clip_000163.wav|Chả cá Lã Vọng Hà Nội là món ăn trứ danh với nguồn gốc lịch sử lâu đời.|0
+D:\vits2\data\synthetic_audio\clip_000180.wav|Công nghệ sạc không dây ngày càng phổ biến trên các thiết bị di động.|0
+D:\vits2\data\synthetic_audio\clip_000376.wav|Hệ thống nhận diện khuôn mặt được lắp đặt tại sân bay.|0
+D:\vits2\data\synthetic_audio\clip_000025.wav|Hộp bánh kẹo này là quà từ người thân ở xa gửi về.|0
+D:\vits2\data\synthetic_audio\clip_000456.wav|Chả giò rimem giòn rụm, chấm với nước mắm pha chua ngọt.|0
+D:\vits2\data\synthetic_audio\clip_000004.wav|Chúng tôi trồng hoa cúc trong chậu trước sân.|0
+D:\vits2\data\synthetic_audio\clip_000169.wav|Ngủ đủ giấc giúp cơ thể hồi phục và tăng cường hệ miễn dịch.|0
+D:\vits2\data\synthetic_audio\clip_000227.wav|Phần mềm quản lý dự án giúp nhóm làm việc phối hợp hiệu quả hơn.|0
+D:\vits2\data\synthetic_audio\clip_000342.wav|Cả nhà cùng nhau dọn dẹp nhà cửa cuối tuần.|0
+D:\vits2\data\synthetic_audio\clip_000361.wav|Bò lá lốt nướng thơm nức mũi, ăn kèm bún và rau sống.|0
+D:\vits2\data\synthetic_audio\clip_000148.wav|Lễ hội Katê của người Chăm mang đậm bản sắc văn hóa dân tộc.|0
+D:\vits2\data\synthetic_audio\clip_000526.wav|Tôi rửa xe máy mỗi cuối tuần để luôn sạch sẽ.|0
+D:\vits2\data\synthetic_audio\clip_000097.wav|Chúng tôi đặt mua ghế sofa mới cho phòng khách.|0
+D:\vits2\data\synthetic_audio\clip_000270.wav|Thiết bị đo chất lượng không khí thông minh cảnh báo ô nhiễm tức thì.|0
+D:\vits2\data\synthetic_audio\clip_000449.wav|Tôi thích những buổi chiều yên tĩnh ở nhà.|0
+D:\vits2\data\synthetic_audio\clip_000535.wav|Công nghệ giọng đọc tổng hợp ngày càng tự nhiên và biểu cảm hơn.|0
+D:\vits2\data\synthetic_audio\clip_000122.wav|Bạch tuộc xào phô mai là sự kết hợp thú vị giữa ẩm thực Đông Tây.|0
+D:\vits2\data\synthetic_audio\clip_000031.wav|Điện thoại vệ tinh cho phép liên lạc ở những vùng hẻo lánh.|0
+D:\vits2\data\synthetic_audio\clip_000086.wav|Xin lỗi, tôi không hiểu.|0
+D:\vits2\data\synthetic_audio\clip_000412.wav|Ứng dụng gọi xe công nghệ đã thay đổi thói quen di chuyển đô thị.|0
+D:\vits2\data\synthetic_audio\clip_000095.wav|Phần mềm diệt virus ngăn chặn hàng triệu mối đe dọa mỗi ngày.|0
+D:\vits2\data\synthetic_audio\clip_000308.wav|Sân vận động Mỹ Đình được nâng cấp để đón các giải thi đấu quốc tế.|0
+D:\vits2\data\synthetic_audio\clip_000066.wav|Con đường trước nhà đang được sửa chữa.|0
+D:\vits2\data\synthetic_audio\clip_000234.wav|Bóng đá truyền cảm hứng cho hàng triệu fan hâm mộ trên toàn quốc.|0
+D:\vits2\data\synthetic_audio\clip_000134.wav|Tốc độ âm thanh trong không khí khoảng ba trăm ba mươi mét mỗi giây.|0
+D:\vits2\data\synthetic_audio\clip_000255.wav|Luận văn thạc sĩ yêu cầu đề xuất giải pháp mới cho vấn đề trong thực tiễn.|0
+D:\vits2\data\synthetic_audio\clip_000314.wav|Vắc-xin phòng cúm nên tiêm mỗi năm để bảo vệ bản thân và cộng đồng.|0
+D:\vits2\data\synthetic_audio\clip_000043.wav|Đơn xin việc cần kèm theo sơ yếu lý lịch và bằng cấp liên quan.|0
+D:\vits2\data\synthetic_audio\clip_000262.wav|Môi trường làm việc tốt giúp nâng cao hiệu suất và sự gắn kết nhân viên.|0
+D:\vits2\data\synthetic_audio\clip_000436.wav|Tiến hóa của loài người diễn ra hàng triệu năm qua nhiều giai đoạn.|0
+D:\vits2\data\synthetic_audio\clip_000318.wav|Đội cầu lông học sinh giành huy chương vàng tại đại hội thể thao giao lưu.|0
+D:\vits2\data\synthetic_audio\clip_000002.wav|Bạn có biết nhà hàng nào ngon ở khu này không?|0
+D:\vits2\data\synthetic_audio\clip_000525.wav|Ứng dụng thực tế tăng cường giúp bệnh nhân hình dung kết quả phẫu thuật trước.|0
+D:\vits2\data\synthetic_audio\clip_000165.wav|Tôi đang lên kế hoạch đi du lịch vào mùa hè này.|0
+D:\vits2\data\synthetic_audio\clip_000529.wav|Tôi học thiền định để giảm căng thẳng sau giờ làm.|0
+D:\vits2\data\synthetic_audio\clip_000112.wav|Mũi Né Bình Thuận nổi tiếng với đồi cát đỏ và các khu nghỉ dưỡng ven biển.|0
+D:\vits2\data\synthetic_audio\clip_000212.wav|Chó nhà hàng xóm sủa mỗi khi có người lạ đến.|0
+D:\vits2\data\synthetic_audio\clip_000491.wav|Văn học Việt Nam có nhiều tác phẩm bất hủ phản ánh thời đại và con người.|0
+D:\vits2\data\synthetic_audio\clip_000099.wav|Tập thể dục buổi sáng ngoài trời tốt hơn tập trong nhà vào buổi tối.|0
+D:\vits2\data\synthetic_audio\clip_000451.wav|Hội nghị công nghệ quốc tế năm nay thu hút hàng nghìn chuyên gia.|0
+D:\vits2\data\synthetic_audio\clip_000479.wav|Công thức tính diện tích hình tròn là pi nhân bán kính bình phương.|0
+D:\vits2\data\synthetic_audio\clip_000509.wav|Nghỉ phép năm có mười hai ngày theo quy định của Luật Lao Động.|0
+D:\vits2\data\synthetic_audio\clip_000511.wav|Tôi đang đọc cuốn tiểu thuyết dài rất hay và hồi hộp.|0
+D:\vits2\data\synthetic_audio\clip_000426.wav|Tôi đang nấu ăn cho cả nhà.|0
+D:\vits2\data\synthetic_audio\clip_000363.wav|Lương tối thiểu vùng được điều chỉnh hằng năm theo quy định nhà nước.|0
+D:\vits2\data\synthetic_audio\clip_000404.wav|Ăn quá nhiều muối làm tăng huyết áp và nguy cơ bệnh thận.|0
+D:\vits2\data\synthetic_audio\clip_000537.wav|Con tôi học lớp ba ở trường gần nhà.|0
+D:\vits2\data\synthetic_audio\clip_000197.wav|Tôi cần gửi bưu kiện cho người thân ở Sài Gòn.|0
+D:\vits2\data\synthetic_audio\clip_000062.wav|Sữa chua chứa nhiều lợi khuẩn tốt cho hệ tiêu hóa.|0
+D:\vits2\data\synthetic_audio\clip_000319.wav|Thăng tiến trong công việc đòi hỏi nỗ lực, kỹ năng và sự kiên trì.|0
+D:\vits2\data\synthetic_audio\clip_000076.wav|Bánh tráng trộn Sài Gòn là món ăn vặt được giới trẻ yêu thích.|0
+D:\vits2\data\synthetic_audio\clip_000547.wav|Phố cổ Hội An về đêm lung linh đèn lồng rực rỡ thu hút du khách.|0
+D:\vits2\data\synthetic_audio\clip_000517.wav|Hệ thống giáo dục đại học Việt Nam đang cải cách mạnh mẽ.|0
+D:\vits2\data\synthetic_audio\clip_000370.wav|Chợ đêm bán nhiều đặc sản địa phương thu hút khách du lịch.|0
+D:\vits2\data\synthetic_audio\clip_000316.wav|Leo núi là bộ môn thể thao mạo hiểm kết hợp sức mạnh và kỹ năng kỹ thuật.|0
+D:\vits2\data\synthetic_audio\clip_000147.wav|Tôi dạy con học bài mỗi tối sau bữa cơm.|0
+D:\vits2\data\synthetic_audio\clip_000494.wav|Thực tế tăng cường ứng dụng trong giáo dục và y tế.|0
+D:\vits2\data\synthetic_audio\clip_000322.wav|Bắn cung cần sự kiên nhẫn, tập trung và kỹ thuật cao.|0
+D:\vits2\data\synthetic_audio\clip_000424.wav|Tôi tổng vệ sinh nhà cửa trước dịp Tết Nguyên Đán.|0
+D:\vits2\data\synthetic_audio\clip_000248.wav|Ngân hàng mở cửa từ thứ Hai đến thứ Sáu mỗi tuần.|0
+D:\vits2\data\synthetic_audio\clip_000015.wav|Vitamin D cần thiết cho việc hấp thụ canxi và sức khỏe xương khớp.|0
+D:\vits2\data\synthetic_audio\clip_000448.wav|Tôi không biết.|0
+D:\vits2\data\synthetic_audio\clip_000566.wav|Tôi học cách nấu chè đậu xanh theo video trên mạng.|0
+D:\vits2\data\synthetic_audio\clip_000023.wav|Kỹ năng đọc hiểu giúp học sinh tiếp thu kiến thức từ sách vở hiệu quả.|0
+D:\vits2\data\synthetic_audio\clip_000049.wav|Tôi dọn dẹp bàn làm việc gọn gàng trước khi bắt đầu làm.|0
+D:\vits2\data\synthetic_audio\clip_000221.wav|Bạn thích xem phim hành động hay phim tình cảm hơn?|0
+D:\vits2\data\synthetic_audio\clip_000490.wav|Khí quyển trái đất bảo vệ bề mặt khỏi bức xạ tử ngoại mặt trời.|0
+D:\vits2\data\synthetic_audio\clip_000518.wav|Măng cụt chín đỏ sẫm có vị chua ngọt hài hòa rất đặc biệt.|0
+D:\vits2\data\synthetic_audio\clip_000349.wav|Bạn khỏe không?|0
+D:\vits2\data\synthetic_audio\clip_000586.wav|Sinh viên cần học kỹ năng mềm để chuẩn bị cho thị trường lao động.|0
+D:\vits2\data\synthetic_audio\clip_000411.wav|Bình hoa trên bàn cần thay nước rồi.|0
+D:\vits2\data\synthetic_audio\clip_000053.wav|Tôi mua thêm thức ăn cho chú mèo của mình.|0
+D:\vits2\data\synthetic_audio\clip_000034.wav|Buổi sáng trời mát mẻ rất dễ chịu.|0
+D:\vits2\data\synthetic_audio\clip_000206.wav|Pin mặt trời thế hệ mới có hiệu suất cao hơn và chi phí thấp hơn.|0
+D:\vits2\data\synthetic_audio\clip_000557.wav|Tạm biệt, hẹn gặp lại!|0
+D:\vits2\data\synthetic_audio\clip_000335.wav|Tôi hay dạo phố mua sắm vào cuối tuần cùng gia đình.|0
+D:\vits2\data\synthetic_audio\clip_000312.wav|Chương trình học bổng giúp sinh viên nghèo có cơ hội học đại học.|0
+D:\vits2\data\synthetic_audio\clip_000550.wav|Xe đạp điện trở thành phương tiện di chuyển phổ biến ở đô thị.|0
+D:\vits2\data\synthetic_audio\clip_000020.wav|Khoa học vũ trụ mang lại nhiều hiểu biết mới về hệ mặt trời và vũ trụ.|0
+D:\vits2\data\synthetic_audio\clip_000447.wav|Bệnh viện tuyến trên cần giảm tải bằng cách nâng chất lượng y tế cơ sở.|0
+D:\vits2\data\synthetic_audio\clip_000578.wav|Tôi thích uống trà xanh vào buổi sáng.|0
+D:\vits2\data\synthetic_audio\clip_000559.wav|Công nghệ phân tích cảm xúc giúp doanh nghiệp hiểu khách hàng hơn.|0
+D:\vits2\data\synthetic_audio\clip_000379.wav|Đội bóng đá nữ Việt Nam đã giành quyền tham dự World Cup lần đầu tiên.|0
+D:\vits2\data\synthetic_audio\clip_000107.wav|Bún đậu mắm tôm là món ăn đường phố nổi tiếng ở Hà Nội.|0
+D:\vits2\data\synthetic_audio\clip_000029.wav|Chính sách tăng lương cho giáo viên giúp thu hút người tài vào ngành giáo dục.|0
+D:\vits2\data\synthetic_audio\clip_000012.wav|Lễ hội chùa Hương thu hút hàng triệu du khách mỗi năm.|0
+D:\vits2\data\synthetic_audio\clip_000394.wav|Mạng lưới cảm biến thông minh theo dõi mực nước và chất lượng môi trường.|0
+D:\vits2\data\synthetic_audio\clip_000497.wav|Kết nối vệ tinh tốc độ cao mang internet đến vùng sâu vùng xa.|0
+D:\vits2\data\synthetic_audio\clip_000001.wav|Thời tiết hôm nay mát mẻ và dễ chịu.|0
+D:\vits2\data\synthetic_audio\clip_000072.wav|Hướng dẫn viên du lịch giới thiệu lịch sử của các địa danh nổi tiếng.|0
+D:\vits2\data\synthetic_audio\clip_000040.wav|Căng thẳng kéo dài ảnh hưởng xấu đến sức khỏe tâm thần và thể chất.|0
+D:\vits2\data\synthetic_audio\clip_000195.wav|Vải thiều Lục Ngạn ngọt thanh và thơm là đặc sản mùa hè miền Bắc.|0
+D:\vits2\data\synthetic_audio\clip_000406.wav|Đặc sản gà Đồi Phú Thọ nướng mật ong thơm ngậy và béo ngậy.|0
+D:\vits2\data\synthetic_audio\clip_000365.wav|Em bé nhà tôi vừa biết đi được mấy bước rồi.|0
+D:\vits2\data\synthetic_audio\clip_000192.wav|Tôi sạc điện thoại qua đêm cho đủ pin dùng cả ngày.|0
+D:\vits2\data\synthetic_audio\clip_000205.wav|Giải bóng chuyền vô địch quốc gia diễn ra tại nhà thi đấu thành phố.|0
+D:\vits2\data\synthetic_audio\clip_000170.wav|Chè bà ba thanh ngọt với đậu xanh, khoai lang và nước cốt dừa.|0
+D:\vits2\data\synthetic_audio\clip_000261.wav|Thành phố thông minh ứng dụng công nghệ để tối ưu hóa giao thông đô thị.|0
+D:\vits2\data\synthetic_audio\clip_000003.wav|Tôi cần đổi tiền lẻ để trả tiền xe ôm.|0
+D:\vits2\data\synthetic_audio\clip_000340.wav|Cửa nhà tôi bị kẹt, cần tra thêm dầu vào bản lề.|0
+D:\vits2\data\synthetic_audio\clip_000450.wav|Kali trong chuối giúp điều hòa huyết áp và chức năng cơ tim.|0
+D:\vits2\data\synthetic_audio\clip_000199.wav|Hàng xóm mới dọn về hôm qua, trông rất thân thiện.|0
+D:\vits2\data\synthetic_audio\clip_000278.wav|Tập thể dục mỗi ngày giúp nâng cao sức khỏe và tinh thần.|0
+D:\vits2\data\synthetic_audio\clip_000467.wav|Trung tâm dữ liệu lớn đang được xây dựng tại nhiều tỉnh thành.|0
+D:\vits2\data\synthetic_audio\clip_000356.wav|Trà sen Tây Hồ mang hương thơm tinh tế từ đầm sen Hà Nội.|0
+D:\vits2\data\synthetic_audio\clip_000568.wav|Giáo dục đạo đức giúp hình thành công dân có ích cho xã hội.|0
+D:\vits2\data\synthetic_audio\clip_000483.wav|Nồi canh chua thơm lắm, cả nhà thích ăn.|0
+D:\vits2\data\synthetic_audio\clip_000176.wav|Hôm nay trời nắng đẹp, thích hợp để đi dạo.|0
+D:\vits2\data\synthetic_audio\clip_000429.wav|Ung thư phát hiện sớm có tỷ lệ điều trị thành công rất cao.|0
+D:\vits2\data\synthetic_audio\clip_000093.wav|Thiết bị gia dụng thông minh kết nối với nhau tạo thành hệ sinh thái nhà số.|0
+D:\vits2\data\synthetic_audio\clip_000505.wav|Hôm nay tôi đến thăm người bạn đang ốm ở bệnh viện.|0
+D:\vits2\data\synthetic_audio\clip_000048.wav|Bảo hiểm y tế giúp giảm chi phí khám chữa bệnh cho người tham gia.|0
+D:\vits2\data\synthetic_audio\clip_000453.wav|Dừa tươi miền Tây giải khát cực tốt trong những ngày nắng nóng.|0
+D:\vits2\data\synthetic_audio\clip_000160.wav|Quy tắc giao thông cần được tuân thủ để đảm bảo an toàn.|0
+D:\vits2\data\synthetic_audio\clip_000332.wav|Khách sạn ba sao có phòng tiện nghi với giá hợp lý.|0
+D:\vits2\data\synthetic_audio\clip_000200.wav|Rau xanh và trái cây tươi cung cấp nhiều vitamin và khoáng chất.|0
+D:\vits2\data\synthetic_audio\clip_000378.wav|Kính thực tế ảo mang đến trải nghiệm giải trí hoàn toàn mới.|0
+D:\vits2\data\synthetic_audio\clip_000466.wav|Kỳ thi quốc tế PISA đánh giá kỹ năng đọc hiểu, toán và khoa học của học sinh.|0
+D:\vits2\data\synthetic_audio\clip_000415.wav|Mạng năm G đang được triển khai thương mại tại các thành phố lớn.|0
+D:\vits2\data\synthetic_audio\clip_000320.wav|Phương pháp học tập chủ động giúp ghi nhớ kiến thức lâu hơn.|0
+D:\vits2\data\synthetic_audio\clip_000328.wav|Canh chua cá bớp nấu với cà chua, dứa và giá đỗ rất ngon.|0
+D:\vits2\data\synthetic_audio\clip_000422.wav|Cố đô Huế lưu giữ hàng trăm công trình kiến trúc triều Nguyễn.|0
+D:\vits2\data\synthetic_audio\clip_000259.wav|Chúng tôi chuẩn bị tiệc sinh nhật bất ngờ cho bà.|0
+D:\vits2\data\synthetic_audio\clip_000024.wav|Trí thông minh nhân tạo sẽ sớm hỗ trợ giáo viên trong việc chấm bài tự động.|0
+D:\vits2\data\synthetic_audio\clip_000238.wav|Sinh viên đại học cần học tư duy phản biện để phân tích vấn đề sâu sắc.|0
+D:\vits2\data\synthetic_audio\clip_000576.wav|Nghiên cứu khoa học trong các trường đại học ngày càng được chú trọng.|0
+D:\vits2\data\synthetic_audio\clip_000305.wav|Thiết bị đeo tay thông minh đo nhịp tim và chất lượng giấc ngủ.|0
+D:\vits2\data\synthetic_audio\clip_000484.wav|Trẻ em cần được tiếp xúc với nghệ thuật và âm nhạc ngay từ nhỏ.|0
+D:\vits2\data\synthetic_audio\clip_000210.wav|Trang thiết bị thể thao chuyên nghiệp giúp vận động viên đạt thành tích cao.|0
+D:\vits2\data\synthetic_audio\clip_000198.wav|Nhãn lồng Hưng Yên nổi tiếng với cùi dày, ngọt và ít hạt.|0
+D:\vits2\data\synthetic_audio\clip_000106.wav|Trường học cần trang bị đủ thiết bị học tập cho học sinh.|0
+D:\vits2\data\synthetic_audio\clip_000085.wav|Mỗi năm chúng tôi cùng nhau đi du lịch một chuyến.|0
+D:\vits2\data\synthetic_audio\clip_000421.wav|Công nghệ in ba chiều tạo ra nhiều sản phẩm độc đáo và tinh xảo.|0
+D:\vits2\data\synthetic_audio\clip_000473.wav|Bưởi da xanh Bến Tre ăn ngọt mát và nhiều nước.|0
+D:\vits2\data\synthetic_audio\clip_000211.wav|Tôi sống ở quận Ba Đình.|0
+D:\vits2\data\synthetic_audio\clip_000465.wav|Điện toán đám mây giúp tiết kiệm chi phí hạ tầng cho doanh nghiệp.|0
+D:\vits2\data\synthetic_audio\clip_000253.wav|Bún mắm chua ngọt miền Tây dậy mùi đặc trưng rất cuốn hút.|0
+D:\vits2\data\synthetic_audio\clip_000090.wav|Điện thoại thông minh ngày càng trở nên phổ biến ở Việt Nam.|0
+D:\vits2\data\synthetic_audio\clip_000353.wav|Nhiệt độ sôi của nước ở áp suất tiêu chuẩn là một trăm độ C.|0
+D:\vits2\data\synthetic_audio\clip_000189.wav|Mười chia hai bằng năm.|0
+D:\vits2\data\synthetic_audio\clip_000391.wav|Hành lý xách tay không được quá bảy ki-lô-gam.|0
+D:\vits2\data\synthetic_audio\clip_000581.wav|Mùa khô ở miền Nam kéo dài từ tháng mười một đến tháng tư.|0
+D:\vits2\data\synthetic_audio\clip_000470.wav|Ứng dụng tài chính cá nhân giúp người dùng quản lý chi tiêu hiệu quả.|0
+D:\vits2\data\synthetic_audio\clip_000301.wav|Phản ứng nhiệt hạch nhân tạo hứa hẹn mang lại năng lượng sạch vô tận.|0
+D:\vits2\data\synthetic_audio\clip_000047.wav|Một mét bằng một trăm xen-ti-mét.|0
+D:\vits2\data\synthetic_audio\clip_000070.wav|Buổi sáng sớm không khí trong lành và mát mẻ.|0
+D:\vits2\data\synthetic_audio\clip_000347.wav|Công nghệ nhận diện giọng nói được tích hợp vào thiết bị nhà thông minh.|0
+D:\vits2\data\synthetic_audio\clip_000380.wav|Bảo hiểm xã hội đảm bảo quyền lợi cho người lao động khi về hưu.|0
+D:\vits2\data\synthetic_audio\clip_000373.wav|Tết Nguyên Đán là dịp lễ lớn nhất và đặc biệt nhất trong năm.|0
+D:\vits2\data\synthetic_audio\clip_000249.wav|Trung tâm thể dục thể thao hiện đại mọc lên nhiều ở các thành phố lớn.|0
+D:\vits2\data\synthetic_audio\clip_000390.wav|Chế độ ăn uống lành mạnh là nền tảng của cuộc sống khỏe mạnh.|0
+D:\vits2\data\synthetic_audio\clip_000272.wav|Nộp thuế thu nhập cá nhân là nghĩa vụ của mỗi công dân.|0
+D:\vits2\data\synthetic_audio\clip_000464.wav|Tôi học đàn guitar từ hồi còn học cấp hai.|0
+D:\vits2\data\synthetic_audio\clip_000416.wav|Tôi sắp xếp lại tủ quần áo cho gọn gàng hơn.|0
+D:\vits2\data\synthetic_audio\clip_000433.wav|Sóng hấp dẫn được phát hiện lần đầu năm hai nghìn mười sáu.|0
+D:\vits2\data\synthetic_audio\clip_000368.wav|Cao lầu Hội An chỉ ngon khi dùng nước giếng Bá Lễ.|0
+D:\vits2\data\synthetic_audio\clip_000231.wav|Công nghệ tổng hợp ảnh nhân tạo tạo ra những giọng nói và khuôn mặt ảo.|0
+D:\vits2\data\synthetic_audio\clip_000149.wav|Xe điện ngày càng được ưa chuộng nhờ thân thiện với môi trường.|0
+D:\vits2\data\synthetic_audio\clip_000381.wav|Ứng dụng theo dõi sức khỏe tâm thần ngày càng được quan tâm phát triển.|0
+D:\vits2\data\synthetic_audio\clip_000286.wav|Xương chắc khỏe nhờ bổ sung canxi và vitamin D đầy đủ từ nhỏ.|0
+D:\vits2\data\synthetic_audio\clip_000396.wav|Chạy marathon ba mươi hai ki-lô-mét đòi hỏi sự luyện tập kiên trì lâu dài.|0
+D:\vits2\data\synthetic_audio\clip_000588.wav|Lực đẩy Archimedes bằng trọng lượng phần chất lỏng bị vật chiếm chỗ.|0
+D:\vits2\data\synthetic_audio\clip_000299.wav|Tôi đặt đồng hồ báo thức để không dậy muộn.|0
+D:\vits2\data\synthetic_audio\clip_000309.wav|Nền tảng tuyển dụng trực tuyến ứng dụng trí tuệ nhân tạo phân tích hồ sơ ứng viên.|0
+D:\vits2\data\synthetic_audio\clip_000562.wav|Tivi nhà tôi bị nhiễu sóng, cần điều chỉnh lại ăng-ten.|0
+D:\vits2\data\synthetic_audio\clip_000462.wav|Cửa hàng lưu niệm bán đồ thủ công mỹ nghệ truyền thống.|0
+D:\vits2\data\synthetic_audio\clip_000441.wav|Stem education đang được triển khai rộng rãi ở các trường phổ thông.|0
+D:\vits2\data\synthetic_audio\clip_000481.wav|Tôi gọi điện cho mẹ mỗi ngày vào buổi tối.|0
+D:\vits2\data\synthetic_audio\clip_000154.wav|Múa rồng và múa lân rộn ràng trong các dịp lễ hội và Tết.|0
+D:\vits2\data\synthetic_audio\clip_000486.wav|Bữa cơm tối nhà tôi lúc nào cũng có đủ canh, mặn và xào.|0
+D:\vits2\data\synthetic_audio\clip_000544.wav|Nhà tôi có một chiếc đàn piano cũ nhưng còn tốt.|0
+D:\vits2\data\synthetic_audio\clip_000482.wav|Tôi học cách làm bánh cupcake tại nhà.|0
+D:\vits2\data\synthetic_audio\clip_000492.wav|Canxi từ sữa và các sản phẩm từ sữa giúp xương và răng chắc khỏe.|0
+D:\vits2\data\synthetic_audio\clip_000357.wav|Bánh da lợn nhiều lớp màu sắc, ăn mát và ngọt thanh.|0
+D:\vits2\data\synthetic_audio\clip_000069.wav|Tôi thường ngủ trưa khoảng ba mươi phút để tỉnh táo hơn.|0
+D:\vits2\data\synthetic_audio\clip_000105.wav|Bánh tét miền Nam gói hình trụ, nhân thịt mỡ và đậu xanh.|0
+D:\vits2\data\synthetic_audio\clip_000244.wav|Cà phê đá sữa miền Nam đậm đà, ngọt béo và rất giải khát.|0
+D:\vits2\data\synthetic_audio\clip_000534.wav|Vé vào cửa khu di tích lịch sử có giá ưu đãi cho học sinh sinh viên.|0
+D:\vits2\data\synthetic_audio\clip_000369.wav|Tôi cùng bạn bè tổ chức tiệc nướng ngoài trời cuối tuần.|0
+D:\vits2\data\synthetic_audio\clip_000121.wav|Axit bị trung hòa khi phản ứng với bazơ tạo thành muối và nước.|0
+D:\vits2\data\synthetic_audio\clip_000030.wav|Năm nay là năm hai nghìn không trăm hai mươi sáu.|0
+D:\vits2\data\synthetic_audio\clip_000111.wav|Hàng xóm của tôi rất tốt bụng và thân thiện.|0
+D:\vits2\data\synthetic_audio\clip_000288.wav|Địa chất học giúp hiểu cấu trúc bên trong của trái đất.|0
+D:\vits2\data\synthetic_audio\clip_000507.wav|Một ki-lô-gam bằng một nghìn gam.|0
+D:\vits2\data\synthetic_audio\clip_000297.wav|Chuỗi khối đang được nghiên cứu ứng dụng trong tài chính và y tế.|0
+D:\vits2\data\synthetic_audio\clip_000191.wav|Các trường tư thục ngày càng đầu tư cơ sở vật chất hiện đại.|0
+D:\vits2\data\synthetic_audio\clip_000408.wav|Tôi giặt quần áo vào mỗi buổi sáng Chủ Nhật.|0
+D:\vits2\data\synthetic_audio\clip_000407.wav|Máy tính lượng tử hứa hẹn sẽ giải quyết các bài toán phức tạp trong tương lai.|0
+D:\vits2\data\synthetic_audio\clip_000236.wav|Tấm pin mặt trời gắn trên mái nhà cung cấp điện cho sinh hoạt gia đình.|0
+D:\vits2\data\synthetic_audio\clip_000042.wav|Tôi là lập trình viên.|0
+D:\vits2\data\synthetic_audio\clip_000485.wav|Nền tảng streaming video phủ sóng kho nội dung khổng lồ mọi thể loại.|0
+D:\vits2\data\synthetic_audio\clip_000398.wav|Áo dài Việt Nam được UNESCO công nhận là trang phục truyền thống quý giá.|0
+D:\vits2\data\synthetic_audio\clip_000035.wav|Phỏng vấn xin việc đòi hỏi sự chuẩn bị kỹ càng và tự tin.|0
+D:\vits2\data\synthetic_audio\clip_000549.wav|Tôi vừa đi chợ về, mua được nhiều hoa quả tươi.|0
+D:\vits2\data\synthetic_audio\clip_000068.wav|Huấn luyện thể lực toàn diện giúp cầu thủ duy trì phong độ suốt mùa giải.|0
+D:\vits2\data\synthetic_audio\clip_000257.wav|Quang phổ ánh sáng mặt trời gồm bảy màu cầu vồng cơ bản.|0
+D:\vits2\data\synthetic_audio\clip_000469.wav|Tên bạn là gì?|0
+D:\vits2\data\synthetic_audio\clip_000057.wav|Internet vạn vật kết nối hàng tỉ thiết bị trên toàn thế giới.|0
+D:\vits2\data\synthetic_audio\clip_000141.wav|Ổ bánh mì vừa ra lò thơm lắm.|0
+D:\vits2\data\synthetic_audio\clip_000533.wav|Hạt dinh dưỡng như óc chó và hạnh nhân tốt cho não bộ và hệ tim mạch.|0
+D:\vits2\data\synthetic_audio\clip_000264.wav|Cá hồi giàu omega ba giúp bảo vệ tim mạch và phát triển trí não.|0
+D:\vits2\data\synthetic_audio\clip_000263.wav|Rượu cần Tây Nguyên uống trong dịp lễ hội của đồng bào dân tộc.|0
+D:\vits2\data\synthetic_audio\clip_000528.wav|Vắc-xin kích thích hệ miễn dịch tạo kháng thể chống bệnh hiệu quả.|0
+D:\vits2\data\synthetic_audio\clip_000514.wav|Bạn làm nghề gì?|0
+D:\vits2\data\synthetic_audio\clip_000352.wav|Ấm đun nước sôi rồi, bạn uống trà nhé.|0
+D:\vits2\data\synthetic_audio\clip_000161.wav|Nền tảng số giúp nông dân tiếp cận thị trường và thông tin giá cả.|0
+D:\vits2\data\synthetic_audio\clip_000202.wav|Cơm niêu đất Bình Dương cháy vàng thơm ăn với cá kho và canh chua.|0
+D:\vits2\data\synthetic_audio\clip_000204.wav|Bình nóng lạnh của nhà bị hỏng, tắm nước lạnh khó chịu quá.|0
+D:\vits2\data\synthetic_audio\clip_000067.wav|Tôi đang sửa lại cái ghế bị gãy chân.|0
+D:\vits2\data\synthetic_audio\clip_000569.wav|Chuyến bay khởi hành lúc sáu giờ sáng và đến nơi lúc tám giờ.|0
+D:\vits2\data\synthetic_audio\clip_000175.wav|Bản đồ số được cập nhật liên tục nhờ dữ liệu từ người dùng đóng góp.|0
+D:\vits2\data\synthetic_audio\clip_000018.wav|Tôi có vợ và hai con.|0
+D:\vits2\data\synthetic_audio\clip_000313.wav|Bún chả Hà Nội ăn kèm với nem cuốn và rau thơm rất hấp dẫn.|0
+D:\vits2\data\synthetic_audio\clip_000219.wav|Tôi tắm nước nóng mỗi buổi tối trước khi ngủ.|0
+D:\vits2\data\synthetic_audio\clip_000493.wav|Bạn thích uống cà phê đen hay cà phê sữa?|0
+D:\vits2\data\synthetic_audio\clip_000073.wav|Thiên văn học quan sát các thiên thể bằng kính viễn vọng hiện đại.|0
+D:\vits2\data\synthetic_audio\clip_000334.wav|Chào buổi tối!|0
+D:\vits2\data\synthetic_audio\clip_000071.wav|Tôi mua vé phim qua mạng rất tiện lợi.|0
+D:\vits2\data\synthetic_audio\clip_000058.wav|Định luật vạn vật hấp dẫn do Newton phát hiện khi quan sát quả táo rơi.|0
+D:\vits2\data\synthetic_audio\clip_000351.wav|Pin nhiên liệu hydro sẽ là giải pháp năng lượng xanh trong tương lai.|0
+D:\vits2\data\synthetic_audio\clip_000074.wav|Bạn nên về nhà sớm khi trời sắp mưa.|0
+D:\vits2\data\synthetic_audio\clip_000119.wav|Bún riêu cua có vị chua của cà chua và bánh đậu hũ chiên.|0
+D:\vits2\data\synthetic_audio\clip_000532.wav|Căn phòng của tôi nhỏ nhưng được bài trí rất tinh tế.|0
+D:\vits2\data\synthetic_audio\clip_000425.wav|Lãi suất tiết kiệm mới được điều chỉnh theo chính sách tiền tệ.|0
+D:\vits2\data\synthetic_audio\clip_000444.wav|Chúng tôi hay chơi cầu lông vào sáng Chủ Nhật.|0
+D:\vits2\data\synthetic_audio\clip_000103.wav|Tôi đặt báo thức lúc năm rưỡi sáng.|0
+D:\vits2\data\synthetic_audio\clip_000000.wav|Người lao động có quyền nghỉ phép trong các ngày lễ quốc gia.|0
+D:\vits2\data\synthetic_audio\clip_000039.wav|Bà nội tôi hay kể chuyện ngày xưa rất hay.|0
+D:\vits2\data\synthetic_audio\clip_000443.wav|Cô giáo tận tâm hướng dẫn từng học sinh vượt qua khó khăn trong học tập.|0
+D:\vits2\data\synthetic_audio\clip_000087.wav|Áp suất khí quyển tiêu chuẩn là một át-mốt-phe.|0
+D:\vits2\data\synthetic_audio\clip_000477.wav|Màn hình gập đang trở thành xu hướng mới của điện thoại thông minh.|0
+D:\vits2\data\synthetic_audio\clip_000081.wav|Bảo hiểm xe máy bắt buộc phải có khi tham gia giao thông.|0
+D:\vits2\data\synthetic_audio\clip_000498.wav|Cầu thủ bóng đá Việt Nam đang ngày càng tiến bộ vượt bậc.|0
+D:\vits2\data\synthetic_audio\clip_000135.wav|Chúng tôi trao đổi sách với nhau trong nhóm bạn thân.|0
+D:\vits2\data\synthetic_audio\clip_000585.wav|Tôi tưới cây mỗi sáng trước khi đi làm.|0
+D:\vits2\data\synthetic_audio\clip_000108.wav|Đường phụ gia trong nước ngọt góp phần vào tình trạng béo phì ở trẻ em.|0
+D:\vits2\data\synthetic_audio\clip_000050.wav|Một ki-lô-mét bằng một nghìn mét.|0
+D:\vits2\data\synthetic_audio\clip_000032.wav|Tôi hai mươi lăm tuổi.|0
+D:\vits2\data\synthetic_audio\clip_000460.wav|Dữ liệu y tế số giúp bác sĩ theo dõi bệnh nhân từ xa.|0
+D:\vits2\data\synthetic_audio\clip_000554.wav|Bóng chuyền bãi biển đang được phát triển dọc theo chiều dài đất nước.|0
+D:\vits2\data\synthetic_audio\clip_000151.wav|Bệnh tim mạch là nguyên nhân tử vong hàng đầu trên toàn thế giới.|0
+D:\vits2\data\synthetic_audio\clip_000226.wav|Đàn bầu tạo ra những thanh âm tinh tế và rất đặc trưng của âm nhạc Việt.|0
+D:\vits2\data\synthetic_audio\clip_000516.wav|Ứng dụng học tiếng Anh qua trò chuyện với trí tuệ nhân tạo rất hiệu quả.|0
+D:\vits2\data\synthetic_audio\clip_000382.wav|Đua xe đạp địa hình thu hút nhiều người trẻ yêu thích thể thao mạo hiểm.|0
+D:\vits2\data\synthetic_audio\clip_000405.wav|Cá nướng trui đồng bằng Nam Bộ ăn kèm rau sống và mắm gừng.|0
+D:\vits2\data\synthetic_audio\clip_000117.wav|Tôi đặt phòng khách sạn qua ứng dụng trên điện thoại.|0
+D:\vits2\data\synthetic_audio\clip_000216.wav|Dữ liệu lớn giúp doanh nghiệp đưa ra quyết định chính xác hơn.|0
+D:\vits2\data\synthetic_audio\clip_000059.wav|Không hút thuốc lá giúp giảm nguy cơ mắc ung thư phổi đáng kể.|0
+D:\vits2\data\synthetic_audio\clip_000127.wav|Tôi học ở Đại học Bách Khoa.|0
+D:\vits2\data\synthetic_audio\clip_000410.wav|Hôm nay là ngày nghỉ nên tôi ngủ thêm một tiếng.|0
+D:\vits2\data\synthetic_audio\clip_000155.wav|Con tôi thích học vẽ và tô màu sau giờ học.|0
+D:\vits2\data\synthetic_audio\clip_000075.wav|Cờ vua là môn thể thao trí tuệ được giới trẻ Việt Nam yêu thích.|0
+D:\vits2\data\synthetic_audio\clip_000078.wav|Đường cao tốc Hà Nội - Hải Phòng dài khoảng một trăm mét.|0
+D:\vits2\data\synthetic_audio\clip_000304.wav|Phong Nha Kẻ Bàng là hệ thống hang động lớn nhất thế giới được khám phá.|0
+D:\vits2\data\synthetic_audio\clip_000037.wav|Bếp ga nhà tôi bị tắt đột ngột giữa chừng khi nấu.|0
+D:\vits2\data\synthetic_audio\clip_000298.wav|Giấc ngủ chất lượng rất cần thiết để vận động viên hồi phục sau thi đấu.|0
+D:\vits2\data\synthetic_audio\clip_000208.wav|Ánh sáng truyền trong chân không với vận tốc gần ba trăm nghìn ki-lô-mét mỗi giây.|0
+D:\vits2\data\synthetic_audio\clip_000033.wav|Nem Ninh Hòa nổi tiếng cả nước với vị chua thanh đặc biệt.|0
+D:\vits2\data\synthetic_audio\clip_000459.wav|Buổi tối chúng tôi hay ngồi tán gẫu trước sân.|0
+D:\vits2\data\synthetic_audio\clip_000589.wav|Lẩu mắm miền Tây đậm đà hương vị của đồng quê Nam Bộ.|0
+D:\vits2\data\synthetic_audio\clip_000499.wav|Visa điện tử cho phép nhập cảnh Việt Nam từ nhiều quốc gia trên thế giới.|0
+D:\vits2\data\synthetic_audio\clip_000496.wav|Các công ty công nghệ lớn đang cạnh tranh phát triển chip bán dẫn.|0
+D:\vits2\data\synthetic_audio\clip_000323.wav|Buổi tối chúng tôi thường xem phim cùng nhau.|0
+D:\vits2\data\synthetic_audio\clip_000371.wav|Siêu thị gần đây bán nhiều hàng giảm giá.|0
+D:\vits2\data\synthetic_audio\clip_000538.wav|Công nghệ mã hóa đầu cuối bảo vệ thông tin liên lạc cá nhân.|0
+D:\vits2\data\synthetic_audio\clip_000246.wav|Chúng tôi mua sắm quần áo mới để đón Tết.|0
+D:\vits2\data\synthetic_audio\clip_000531.wav|Sắt trong thịt đỏ rất cần thiết để ngăn ngừa bệnh thiếu máu.|0
+D:\vits2\data\synthetic_audio\clip_000146.wav|Nem lụi Huế nướng trên bếp than thơm ngon, ăn kèm bánh tráng.|0
+D:\vits2\data\synthetic_audio\clip_000296.wav|Trẻ em rất vui khi được lì xì tiền mới.|0
+D:\vits2\data\synthetic_audio\clip_000563.wav|Hệ thống điều khiển thông minh trong nhà tiết kiệm điện năng đáng kể.|0
+D:\vits2\data\synthetic_audio\clip_000521.wav|Điện tử mang điện tích âm và chuyển động xung quanh hạt nhân nguyên tử.|0
+D:\vits2\data\synthetic_audio\clip_000440.wav|Bánh mì Việt Nam nổi tiếng thế giới với lớp vỏ giòn và nhân đa dạng.|0
+D:\vits2\data\synthetic_audio\clip_000315.wav|Mầm non là bậc học quan trọng để hình thành nhân cách trẻ nhỏ.|0
+D:\vits2\data\synthetic_audio\clip_000152.wav|Xin chào, hôm nay bạn có khỏe không?|0
+D:\vits2\data\synthetic_audio\clip_000341.wav|Robot phục vụ tại nhà hàng đang được thử nghiệm ở nhiều nơi.|0
+D:\vits2\data\synthetic_audio\clip_000524.wav|Chúng tôi tổ chức liên hoan từ biệt cho đồng nghiệp chuyển công tác.|0
+D:\vits2\data\synthetic_audio\clip_000022.wav|Kiểm tra sức khỏe định kỳ giúp phát hiện bệnh sớm để điều trị kịp thời.|0
+D:\vits2\data\synthetic_audio\clip_000139.wav|Trống đồng Đông Sơn là biểu tượng văn minh của người Việt cổ đại.|0
+D:\vits2\data\synthetic_audio\clip_000590.wav|Tôi đang chờ xe buýt ở trạm gần nhà ga.|0
+D:\vits2\data\synthetic_audio\clip_000274.wav|Mũ bảo hiểm bảo vệ đầu khi đi xe máy hoặc xe đạp.|0
+D:\vits2\data\synthetic_audio\clip_000008.wav|Trợ lý học tập dựa trên trí tuệ nhân tạo cá nhân hóa lộ trình học cho học sinh.|0
+D:\vits2\data\synthetic_audio\clip_000435.wav|Cảm ơn bạn rất nhiều.|0
+D:\vits2\data\synthetic_audio\clip_000092.wav|Địa lý học giúp hiểu về cảnh quan thiên nhiên và phân bố địa lý thế giới.|0
+D:\vits2\data\synthetic_audio\clip_000185.wav|Ứng dụng học ngôn ngữ trên điện thoại được hàng triệu người sử dụng.|0
+D:\vits2\data\synthetic_audio\clip_000115.wav|Số pi xấp xỉ bằng ba chấm một bốn.|0
+D:\vits2\data\synthetic_audio\clip_000153.wav|Nhà máy số áp dụng công nghệ song sinh kỹ thuật số để tối ưu sản xuất.|0
+D:\vits2\data\synthetic_audio\clip_000100.wav|Bạn nên mặc áo khoác khi trời se lạnh.|0
+D:\vits2\data\synthetic_audio\clip_000583.wav|Thuật toán gợi ý nội dung cá nhân hóa trải nghiệm người dùng.|0
+D:\vits2\data\synthetic_audio\clip_000145.wav|Chúng tôi thường đi ăn ngoài vào cuối tuần.|0
+D:\vits2\data\synthetic_audio\clip_000372.wav|Văn phòng mới rộng rãi và trang bị đầy đủ thiết bị làm việc hiện đại.|0
+D:\vits2\data\synthetic_audio\clip_000268.wav|Yoga và pilates ngày càng được nhiều phụ nữ Việt Nam lựa chọn tập luyện.|0
+D:\vits2\data\synthetic_audio\clip_000302.wav|Robot công nghiệp thay thế nhiều khâu sản xuất thủ công.|0
+D:\vits2\data\synthetic_audio\clip_000580.wav|Thịt kho hột vịt ngày Tết là món ăn gia truyền không thể thiếu.|0
+D:\vits2\data\synthetic_audio\clip_000458.wav|Thi cử công bằng là nền tảng để đánh giá năng lực học sinh chính xác.|0
+D:\vits2\data\synthetic_audio\clip_000110.wav|Tôi hay đọc tin tức vào buổi sáng trong lúc uống cà phê.|0
+D:\vits2\data\synthetic_audio\clip_000565.wav|Màn hình cảm ứng lớn thay thế bảng đen truyền thống trong lớp học.|0
+D:\vits2\data\synthetic_audio\clip_000096.wav|Chúng tôi đặt đồ ăn qua ứng dụng trên điện thoại.|0
+D:\vits2\data\synthetic_audio\clip_000276.wav|Miễn dịch học nghiên cứu hệ thống phòng thủ tự nhiên của cơ thể.|0
+D:\vits2\data\synthetic_audio\clip_000329.wav|Xoài cát Hòa Lộc Tiền Giang ngọt lịm nổi tiếng cả nước.|0
+D:\vits2\data\synthetic_audio\clip_000164.wav|Hệ thống tưới tiêu thông minh tiết kiệm nước cho nông nghiệp.|0
+D:\vits2\data\synthetic_audio\clip_000101.wav|Tôi nhờ hàng xóm trông nhà giúp khi đi vắng.|0
+D:\vits2\data\synthetic_audio\clip_000431.wav|Huyết áp cao là nguyên nhân hàng đầu gây đột quỵ và bệnh tim.|0
+D:\vits2\data\synthetic_audio\clip_000118.wav|Chế độ dinh dưỡng khoa học giúp vận động viên tăng cơ và phục hồi nhanh.|0
+D:\vits2\data\synthetic_audio\clip_000129.wav|Hệ mặt trời gồm tám hành tinh xoay quanh ngôi sao trung tâm.|0
+D:\vits2\data\synthetic_audio\clip_000346.wav|Trí tuệ nhân tạo giúp chẩn đoán bệnh nhanh và chính xác hơn.|0
+D:\vits2\data\synthetic_audio\clip_000402.wav|Chè khúc bạch mát lạnh giải nhiệt rất được ưa chuộng mùa hè.|0
+D:\vits2\data\synthetic_audio\clip_000233.wav|Hóa sinh học kết hợp kiến thức hóa học và sinh học để nghiên cứu sự sống.|0
+D:\vits2\data\synthetic_audio\clip_000181.wav|Môi trường học tập tích cực giúp học sinh phát huy tối đa tiềm năng.|0
+D:\vits2\data\synthetic_audio\clip_000527.wav|Múa bóng rỗi miền Nam mang yếu tố tâm linh và nghệ thuật độc đáo.|0
+D:\vits2\data\synthetic_audio\clip_000571.wav|Trời mưa to, bạn nhớ mang ô nhé.|0
+D:\vits2\data\synthetic_audio\clip_000218.wav|Trọng lực trên mặt trăng yếu hơn trái đất khoảng sáu lần.|0
+D:\vits2\data\synthetic_audio\clip_000177.wav|Năng lượng và khối lượng có mối quan hệ mô tả bởi công thức nổi tiếng của Einstein.|0
+D:\vits2\data\synthetic_audio\clip_000273.wav|Nhiệt năng truyền từ vật nóng sang vật lạnh cho đến khi cân bằng nhiệt.|0
+D:\vits2\data\synthetic_audio\clip_000577.wav|Học sinh giỏi cần được khuyến khích tham gia các kỳ thi cấp quốc gia.|0
+D:\vits2\data\synthetic_audio\clip_000475.wav|Lẩu thái chua cay là món ăn được ưa chuộng tại các buổi tụ họp.|0
+D:\vits2\data\synthetic_audio\clip_000513.wav|Vi khuẩn và vi rút là hai nguyên nhân chính gây bệnh truyền nhiễm.|0
+D:\vits2\data\synthetic_audio\clip_000300.wav|Nhiệt độ nước đóng băng ở không độ C.|0
+D:\vits2\data\synthetic_audio\clip_000338.wav|Canh khổ qua nhồi thịt là món ăn truyền thống ngày Tết miền Nam.|0
+D:\vits2\data\synthetic_audio\clip_000558.wav|Bạn đã ăn trưa chưa?|0
+D:\vits2\data\synthetic_audio\clip_000387.wav|Một trăm trừ ba mươi bảy bằng sáu mươi ba.|0
+D:\vits2\data\synthetic_audio\clip_000209.wav|Ốc luộc chấm gừng là món nhậu dân dã được nhiều người ưa thích.|0
+D:\vits2\data\synthetic_audio\clip_000114.wav|Chúc mừng sinh nhật!|0
+D:\vits2\data\synthetic_audio\clip_000150.wav|Thiên thạch mang thông tin quý giá về nguồn gốc của hệ mặt trời.|0
+D:\vits2\data\synthetic_audio\clip_000046.wav|Đổi tiền tại ngân hàng an toàn và có tỷ giá cạnh tranh hơn.|0
+D:\vits2\data\synthetic_audio\clip_000009.wav|Bạn học ở trường nào?|0
+D:\vits2\data\synthetic_audio\clip_000230.wav|Cà phê trứng Hà Nội là thức uống độc đáo mang bản sắc riêng.|0
+D:\vits2\data\synthetic_audio\clip_000251.wav|Bạn có gia đình không?|0
+D:\vits2\data\synthetic_audio\clip_000330.wav|Đội tuyển bóng đá quốc gia giành chiến thắng trong trận chung kết lịch sử.|0
+D:\vits2\data\synthetic_audio\clip_000245.wav|Vitamin C trong cam quýt giúp tăng sức đề kháng và sáng da.|0
+D:\vits2\data\synthetic_audio\clip_000442.wav|Phần mềm thiết kế kiến trúc ba chiều rút ngắn thời gian quy hoạch.|0
+D:\vits2\data\synthetic_audio\clip_000364.wav|An ninh mạng là vấn đề cấp thiết trong thời đại số.|0
+D:\vits2\data\synthetic_audio\clip_000574.wav|Bánh căn Phan Rang nướng trên bếp than nóng hổi thật hấp dẫn.|0
+D:\vits2\data\synthetic_audio\clip_000417.wav|Đề tài nghiên cứu khoa học của học sinh trung học đạt giải quốc gia bất ngờ.|0
+D:\vits2\data\synthetic_audio\clip_000207.wav|Internet tốc độ cao đã phủ sóng đến nhiều vùng nông thôn.|0
+D:\vits2\data\synthetic_audio\clip_000124.wav|Chuyển khoản ngân hàng qua ứng dụng di động nhanh chóng và an toàn.|0
+D:\vits2\data\synthetic_audio\clip_000044.wav|Côn Đảo biển xanh cát trắng bảo tồn nhiều loài sinh vật biển quý hiếm.|0
+D:\vits2\data\synthetic_audio\clip_000098.wav|Tôi đã quét nhà và lau bàn ghế xong rồi.|0
+D:\vits2\data\synthetic_audio\clip_000265.wav|Ăn đủ bữa sáng và không bỏ qua các bữa phụ giúp kiểm soát cơn đói.|0
+D:\vits2\data\synthetic_audio\clip_000005.wav|Cá vàng trong bể nước bơi lội rất đẹp mắt.|0
+D:\vits2\data\synthetic_audio\clip_000285.wav|Tôi bỏ quên ô ở trên xe buýt hôm qua.|0
+D:\vits2\data\synthetic_audio\clip_000584.wav|Bố tôi làm kỹ sư, mẹ tôi là giáo viên.|0
+D:\vits2\data\synthetic_audio\clip_000359.wav|Robot lau sàn nhà tự động được sử dụng phổ biến trong các gia đình thành thị.|0
+D:\vits2\data\synthetic_audio\clip_000541.wav|Kỳ thi đại học là bước ngoặt quan trọng trong cuộc đời học sinh.|0
+D:\vits2\data\synthetic_audio\clip_000143.wav|Phòng thí nghiệm hiện đại giúp học sinh thực hành và kiểm chứng lý thuyết.|0
+D:\vits2\data\synthetic_audio\clip_000418.wav|Phở bò Hà Nội có nước dùng trong, ngọt và thơm đặc trưng.|0
+D:\vits2\data\synthetic_audio\clip_000133.wav|Drone được dùng để giao hàng và kiểm tra hạ tầng từ trên cao.|0
+D:\vits2\data\synthetic_audio\clip_000182.wav|Hai cộng hai bằng bốn.|0
+D:\vits2\data\synthetic_audio\clip_000109.wav|Đường Trường Sơn từ Bắc vào Nam dài gần hai nghìn ki-lô-mét.|0
+D:\vits2\data\synthetic_audio\clip_000252.wav|Tôi đặt hàng online và được giao hàng tận nơi.|0
+D:\vits2\data\synthetic_audio\clip_000094.wav|Bóng rổ ngày càng được nhiều bạn trẻ yêu thích và luyện tập.|0
+D:\vits2\data\synthetic_audio\clip_000166.wav|Đại học Quốc gia Hà Nội đào tạo nhiều ngành khoa học hàng đầu.|0
+D:\vits2\data\synthetic_audio\clip_000575.wav|Robot phẫu thuật hỗ trợ bác sĩ thực hiện ca mổ phức tạp hơn.|0
+D:\vits2\data\synthetic_audio\clip_000016.wav|Làm việc nhóm hiệu quả đòi hỏi kỹ năng giao tiếp và phối hợp tốt.|0
+D:\vits2\data\synthetic_audio\clip_000512.wav|Gốm Bát Tràng nổi tiếng hàng trăm năm với nghề gốm thủ công truyền thống.|0
+D:\vits2\data\synthetic_audio\clip_000508.wav|Học ngoại ngữ mở ra cơ hội kết nối với thế giới và thu nhập tốt hơn.|0
+D:\vits2\data\synthetic_audio\clip_000476.wav|Uống nước ấm chanh mật ong buổi sáng giúp thải độc và tăng sức đề kháng.|0
+D:\vits2\data\synthetic_audio\clip_000311.wav|Vâng, tôi đồng ý.|0
+D:\vits2\data\synthetic_audio\clip_000291.wav|Giá điện tháng này tăng cao hơn tháng trước.|0
+D:\vits2\data\synthetic_audio\clip_000240.wav|Tôi đang chuẩn bị hành lý cho chuyến đi cuối tuần.|0
+D:\vits2\data\synthetic_audio\clip_000385.wav|Phần mềm dịch thuật tự động ngày càng cải thiện về độ chính xác.|0
+D:\vits2\data\synthetic_audio\clip_000439.wav|Một năm có ba trăm sáu mươi lăm ngày.|0
+D:\vits2\data\synthetic_audio\clip_000232.wav|Hệ thống quản lý chất lượng số giúp doanh nghiệp đạt chứng nhận quốc tế.|0
+D:\vits2\data\synthetic_audio\clip_000506.wav|Camera phân giải cao được lắp đặt tại các giao lộ lớn.|0
+D:\vits2\data\synthetic_audio\clip_000045.wav|Trời nắng và nhiệt độ khoảng ba mươi độ C.|0
+D:\vits2\data\synthetic_audio\clip_000128.wav|Một tuần có bảy ngày.|0
+D:\vits2\data\synthetic_audio\clip_000168.wav|Không sử dụng điện thoại khi đang lái xe.|0
+D:\vits2\data\synthetic_audio\clip_000140.wav|Giáo viên cần liên tục cập nhật phương pháp giảng dạy theo xu hướng mới.|0
+D:\vits2\data\synthetic_audio\clip_000445.wav|Xe tự lái đang được thử nghiệm trên các tuyến đường đặc thù.|0
+D:\vits2\data\synthetic_audio\clip_000374.wav|Học tiếng Anh từ nhỏ mang lại nhiều lợi thế trong thời đại hội nhập.|0
+D:\vits2\data\synthetic_audio\clip_000225.wav|Bạn bao nhiêu tuổi?|0
+D:\vits2\data\synthetic_audio\clip_000472.wav|Nghề đúc đồng Đại Bái Bắc Ninh tồn tại hàng trăm năm qua nhiều thế hệ.|0
+D:\vits2\data\synthetic_audio\clip_000247.wav|Giáo dục hướng nghiệp giúp học sinh lựa chọn nghề nghiệp phù hợp.|0
+D:\vits2\data\synthetic_audio\clip_000397.wav|Nón lá là biểu tượng văn hóa gắn liền với hình ảnh người phụ nữ Việt.|0
+D:\vits2\data\synthetic_audio\clip_000275.wav|Ba nhân năm bằng mười lăm.|0
+D:\vits2\data\synthetic_audio\clip_000317.wav|Hôm nay tôi đi làm bằng xe máy.|0
+D:\vits2\data\synthetic_audio\clip_000519.wav|Vận động viên điền kinh Việt Nam phá kỷ lục quốc gia trong cuộc thi.|0
+D:\vits2\data\synthetic_audio\clip_000579.wav|Muối tiêu chanh là gia vị đơn giản làm tăng hương vị nhiều món ăn.|0
+D:\vits2\data\synthetic_audio\clip_000267.wav|Tôi học nấu mì quảng theo công thức của mẹ.|0
+D:\vits2\data\synthetic_audio\clip_000375.wav|Nguyên tử là đơn vị nhỏ nhất của một nguyên tố hóa học.|0
+D:\vits2\data\synthetic_audio\clip_000091.wav|Được rồi, cảm ơn.|0
+D:\vits2\data\synthetic_audio\clip_000224.wav|Hệ thống camera giám sát thông minh giúp nâng cao an ninh đô thị.|0
+D:\vits2\data\synthetic_audio\clip_000552.wav|Bánh ít lá gai Bình Định có vị thơm từ lá gai và nhân dừa đặc trưng.|0
+D:\vits2\data\synthetic_audio\clip_000360.wav|Phần mềm quản lý doanh nghiệp đang được nâng cấp toàn diện.|0
+D:\vits2\data\synthetic_audio\clip_000237.wav|Giỏ hàng của tôi có cam, táo và chuối.|0
+D:\vits2\data\synthetic_audio\clip_000326.wav|Đèn xanh cho phép đi, đèn đỏ bắt buộc phải dừng lại.|0
+D:\vits2\data\synthetic_audio\clip_000186.wav|Ngày Tết cả nhà quây quần bên mâm cỗ rất ấm cúng.|0
+D:\vits2\data\synthetic_audio\clip_000222.wav|Tôi thường nghe nhạc trong lúc nấu ăn.|0
+D:\vits2\data\synthetic_audio\clip_000056.wav|Các mẫu khí cổ trong lõi băng tiết lộ lịch sử khí hậu trái đất.|0
+D:\vits2\data\synthetic_audio\clip_000250.wav|Lụa Vạn Phúc Hà Nội dệt thủ công từ tơ tằm rất mềm mại và sang trọng.|0
+D:\vits2\data\synthetic_audio\clip_000502.wav|Quang hợp là quá trình cây xanh chuyển hóa năng lượng mặt trời thành thức ăn.|0
+D:\vits2\data\synthetic_audio\clip_000542.wav|Cơm hến Huế là món nghèo nhưng mang hương vị đậm đà khó quên.|0
+D:\vits2\data\synthetic_audio\clip_000174.wav|Hệ thống thanh toán QR code được chấp nhận rộng rãi tại Việt Nam.|0
+D:\vits2\data\synthetic_audio\clip_000333.wav|Chúng tôi hay đi bơi ở hồ bơi công cộng gần nhà.|0
+D:\vits2\data\synthetic_audio\clip_000258.wav|Mô hình học sâu đạt độ chính xác vượt trội trong nhận dạng hình ảnh.|0
+D:\vits2\data\synthetic_audio\clip_000587.wav|Khoa học thần kinh nghiên cứu cấu trúc và chức năng của não bộ.|0
+D:\vits2\data\synthetic_audio\clip_000190.wav|Tôi thích đọc sách trước khi đi ngủ.|0
+D:\vits2\data\synthetic_audio\clip_000553.wav|Nước biển mặn do chứa nhiều muối natri clorua hòa tan.|0
+D:\vits2\data\synthetic_audio\clip_000555.wav|Gym hiện đại có nhiều loại máy tập giúp bài tập đa dạng và hiệu quả.|0
+D:\vits2\data\synthetic_audio\clip_000271.wav|Tôm hùm nướng bơ tỏi là món hải sản cao cấp rất được ưa chuộng.|0
+D:\vits2\data\synthetic_audio\clip_000178.wav|Chơi bóng bàn giải trí là hoạt động phổ biến trong các khu tập thể cũ.|0
+D:\vits2\data\synthetic_audio\clip_000021.wav|Công nghệ sinh trắc học được ứng dụng trong bảo mật và kiểm soát truy cập.|0
+D:\vits2\data\synthetic_audio\clip_000401.wav|Cảm biến thông minh theo dõi sức khỏe liên tục trên đồng hồ tay.|0
+D:\vits2\data\synthetic_audio\clip_000292.wav|Hãy thắt dây an toàn khi ngồi trên ô tô.|0
+D:\vits2\data\synthetic_audio\clip_000409.wav|Xôi xéo Hà Nội với đậu xanh nghiền và hành phi vàng rất hấp dẫn.|0
+D:\vits2\data\synthetic_audio\clip_000061.wav|Máy lạnh nhà tôi bị hỏng, cần gọi thợ đến sửa.|0
+D:\vits2\data\synthetic_audio\clip_000413.wav|Ô tô điện ngày càng phổ biến ở các đô thị lớn Việt Nam.|0
+D:\vits2\data\synthetic_audio\clip_000307.wav|Cá kho tộ sốt nước dừa đặc trệt là đặc sản miền Tây.|0
+D:\vits2\data\synthetic_audio\clip_000350.wav|Olympic Paris năm hai nghìn hai mươi bốn có nhiều huy chương cho Đông Nam Á.|0
+D:\vits2\data\synthetic_audio\clip_000561.wav|Giáo dục là nền tảng quan trọng để phát triển đất nước bền vững.|0
+D:\vits2\data\synthetic_audio\clip_000395.wav|Hiệu ứng nhà kính gây ra sự nóng lên toàn cầu và biến đổi khí hậu.|0
+D:\vits2\data\synthetic_audio\clip_000355.wav|Buổi tối mùa đông trời lạnh, tôi hay cuộn chăn xem phim.|0
+D:\vits2\data\synthetic_audio\clip_000051.wav|Thiền định và yoga giúp kiểm soát căng thẳng và cải thiện sức khỏe tâm lý.|0
+D:\vits2\data\synthetic_audio\clip_000125.wav|Sáng kiến cải tiến trong giáo dục giúp nâng cao chất lượng dạy và học.|0
+D:\vits2\data\synthetic_audio\clip_000324.wav|Máy phát điện năng lượng tái tạo giảm phụ thuộc vào nhiên liệu hóa thạch.|0
+D:\vits2\data\synthetic_audio\clip_000504.wav|Buổi chiều tôi thường đi bộ trong công viên.|0
+D:\vits2\data\synthetic_audio\clip_000354.wav|Yoga thiên nhiên ngoài trời buổi sáng sớm mang lại cảm giác sảng khoái.|0
+D:\vits2\data\synthetic_audio\clip_000303.wav|Võ cổ truyền Việt Nam được truyền dạy và gìn giữ qua nhiều thế hệ.|0
+D:\vits2\data\synthetic_audio\clip_000038.wav|Bánh chưng là biểu tượng không thể thiếu trong mâm cỗ ngày Tết.|0
+D:\vits2\data\synthetic_audio\clip_000102.wav|Gỏi cuốn là món ăn nhẹ, thanh mát, cuốn từ bánh tráng tươi.|0
+D:\vits2\data\synthetic_audio\clip_000367.wav|Các câu lạc bộ học thuật giúp học sinh mở rộng kiến thức ngoài chương trình.|0
+D:\vits2\data\synthetic_audio\clip_000203.wav|Tôi giặt chăn gối cho sạch sẽ vào mỗi cuối tuần.|0
+D:\vits2\data\synthetic_audio\clip_000193.wav|Cây xanh trong nhà làm không khí trở nên trong lành hơn.|0
+D:\vits2\data\synthetic_audio\clip_000348.wav|Tôi cần mua thêm gạo và dầu ăn.|0
+D:\vits2\data\synthetic_audio\clip_000294.wav|Chúng tôi nuôi một chú thỏ trắng làm thú cưng.|0
+D:\vits2\data\synthetic_audio\clip_000455.wav|Năng lượng mặt trời đang được ứng dụng rộng rãi tại các khu công nghiệp.|0
+D:\vits2\data\synthetic_audio\clip_000013.wav|Nền tảng học trực tuyến thu hút hàng triệu học viên trên toàn quốc.|0
+D:\vits2\data\synthetic_audio\clip_000295.wav|Trái đất có đường kính khoảng mười hai nghìn bảy trăm ki-lô-mét.|0
+D:\vits2\data\synthetic_audio\clip_000054.wav|Hôm nay là thứ Hai ngày một tháng giêng.|0
+D:\vits2\data\synthetic_audio\clip_000159.wav|Tuần tới tôi có buổi họp quan trọng.|0
+D:\vits2\data\synthetic_audio\clip_000082.wav|Vật lý lượng tử khám phá bản chất của vật chất ở cấp độ hạt nhân.|0
+D:\vits2\data\synthetic_audio\clip_000419.wav|Cây xanh hít vào khí cacbonic và thải ra khí oxy khi quang hợp.|0
+D:\vits2\data\synthetic_audio\clip_000530.wav|Bài tập kéo giãn giúp tăng sự dẻo dai và ngăn ngừa chấn thương khi tập.|0
+D:\vits2\data\synthetic_audio\clip_000520.wav|Giáo viên là nghề cao quý, được xã hội trân trọng và kính nể.|0
+D:\vits2\data\synthetic_audio\clip_000366.wav|Tôi đặt vé máy bay từ Hà Nội đến thành phố Hồ Chí Minh.|0
+D:\vits2\data\synthetic_audio\clip_000384.wav|Giải chạy bộ đường phố thu hút hàng nghìn người tham gia mỗi năm.|0
+D:\vits2\data\synthetic_audio\clip_000463.wav|Tôi thắp hương cúng tổ tiên vào các dịp lễ quan trọng.|0
+D:\vits2\data\synthetic_audio\clip_000310.wav|Chính phủ đầu tư mạnh vào hạ tầng số và chuyển đổi số.|0
+D:\vits2\data\synthetic_audio\clip_000522.wav|Xin chào!|0
+D:\vits2\data\synthetic_audio\clip_000187.wav|Hủ tiếu Nam Vang có nước lèo ngọt thanh với nhiều loại topping.|0
+D:\vits2\data\synthetic_audio\clip_000560.wav|Cua rơ xe đạp Việt Nam thi đấu ấn tượng trên đường đua quốc tế.|0
+D:\vits2\data\synthetic_audio\clip_000131.wav|Taekwondo giúp rèn luyện thể lực, kỷ luật và tinh thần tự bảo vệ.|0
+D:\vits2\data\synthetic_audio\clip_000358.wav|Báo cáo tháng cần được nộp trước ngày ba mươi mỗi tháng.|0
+D:\vits2\data\synthetic_audio\clip_000239.wav|Nguyên lý đòn bẩy giúp nhân lực tác dụng lên vật thể nặng.|0
+D:\vits2\data\synthetic_audio\clip_000113.wav|Bạn đến từ đâu?|0
+D:\vits2\data\synthetic_audio\clip_000289.wav|Hệ thống quản lý giao thông thông minh giảm thiểu ùn tắc đô thị.|0
+D:\vits2\data\synthetic_audio\clip_000060.wav|Kẽm hỗ trợ hệ miễn dịch và rất cần thiết cho sự phát triển của trẻ.|0
+D:\vits2\data\synthetic_audio\clip_000344.wav|Học sinh cần được học theo lối tư duy dự án thay vì ghi nhớ máy móc.|0
+D:\vits2\data\synthetic_audio\clip_000242.wav|Lịch sử giúp thế hệ trẻ hiểu nguồn gốc và bài học quý giá của dân tộc.|0
+D:\vits2\data\synthetic_audio\clip_000063.wav|Thủy lợi miền Bắc xây dựng từ thời Lý Trần để phục vụ canh tác lúa nước.|0
+D:\vits2\data\synthetic_audio\clip_000123.wav|Hôm nay là sinh nhật của mẹ tôi.|0
+D:\vits2\data\synthetic_audio\clip_000079.wav|Chúng tôi trồng rau sạch ở ban công.|0
+D:\vits2\data\synthetic_audio\clip_000321.wav|Một giờ bằng sáu mươi phút.|0
+D:\vits2\data\synthetic_audio\clip_000010.wav|Tôi cần đổ xăng cho xe máy trước khi đi.|0
+D:\vits2\data\synthetic_audio\clip_000540.wav|Nền giáo dục Phần Lan được đánh giá là tốt nhất thế giới nhiều năm liên tiếp.|0
+D:\vits2\data\synthetic_audio\clip_000104.wav|Điêu khắc đá Chăm Pa tại Mỹ Sơn mang vẻ đẹp huyền bí ngàn năm.|0
+D:\vits2\data\synthetic_audio\clip_000126.wav|Thể dục hàng ngày giúp người lớn tuổi duy trì sức khỏe và sự linh hoạt.|0
+D:\vits2\data\synthetic_audio\clip_000014.wav|Chất xơ trong rau và ngũ cốc nguyên cám hỗ trợ hệ tiêu hóa khỏe mạnh.|0
+D:\vits2\data\synthetic_audio\clip_000386.wav|Hóa đơn điện nước được thanh toán tự động qua tài khoản ngân hàng.|0
+D:\vits2\data\synthetic_audio\clip_000546.wav|Tự học là kỹ năng thiết yếu trong thời đại thông tin bùng nổ như hiện nay.|0
+D:\vits2\data\synthetic_audio\clip_000336.wav|Siêu máy tính xử lý mô phỏng khí hậu và dự báo thời tiết dài hạn.|0
+D:\vits2\data\synthetic_audio\clip_000539.wav|Vịnh Hạ Long với hàng ngàn đảo đá vôi là thắng cảnh thiên nhiên kỳ diệu.|0
+D:\vits2\data\synthetic_audio\clip_000036.wav|Bạn ơi, mình có thể gặp nhau chiều nay không?|0
+D:\vits2\data\synthetic_audio\clip_000331.wav|Hệ thống nhận dạng ký tự quang học chuyển đổi tài liệu giấy sang số.|0
+D:\vits2\data\synthetic_audio\clip_000116.wav|Hệ thống điện thông minh tự động điều chỉnh tải trong lưới điện.|0
+D:\vits2\data\synthetic_audio\clip_000179.wav|Ứng dụng đặt lịch khám bệnh trực tuyến giúp tiết kiệm thời gian chờ đợi.|0
+D:\vits2\data\synthetic_audio\clip_000503.wav|Bơi lội là môn thể thao rèn luyện toàn diện cơ thể rất tốt.|0
+D:\vits2\data\synthetic_audio\clip_000026.wav|Chúng tôi mua bảo hiểm nhân thọ cho cả gia đình.|0
+D:\vits2\data\synthetic_audio\clip_000277.wav|Nghiên cứu gen giúp hiểu rõ hơn về bệnh tật và cách điều trị mới.|0
+D:\vits2\data\synthetic_audio\clip_000383.wav|Hôm nay tôi ra chợ mua rau và thịt.|0
+D:\vits2\data\synthetic_audio\clip_000007.wav|Thánh địa Mỹ Sơn mang dấu ấn kiến trúc Hindu giáo của vương quốc Chăm Pa.|0
+D:\vits2\data\synthetic_audio\clip_000567.wav|Bánh xèo miền Nam đổ giòn với nhân tôm, thịt và giá đỗ.|0
+D:\vits2\data\synthetic_audio\clip_000041.wav|Robot logistics tự động hóa quy trình kho vận và phân loại hàng hóa.|0
+D:\vits2\data\synthetic_audio\clip_000427.wav|Uống đủ nước mỗi ngày rất tốt cho da và chức năng cơ thể.|0
+D:\vits2\data\synthetic_audio\clip_000132.wav|Sầu riêng Ri sáu Cái Mơn béo ngậy và thơm nức mũi.|0
+D:\vits2\data\synthetic_audio\clip_000215.wav|Không, tôi không đồng ý.|0
+D:\vits2\data\synthetic_audio\clip_000551.wav|Tỷ giá đô la Mỹ đang ở mức cao trong những tuần gần đây.|0
+D:\vits2\data\synthetic_audio\clip_000489.wav|Tôi tặng mẹ một bó hoa hồng đỏ thắm.|0
+D:\vits2\data\synthetic_audio\clip_000388.wav|Thương mại điện tử đang bùng nổ ở các nước Đông Nam Á.|0
+D:\vits2\data\synthetic_audio\clip_000142.wav|Học máy được ứng dụng trong nhiều lĩnh vực của cuộc sống.|0
+D:\vits2\data\synthetic_audio\clip_000196.wav|Đà Lạt thành phố ngàn hoa mát mẻ quanh năm là thiên đường du lịch.|0
+D:\vits2\data\synthetic_audio\clip_000572.wav|Xe máy điện đang dần thay thế xe xăng tại các đô thị lớn Việt Nam.|0
+D:\vits2\data\synthetic_audio\clip_000545.wav|Dinh dưỡng cho trẻ nhỏ cần đủ đạm, tinh bột, chất béo và vi chất.|0
+D:\vits2\data\synthetic_audio\clip_000173.wav|Bạn nên uống đủ nước mỗi ngày để tốt cho sức khỏe.|0
+D:\vits2\data\synthetic_audio\clip_000167.wav|Nhà bạn ở đâu?|0
+D:\vits2\data\synthetic_audio\clip_000468.wav|Chuyển đổi số trong giáo dục tạo cơ hội học tập cho học sinh mọi vùng miền.|0
+D:\vits2\data\synthetic_audio\clip_000214.wav|Điện thoại của tôi hết pin, cần sạc ngay.|0
+D:\vits2\data\synthetic_audio\clip_000337.wav|Trái cây nhiệt đới Việt Nam rất phong phú và tươi ngon quanh năm.|0
+D:\vits2\data\synthetic_audio\clip_000389.wav|Thanh toán không tiền mặt ngày càng trở nên phổ biến ở Việt Nam.|0
+D:\vits2\data\synthetic_audio\clip_000269.wav|Hẹn gặp lại ngày mai.|0
+D:\vits2\data\synthetic_audio\clip_000052.wav|Chú mèo nhà tôi rất lười biếng, ngủ cả ngày.|0
+D:\vits2\data\synthetic_audio\clip_000188.wav|Cháo lòng ăn sáng rất bổ dưỡng và dễ tiêu hóa.|0
+D:\vits2\data\synthetic_audio\clip_000471.wav|Tiểu đường cần được kiểm soát chế độ ăn và vận động phù hợp.|0
+D:\vits2\data\synthetic_audio\clip_000138.wav|Dự báo ngày mai sẽ có gió mạnh và trời흐.|0
+D:\vits2\data\synthetic_audio\clip_000438.wav|Ăn sáng đủ chất giúp cung cấp năng lượng cho cả ngày làm việc và học tập.|0
+D:\vits2\data\synthetic_audio\clip_000088.wav|Chào buổi sáng!|0
+D:\vits2\data\synthetic_audio\clip_000523.wav|Thẻ tín dụng được chấp nhận tại hầu hết các siêu thị và nhà hàng.|0
+D:\vits2\data\synthetic_audio\clip_000403.wav|Hóa học hữu cơ nghiên cứu các hợp chất chứa nguyên tử carbon.|0
+D:\vits2\data\synthetic_audio\clip_000028.wav|Thể thao điện tử đang trở thành ngành công nghiệp tỉ đô tại Việt Nam.|0
+D:\vits2\data\synthetic_audio\clip_000130.wav|Giải vô địch cờ tướng toàn quốc thu hút hàng trăm kỳ thủ tham dự.|0
+D:\vits2\data\synthetic_audio\clip_000478.wav|Hải dương học nghiên cứu về đại dương và các dòng chảy biển.|0
+D:\vits2\data\synthetic_audio\clip_000172.wav|Mỗi buổi chiều tôi ra hàng nước ngồi uống trà đá.|0
+D:\vits2\data\synthetic_audio\clip_000414.wav|Mì Quảng Đà Nẵng ăn kèm nhiều rau sống và tôm thịt.|0
+D:\vits2\data\synthetic_audio\clip_000343.wav|Trái đất là hành tinh duy nhất được biết có sự sống trong hệ mặt trời.|0
+D:\vits2\data\synthetic_audio\clip_000548.wav|Hạn chế thực phẩm chiên rán giúp giảm nguy cơ mắc bệnh tim mạch.|0
+D:\vits2\data\synthetic_audio\clip_000027.wav|Ánh sáng mặt trời mất khoảng tám phút để đến được trái đất.|0
+D:\vits2\data\synthetic_audio\clip_000500.wav|Một ngày có hai mươi bốn giờ.|0
+D:\vits2\data\synthetic_audio\clip_000446.wav|Mưa to quá, chúng tôi phải ở trong nhà cả ngày.|0
+D:\vits2\data\synthetic_audio\clip_000279.wav|Bơi thuyền là bộ môn thể thao truyền thống vẫn còn được tổ chức ở nông thôn.|0
+D:\vits2\data\synthetic_audio\clip_000223.wav|Áo mưa của tôi bị rách, cần mua cái mới rồi.|0
+D:\vits2\data\synthetic_audio\clip_000501.wav|Hàng xóm tôi hay cho chúng tôi rau trồng trong vườn.|0
+D:\vits2\data\synthetic_audio\clip_000228.wav|Hội Lim Bắc Ninh nổi tiếng với làn điệu quan họ tha thiết.|0
+D:\vits2\data\synthetic_audio\clip_000430.wav|Chiếc áo này mặc vừa tay và rất thoải mái.|0
+D:\vits2\data\synthetic_audio\clip_000400.wav|Mưa axit làm tổn hại đến gỗ cây, đất, sông suối và công trình xây dựng.|0
+D:\vits2\data\synthetic_audio\clip_000306.wav|Rau muống xào tỏi là món ăn bình dân được yêu thích khắp cả nước.|0
+D:\vits2\data\synthetic_audio\clip_000362.wav|Cơm tấm Sài Gòn ăn với sườn nướng, bì và chả rất ngon.|0
+D:\vits2\data\synthetic_audio\clip_000006.wav|Thư viện trường có hàng chục nghìn đầu sách phục vụ học sinh.|0
+D:\vits2\data\synthetic_audio\clip_000487.wav|Giáo dục thể chất quan trọng không kém các môn học lý thuyết.|0
+D:\vits2\data\synthetic_audio\clip_000392.wav|Công nghệ trí tuệ nhân tạo đang phát triển rất nhanh chóng.|0
+D:\vits2\data\synthetic_audio\clip_000019.wav|Bộ xử lý mới có tốc độ nhanh hơn và tiêu thụ ít điện năng hơn.|0
+D:\vits2\data\synthetic_audio\clip_000399.wav|Bạn có thể nói chậm hơn không?|0
+D:\vits2\data\synthetic_audio\clip_000432.wav|Thanh long Bình Thuận được xuất khẩu sang nhiều nước trên thế giới.|0
+D:\vits2\data\synthetic_audio\clip_000213.wav|Tôi viết nhật ký mỗi tối trước khi đi ngủ.|0
+D:\vits2\data\synthetic_audio\clip_000064.wav|Bạn có thể cho tôi mượn cái bật lửa một chút không?|0
+D:\vits2\data\synthetic_audio\clip_000428.wav|Xe buýt số mười bảy đến bến Trung Tâm lúc mấy giờ?|0
+D:\vits2\data\synthetic_audio\clip_000480.wav|Dân ca quan họ Bắc Ninh xướng đối tuyệt vời giữa trai thanh gái lịch.|0
+D:\vits2\data\synthetic_audio\clip_000339.wav|Chúng tôi sống ở thành phố Hà Nội.|0
+D:\vits2\data\synthetic_audio\clip_000420.wav|Chúc bạn một ngày tốt lành.|0
+D:\vits2\data\synthetic_audio\clip_000423.wav|Sân bay quốc tế Nội Bài cách trung tâm Hà Nội ba mươi ki-lô-mét.|0
+D:\vits2\data\synthetic_audio\clip_000065.wav|Futsal Việt Nam đang phát triển mạnh với nhiều tài năng trẻ triển vọng.|0
+D:\vits2\data\synthetic_audio\clip_000220.wav|Kỳ diệu làng nghề mây tre đan Hoằng Hóa Thanh Hóa vẫn còn lưu truyền.|0
+D:\vits2\data\synthetic_audio\clip_000157.wav|Lớp học trực tuyến giúp học sinh ở vùng xa tiếp cận nền giáo dục chất lượng.|0
+D:\vits2\data\synthetic_audio\clip_000393.wav|Sa Pa trong sương mờ mang vẻ đẹp huyền ảo của núi rừng Tây Bắc Việt Nam.|0
+D:\vits2\data\synthetic_audio\clip_000235.wav|Trẻ em trong xóm chơi đùa rất vui vẻ ngoài đường.|0
+D:\vits2\data\synthetic_audio\clip_000156.wav|Ga tàu hỏa cách đây khoảng hai ki-lô-mét về phía đông.|0
+D:\vits2\data\synthetic_audio\clip_000144.wav|Phần mềm kế toán đám mây giúp doanh nghiệp nhỏ quản lý tài chính dễ dàng.|0
+D:\vits2\data\synthetic_audio\clip_000083.wav|Cầu Thăng Long bắc qua sông Hồng nối Hà Nội với Vĩnh Phúc.|0
+D:\vits2\data\synthetic_audio\clip_000556.wav|Tôi thức dậy lúc sáu giờ sáng mỗi ngày.|0
+D:\vits2\data\synthetic_audio\clip_000327.wav|Buổi chiều cùng con ra công viên cho chúng chơi cầu trượt.|0
+D:\vits2\data\synthetic_audio\clip_000345.wav|Hội thảo khoa học tạo cơ hội trao đổi kiến thức giữa các nhà nghiên cứu.|0
+D:\vits2\data\synthetic_audio\clip_000280.wav|Tôi ghi nhớ danh sách việc cần làm vào cuốn sổ tay.|0
+D:\vits2\data\synthetic_audio\clip_000241.wav|Tăng ca được tính lương gấp rưỡi hoặc gấp đôi tùy theo quy định.|0
+D:\vits2\data\synthetic_audio\clip_000293.wav|Chúc ngủ ngon nhé.|0
+D:\vits2\data\synthetic_audio\clip_000080.wav|Bữa ăn gia đình hàng ngày cần cân bằng giữa các nhóm thực phẩm.|0
+D:\vits2\data\synthetic_audio\clip_000452.wav|Điền kinh, bơi lội và thể dục nghệ thuật là thế mạnh của Việt Nam tại SEA Games.|0
+D:\vits2\data\synthetic_audio\clip_000284.wav|Cửa hàng đóng cửa lúc mười giờ đêm.|0
+D:\vits2\data\synthetic_audio\clip_000243.wav|Bún bò Huế cay nồng với hương sả và ruốc tôm đặc trưng.|0
+D:\vits2\data\synthetic_audio\clip_000495.wav|Bố nấu món phở bò rất ngon nhân dịp đặc biệt.|0
+D:\vits2\data\synthetic_audio\clip_000536.wav|Hệ thống tự động hóa nhà máy tăng năng suất sản xuất đáng kể.|0
+D:\vits2\data\synthetic_audio\clip_000283.wav|Tôi là người Hà Nội.|0
+D:\vits2\data\synthetic_audio\clip_000256.wav|Doanh nghiệp khởi nghiệp công nghệ nhận được đầu tư kỷ lục.|0
+D:\vits2\data\synthetic_audio\clip_000266.wav|Camera không người lái tuần tra bảo vệ đường biên giới quốc gia.|0
+D:\vits2\data\synthetic_audio\clip_000461.wav|Học bổng du học mở ra cơ hội tiếp cận nền giáo dục quốc tế.|0
+D:\vits2\data\synthetic_audio\clip_000488.wav|Magie trong hạt và rau lá xanh giúp thư giãn cơ và giảm căng thẳng.|0
+D:\vits2\data\synthetic_audio\clip_000162.wav|Bạn có thể giúp tôi xách đồ không?|0
+D:\vits2\data\synthetic_audio\clip_000457.wav|Rút tiền mặt tại ATM trên toàn quốc rất thuận tiện.|0
+D:\vits2\data\synthetic_audio\clip_000564.wav|Huấn luyện viên ngoại giúp đội tuyển quốc gia cải thiện chiến thuật thi đấu.|0
+D:\vits2\data\synthetic_audio\clip_000437.wav|Họp nhóm hàng tuần giúp cập nhật tiến độ và xử lý vấn đề kịp thời.|0
+D:\vits2\data\synthetic_audio\clip_000515.wav|Phòng bệnh hơn chữa bệnh là triết lý chăm sóc sức khỏe đúng đắn.|0
+D:\vits2\data\synthetic_audio\clip_000454.wav|Ăn nhiều rau xanh và hạn chế thức ăn nhanh giúp duy trì cân nặng lý tưởng.|0
+D:\vits2\data\synthetic_audio\clip_000325.wav|Chuối già ngon nhất khi chín vàng và vỏ hơi có đốm đen nhỏ.|0
+D:\vits2\data\synthetic_audio\clip_000573.wav|Tôi giúp mẹ cắt sợi bún để nấu bún bò Huế.|0
+D:\vits2\data\synthetic_audio\clip_000543.wav|Ca trù là nghệ thuật diễn xướng cung đình được gìn giữ đến ngày nay.|0
+D:\vits2\data\synthetic_audio\clip_000474.wav|Tốc độ tối đa trong khu dân cư là năm mươi ki-lô-mét mỗi giờ.|0

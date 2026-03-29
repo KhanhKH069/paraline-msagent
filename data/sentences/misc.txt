@@ -1,0 +1,107 @@
+Xin chào!
+Tạm biệt, hẹn gặp lại!
+Cảm ơn bạn rất nhiều.
+Xin lỗi, tôi không hiểu.
+Bạn có thể nói chậm hơn không?
+Tôi không biết.
+Vâng, tôi đồng ý.
+Không, tôi không đồng ý.
+Được rồi, cảm ơn.
+Chúc mừng sinh nhật!
+Chúc bạn một ngày tốt lành.
+Chúc ngủ ngon nhé.
+Chào buổi sáng!
+Chào buổi tối!
+Hẹn gặp lại ngày mai.
+Bạn khỏe không?
+Tôi khỏe, cảm ơn bạn.
+Tên bạn là gì?
+Bạn bao nhiêu tuổi?
+Tôi hai mươi lăm tuổi.
+Bạn đến từ đâu?
+Tôi là người Hà Nội.
+Bạn làm nghề gì?
+Tôi là lập trình viên.
+Bạn học ở trường nào?
+Tôi học ở Đại học Bách Khoa.
+Nhà bạn ở đâu?
+Tôi sống ở quận Ba Đình.
+Bạn có gia đình không?
+Tôi có vợ và hai con.
+Hai cộng hai bằng bốn.
+Ba nhân năm bằng mười lăm.
+Mười chia hai bằng năm.
+Một trăm trừ ba mươi bảy bằng sáu mươi ba.
+Số pi xấp xỉ bằng ba chấm một bốn.
+Hôm nay là thứ Hai ngày một tháng giêng.
+Ngày mai là thứ Ba.
+Tuần tới tôi có buổi họp quan trọng.
+Tháng này có ba mươi mốt ngày.
+Năm nay là năm hai nghìn không trăm hai mươi sáu.
+Trời nắng và nhiệt độ khoảng ba mươi độ C.
+Trời mưa to, bạn nhớ mang ô nhé.
+Thời tiết hôm nay mát mẻ và dễ chịu.
+Dự báo ngày mai sẽ có gió mạnh và trời흐.
+Mùa khô ở miền Nam kéo dài từ tháng mười một đến tháng tư.
+Xe buýt số mười bảy đến bến Trung Tâm lúc mấy giờ?
+Ga tàu hỏa cách đây khoảng hai ki-lô-mét về phía đông.
+Sân bay quốc tế Nội Bài cách trung tâm Hà Nội ba mươi ki-lô-mét.
+Đường Trường Sơn từ Bắc vào Nam dài gần hai nghìn ki-lô-mét.
+Cầu Thăng Long bắc qua sông Hồng nối Hà Nội với Vĩnh Phúc.
+Quy tắc giao thông cần được tuân thủ để đảm bảo an toàn.
+Đèn xanh cho phép đi, đèn đỏ bắt buộc phải dừng lại.
+Tốc độ tối đa trong khu dân cư là năm mươi ki-lô-mét mỗi giờ.
+Hãy thắt dây an toàn khi ngồi trên ô tô.
+Mũ bảo hiểm bảo vệ đầu khi đi xe máy hoặc xe đạp.
+Không sử dụng điện thoại khi đang lái xe.
+Tôi cần đổ xăng cho xe máy trước khi đi.
+Ô tô điện ngày càng phổ biến ở các đô thị lớn Việt Nam.
+Đường cao tốc Hà Nội - Hải Phòng dài khoảng một trăm mét.
+Ga metro Bến Thành là điểm trung chuyển quan trọng ở thành phố Hồ Chí Minh.
+Một ki-lô-gam bằng một nghìn gam.
+Một mét bằng một trăm xen-ti-mét.
+Một ki-lô-mét bằng một nghìn mét.
+Một giờ bằng sáu mươi phút.
+Một ngày có hai mươi bốn giờ.
+Một tuần có bảy ngày.
+Một năm có ba trăm sáu mươi lăm ngày.
+Nhiệt độ nước đóng băng ở không độ C.
+Áp suất khí quyển tiêu chuẩn là một át-mốt-phe.
+Trái đất có đường kính khoảng mười hai nghìn bảy trăm ki-lô-mét.
+Tôi đặt vé máy bay từ Hà Nội đến thành phố Hồ Chí Minh.
+Chuyến bay khởi hành lúc sáu giờ sáng và đến nơi lúc tám giờ.
+Hành lý xách tay không được quá bảy ki-lô-gam.
+Khách sạn ba sao có phòng tiện nghi với giá hợp lý.
+Tôi đặt phòng khách sạn qua ứng dụng trên điện thoại.
+Hướng dẫn viên du lịch giới thiệu lịch sử của các địa danh nổi tiếng.
+Vé vào cửa khu di tích lịch sử có giá ưu đãi cho học sinh sinh viên.
+Chợ đêm bán nhiều đặc sản địa phương thu hút khách du lịch.
+Cửa hàng lưu niệm bán đồ thủ công mỹ nghệ truyền thống.
+Hộ chiếu cần còn hạn ít nhất sáu tháng khi xin visa du lịch.
+Visa điện tử cho phép nhập cảnh Việt Nam từ nhiều quốc gia trên thế giới.
+Đổi tiền tại ngân hàng an toàn và có tỷ giá cạnh tranh hơn.
+Tỷ giá đô la Mỹ đang ở mức cao trong những tuần gần đây.
+Ngân hàng mở cửa từ thứ Hai đến thứ Sáu mỗi tuần.
+Lãi suất tiết kiệm mới được điều chỉnh theo chính sách tiền tệ.
+Thẻ tín dụng được chấp nhận tại hầu hết các siêu thị và nhà hàng.
+Rút tiền mặt tại ATM trên toàn quốc rất thuận tiện.
+Chuyển khoản ngân hàng qua ứng dụng di động nhanh chóng và an toàn.
+Hóa đơn điện nước được thanh toán tự động qua tài khoản ngân hàng.
+Bảo hiểm xe máy bắt buộc phải có khi tham gia giao thông.
+Bảo hiểm y tế giúp giảm chi phí khám chữa bệnh cho người tham gia.
+Nộp thuế thu nhập cá nhân là nghĩa vụ của mỗi công dân.
+Hợp đồng lao động cần ghi rõ quyền lợi và nghĩa vụ của hai bên.
+Lương tối thiểu vùng được điều chỉnh hằng năm theo quy định nhà nước.
+Nghỉ phép năm có mười hai ngày theo quy định của Luật Lao Động.
+Bảo hiểm xã hội đảm bảo quyền lợi cho người lao động khi về hưu.
+Đơn xin việc cần kèm theo sơ yếu lý lịch và bằng cấp liên quan.
+Phỏng vấn xin việc đòi hỏi sự chuẩn bị kỹ càng và tự tin.
+Làm việc nhóm hiệu quả đòi hỏi kỹ năng giao tiếp và phối hợp tốt.
+Deadline dự án là ngày mai, nhóm đang chạy nước rút hoàn tất.
+Báo cáo tháng cần được nộp trước ngày ba mươi mỗi tháng.
+Họp nhóm hàng tuần giúp cập nhật tiến độ và xử lý vấn đề kịp thời.
+Môi trường làm việc tốt giúp nâng cao hiệu suất và sự gắn kết nhân viên.
+Người lao động có quyền nghỉ phép trong các ngày lễ quốc gia.
+Tăng ca được tính lương gấp rưỡi hoặc gấp đôi tùy theo quy định.
+Văn phòng mới rộng rãi và trang bị đầy đủ thiết bị làm việc hiện đại.
+Thăng tiến trong công việc đòi hỏi nỗ lực, kỹ năng và sự kiên trì.
