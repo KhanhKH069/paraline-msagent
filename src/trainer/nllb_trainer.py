@@ -12,15 +12,12 @@ của chunk đó (subject/verb quan trọng hơn modifier).
 from __future__ import annotations
 
 import json
-import os
 from dataclasses import dataclass
 from pathlib import Path
-from typing import Any, Dict, List, Optional, Tuple
+from typing import List, Optional
 
-import torch
 import torch.nn as nn
-from datasets import Dataset, DatasetDict, load_from_disk
-from torch.utils.data import DataLoader
+from datasets import Dataset, DatasetDict
 from transformers import (
     AutoModelForSeq2SeqLM,
     AutoTokenizer,
@@ -75,7 +72,6 @@ def make_tokenize_fn(tokenizer, max_input_length: int = 256, max_target_length: 
         # Nếu dataset trộn nhiều lang pair, cần xử lý per-item
         # Ở đây assume đồng nhất 1 cặp / batch
         src_lang = examples["src_lang"][0] if isinstance(examples["src_lang"], list) else examples["src_lang"]
-        tgt_lang = examples["tgt_lang"][0] if isinstance(examples["tgt_lang"], list) else examples["tgt_lang"]
 
         tokenizer.src_lang = src_lang
         model_inputs = tokenizer(
@@ -86,13 +82,12 @@ def make_tokenize_fn(tokenizer, max_input_length: int = 256, max_target_length: 
         )
 
         # Tokenize targets
-        with tokenizer.as_target_tokenizer():
-            labels = tokenizer(
-                tgts,
-                max_length=max_target_length,
-                truncation=True,
-                padding=False,
-            )
+        labels = tokenizer(
+            text_target=tgts,
+            max_length=max_target_length,
+            truncation=True,
+            padding=False,
+        )
 
         model_inputs["labels"] = labels["input_ids"]
         return model_inputs
@@ -182,7 +177,7 @@ def make_compute_metrics(tokenizer):
 
         # Strip whitespace
         decoded_preds = [p.strip() for p in decoded_preds]
-        decoded_labels = [[l.strip()] for l in decoded_labels]
+        decoded_labels = [[label.strip()] for label in decoded_labels]
 
         # BLEU
         bleu_result = bleu_metric.compute(
@@ -272,7 +267,7 @@ class NLLBFinetuner:
             warmup_ratio=cfg.warmup_ratio,
             weight_decay=cfg.weight_decay,
             fp16=cfg.fp16,
-            evaluation_strategy="epoch",
+            eval_strategy="epoch",
             save_strategy="epoch",
             load_best_model_at_end=True,
             metric_for_best_model="bleu",
@@ -295,7 +290,7 @@ class NLLBFinetuner:
             args=training_args,
             train_dataset=tokenized["train"],
             eval_dataset=tokenized["validation"],
-            tokenizer=self.tokenizer,
+            processing_class=self.tokenizer,
             data_collator=data_collator,
             compute_metrics=compute_metrics,
             callbacks=[

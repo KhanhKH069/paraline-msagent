@@ -42,7 +42,8 @@ nllb-trainer/
 │   ├── raw/               # Dataset gốc (parallel corpus JA/EN/VI)
 │   │   ├── ja_en/         # Cặp Nhật–Anh
 │   │   ├── en_vi/         # Cặp Anh–Việt
-│   │   └── ja_vi/         # Cặp Nhật–Việt (tổng hợp)
+│   │   ├── ja_vi/         # Cặp Nhật–Việt (tổng hợp)
+│   │   └── vocab/         # TSV chứa từ vựng chuyên ngành (IT, business)
 │   ├── processed/         # Sau tokenize + chunk annotation
 │   └── augmented/         # Back-translation augmentation
 ├── src/
@@ -70,16 +71,19 @@ uv run python -m spacy download en_core_web_sm
 # 2. Download base model
 uv run python scripts/download_model.py --model facebook/nllb-200-distilled-600M
 
-# 3. Chuẩn bị dữ liệu
+# 3. Tiêm từ vựng chuyên ngành (vocab injection)
+uv run python scripts/inject_vocab.py
+
+# 4. Chuẩn bị dữ liệu
 uv run python scripts/prepare_data.py --config configs/data_config.yaml
 
-# 4. Chunk annotation
-uv run python scripts/annotate_chunks.py --lang ja en vi
+# 5. Chunk annotation
+uv run python scripts/annotate_chunks.py --overwrite
 
-# 5. Train
+# 6. Train
 uv run python scripts/train.py --config configs/train_config.yaml
 
-# 6. Evaluate
+# 7. Evaluate
 uv run python scripts/evaluate.py --checkpoint models/finetuned/best --test-set data/processed/test
 ```
 

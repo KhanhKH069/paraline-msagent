@@ -1,0 +1,36 @@
+nllb-trainer
+├── src
+│   ├── chunker
+│   │   ├── __init__.py
+│   │   └── sentence_chunker.py
+│   ├── evaluator
+│   │   ├── __init__.py
+│   │   └── bleu_evaluator.py
+│   ├── trainer
+│   │   ├── __init__.py
+│   │   └── nllb_trainer.py
+│   ├── translator
+│   │   ├── __init__.py
+│   │   └── contextual_translator.py
+│   ├── utils
+│   │   ├── __init__.py
+│   │   └── logging.py
+│   └── __init__.py
+├── scripts
+│   ├── __init__.py
+│   ├── annotate_chunks.py
+│   ├── download_data.py
+│   ├── download_model.py
+│   ├── evaluate.py
+│   ├── inject_vocab.py
+│   ├── prepare_data.py
+│   ├── train.py
+│   └── translate.py
+├── configs
+│   ├── data_config.yaml
+│   └── train_config.yaml
+├── main.py
+├── pyproject.toml
+├── README.md
+├── requirements.txt
+└── Makefile

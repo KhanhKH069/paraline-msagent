@@ -14,7 +14,6 @@ Usage:
 import argparse
 import csv
 import json
-import os
 import sys
 from pathlib import Path
 from typing import List, Tuple, Optional
@@ -93,7 +92,9 @@ def download_from_opus(
     Tải từ OPUS qua opustools hoặc gợi ý manual download.
     """
     try:
-        from opustools import OpusGet
+        import importlib.util
+        if importlib.util.find_spec("opustools") is None:
+            raise ImportError
         _download_opus_api(src_lang, tgt_lang, out_dir, corpus_names, limit)
     except ImportError:
         _print_manual_download_instructions(src_lang, tgt_lang, out_dir, corpus_names)
@@ -142,11 +143,11 @@ def _download_opus_api(src_lang, tgt_lang, out_dir, corpus_names, limit):
 def _print_manual_download_instructions(src_lang, tgt_lang, out_dir, corpus_names):
     """Fallback: hướng dẫn download thủ công."""
     corpora = corpus_names or OPUS_DATASETS.get(f"{src_lang}-{tgt_lang}", ["Tatoeba"])
-    print(f"\n[INFO] opustools không có sẵn. Download thủ công:")
-    print(f"  URL: https://opus.nlpl.eu/")
+    print("\n[INFO] opustools không có sẵn. Download thủ công:")
+    print("  URL: https://opus.nlpl.eu/")
     for corpus in corpora:
         print(f"  → {corpus}: https://opus.nlpl.eu/{corpus}/corpus/v1/moses/{src_lang}-{tgt_lang}.txt.zip")
-    print(f"  Sau khi download, extract và đặt vào:")
+    print("  Sau khi download, extract và đặt vào:")
     print(f"    {out_dir}/src.txt  (câu {src_lang})")
     print(f"    {out_dir}/tgt.txt  (câu {tgt_lang})")
 
@@ -191,7 +192,6 @@ def load_and_merge_domain_data(out_dir: str, extra_weight: int = 3):
         "data/raw/domain/business_email",
     ]
 
-    all_pairs = []
     for domain_dir in domain_dirs:
         tsv_file = Path(domain_dir) / "pairs_ja_en_vi.tsv"
         if not tsv_file.exists():

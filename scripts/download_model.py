@@ -10,7 +10,6 @@ Usage:
 """
 
 import argparse
-import os
 import sys
 from pathlib import Path
 
@@ -53,7 +52,7 @@ def main():
     # Update .env or print instructions
     print("\n✅ Done! Add to your .env or config:")
     print(f"   MODEL_PATH={save_dir}")
-    print(f"\nOr use directly in train_config.yaml:")
+    print("\nOr use directly in train_config.yaml:")
     print(f"   model:\n     name_or_path: {save_dir}")
 
 

@@ -1,0 +1,13 @@
+server:
+  ip: "YOUR_SERVER_IP_HERE" # LƯU Ý: Thay "192.168.45.45" bằng IP thật của Windows Server
+
+embedding:
+  dev_port: 12346
+  prod_port: 12345
+  endpoint: "/embed"
+
+qdrant:
+  dev_port: 6333
+  prod_port: 6335
+  collection: "rag_documents"
+  vector_size: 768

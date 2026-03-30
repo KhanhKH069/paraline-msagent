@@ -11,7 +11,7 @@ Contextual Chunk Translator:
 from __future__ import annotations
 
 import re
-from typing import List, Optional, Tuple
+from typing import List, Optional
 
 import torch
 from transformers import AutoTokenizer, AutoModelForSeq2SeqLM

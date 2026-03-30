@@ -48,7 +48,7 @@ def main():
     )
 
     print(f"\nEvaluating {args.src_lang} → {args.tgt_lang}...")
-    results = evaluator.evaluate_file(
+    evaluator.evaluate_file(
         src_file=args.src_file,
         ref_file=args.ref_file,
         src_lang=args.src_lang,

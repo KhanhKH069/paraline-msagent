@@ -9,10 +9,8 @@ from __future__ import annotations
 
 import json
 from pathlib import Path
-from typing import List, Dict, Optional, Tuple
+from typing import List, Dict, Optional
 
-import evaluate
-import sacrebleu
 from sacrebleu.metrics import BLEU, CHRF, TER
 from rich.console import Console
 from rich.table import Table
@@ -136,9 +134,19 @@ class TranslationEvaluator:
     def find_worst_samples(self, results: Dict, metric: str = "bleu", top_n: int = 10) -> List[dict]:
         """Tìm top N câu có kết quả tệ nhất theo metric."""
         samples = results.get("samples", [])
-        key = f"finetuned_scores" if "finetuned_scores" in (samples[0] if samples else {}) else "baseline_scores"
+        key = "finetuned_scores" if "finetuned_scores" in (samples[0] if samples else {}) else "baseline_scores"
         sorted_samples = sorted(
             [s for s in samples if key in s],
             key=lambda s: s[key].get(metric, 0),
         )
         return sorted_samples[:top_n]
+
+def example_rag_usage():
+    """Ví dụ sử dụng RAG services để retrieve context."""
+    from src.services.embedding import get_embeddings
+    from src.services.vector_store import search
+    
+    # Lấy embedding của câu nguồn để retrieve context
+    embeddings = get_embeddings(["Xin chào thế giới"])
+    results = search(query_vector=embeddings[0], limit=3)
+    return results

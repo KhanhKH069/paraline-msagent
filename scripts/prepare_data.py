@@ -17,9 +17,8 @@ import json
 import random
 import re
 import sys
-import os
 from pathlib import Path
-from typing import List, Tuple, Dict, Optional
+from typing import List, Tuple, Optional
 
 import yaml
 from tqdm import tqdm
