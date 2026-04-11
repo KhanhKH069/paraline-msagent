@@ -94,13 +94,7 @@ services:
     environment:
       - NLLB_MODEL=facebook/nllb-200-distilled-600M
       - MODEL_CACHE_DIR=/models/nllb
-    deploy:
-      resources:
-        reservations:
-          devices:
-            - driver: nvidia
-              count: 1
-              capabilities: [ gpu ]
+    # GPU constraint đã bỏ — service sẽ tự dùng CUDA nếu có, fallback CPU nếu không
     ports:
       - "8002:8002"
     networks: [ paraline-net ]
@@ -125,6 +119,30 @@ services:
       - "8003:8003"
     networks: [ paraline-net ]
     restart: unless-stopped
+
+  # ── Cabin ASR (Gipformer ONNX — CPU-only) ────────────────────────────────
+  asr-service:
+    build:
+      context: ./services/asr-service
+      dockerfile: Dockerfile
+    container_name: paraline-gipformer
+    volumes:
+      - models-cache:/models
+    environment:
+      - ASR_QUANTIZE=int8          # INT8 ONNX: CPU nhanh gấp đôi fp32
+      - ASR_NUM_THREADS=4
+      - ASR_PORT=8005
+      - MODEL_CACHE_DIR=/models/gipformer
+    ports:
+      - "8005:8005"
+    networks: [ paraline-net ]
+    restart: unless-stopped
+    healthcheck:
+      test: [ "CMD", "curl", "-f", "http://localhost:8005/health" ]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 30s
 
   #  vision-service:
   #    build:

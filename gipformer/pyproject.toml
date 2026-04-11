@@ -1,0 +1,28 @@
+[project]
+name = "gipformer"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "huggingface-hub>=1.10.1",
+    "numpy>=2.4.4",
+    "sherpa-onnx>=1.12.36",
+    "soundfile>=0.13.1",
+    "deep-translator>=2.4.0",
+    "scipy>=1.14.0",
+    "sounddevice>=0.4.6",
+    "ffmpeg-python>=0.2.0",
+    "huggingface_hub>=1.10.1",
+    "transformers>=4.40.0",
+    "torch>=2.0.0",
+    "onnx>=1.16.0",
+    "onnxruntime>=1.16.0",
+    "sentencepiece>=0.2.0",
+    "protobuf>=4.25.0",
+    "tqdm>=4.66.0",
+    "tensorboard>=2.16.0",
+    "tensorboardX>=2.6.2",
+    "tensorboardX>=2.6.2",
+    "tensorboardX>=2.6.2",
+]

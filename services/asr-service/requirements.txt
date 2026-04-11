@@ -1,0 +1,19 @@
+# ── Core inference ──────────────────────────────────────────────────────────
+sherpa-onnx>=1.12.36
+soundfile>=0.13.1
+numpy>=1.24.0
+huggingface-hub>=0.21.0
+
+# ── Audio resampling (optional, improves quality when SR ≠ 16000) ────────────
+scipy>=1.10.0
+
+# ── Video audio extraction ───────────────────────────────────────────────────
+# ffmpeg must be installed separately on the host (see README)
+
+# ── Translation (optional) ───────────────────────────────────────────────────
+deep-translator>=1.9.0
+
+# ── Web service ──────────────────────────────────────────────────────────────
+fastapi>=0.110.0
+uvicorn>=0.29.0
+python-multipart>=0.0.9
