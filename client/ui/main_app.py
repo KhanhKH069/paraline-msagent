@@ -11,8 +11,8 @@ project_root = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(_
 env_path = os.path.join(project_root, ".env")
 load_dotenv(env_path, override=True)
 
-from PyQt6.QtWidgets import QApplication
-from client.ui.main_window import ParalineMainWindow
+from PyQt6.QtWidgets import QApplication  # noqa: E402
+from client.ui.main_window import ParalineMainWindow  # type: ignore[import-not-found]  # noqa: E402
 
 def main():
     app = QApplication(sys.argv)

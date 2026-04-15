@@ -1,8 +1,9 @@
 import os
 
-SERVER_WS   = os.getenv("PARALINE_SERVER_WS",   "ws://127.0.0.1:8056")
-SERVER_REST = os.getenv("PARALINE_SERVER_REST",  "http://127.0.0.1:8056")
-API_KEY     = os.getenv("CLIENT_API_KEY", "paraline_client_secret_key_local")
+SERVER_WS    = os.getenv("PARALINE_SERVER_WS",   "ws://127.0.0.1:8056")
+SERVER_REST  = os.getenv("PARALINE_SERVER_REST",  "http://127.0.0.1:8056")
+API_KEY      = os.getenv("CLIENT_API_KEY", "paraline_client_secret_key_local")
+GEMINI_API_KEY = os.getenv("GEMINI_API_KEY", "")
 
 STYLE = """
 * { font-family: 'Segoe UI Variable', 'Segoe UI', Arial, sans-serif; }

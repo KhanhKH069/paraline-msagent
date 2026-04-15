@@ -20,14 +20,11 @@ Luồng:
 Các hàm on_* chạy trên worker thread → cần thread-safe khi emit PyQt signal.
 """
 
-import base64
 import logging
 import os
 import queue
 import threading
 import time
-import wave
-import io
 from typing import Callable, Optional
 
 import requests

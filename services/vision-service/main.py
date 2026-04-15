@@ -16,13 +16,13 @@ import os
 import time
 from typing import List, Tuple
 
-import cv2
+import cv2  # type: ignore[import-untyped]
 import httpx
 import numpy as np
 import uvicorn
 from fastapi import FastAPI, HTTPException
 from PIL import Image, ImageDraw, ImageFont
-from paddleocr import PaddleOCR
+from paddleocr import PaddleOCR  # type: ignore[import-untyped]
 from pydantic import BaseModel
 
 logger = logging.getLogger("paraline.vision")
@@ -203,7 +203,7 @@ def _fit_font(text: str, box_w: int, box_h: int) -> int:
     return best
 
 
-def _load_font(size: int) -> ImageFont.FreeTypeFont:
+def _load_font(size: int) -> "ImageFont.FreeTypeFont | ImageFont.ImageFont":
     try:
         return ImageFont.truetype(FONT_PATH, size)
     except Exception:

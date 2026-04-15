@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dịch Thuật Hình Ảnh</title>
+  <link rel="stylesheet" href="src/style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <header class="header">
+    <div class="header-inner">
+      <div class="logo">
+        <span class="logo-icon">⌬</span>
+        <span class="logo-text">ImageTrans</span>
+      </div>
+      <div class="header-badge">Powered by Gemini AI</div>
+    </div>
+  </header>
+
+  <main class="main">
+
+    <!-- Upload Zone -->
+    <section class="upload-section" id="uploadSection">
+      <div class="upload-zone" id="dropZone">
+        <input type="file" id="fileInput" accept="image/*" hidden>
+        <div class="upload-content">
+          <div class="upload-icon-wrap">
+            <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+              <rect x="4" y="4" width="32" height="32" rx="8" stroke="currentColor" stroke-width="1.5" stroke-dasharray="4 3"/>
+              <path d="M20 26V14M14 20l6-6 6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <p class="upload-title">Kéo thả ảnh vào đây</p>
+          <p class="upload-sub">hoặc <button class="upload-link" onclick="document.getElementById('fileInput').click()">chọn từ máy tính</button></p>
+          <div class="upload-support">
+            <span>JPG</span><span>PNG</span><span>WEBP</span><span>GIF</span><span>BMP</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="lang-row">
+        <div class="lang-group">
+          <label class="lang-label">Ngôn ngữ nguồn</label>
+          <select id="sourceLang" class="select">
+            <option value="auto">🔍 Tự động nhận diện</option>
+            <option value="English">🇬🇧 Tiếng Anh</option>
+            <option value="Japanese">🇯🇵 Tiếng Nhật</option>
+            <option value="Korean">🇰🇷 Tiếng Hàn</option>
+            <option value="Chinese">🇨🇳 Tiếng Trung</option>
+            <option value="French">🇫🇷 Tiếng Pháp</option>
+            <option value="German">🇩🇪 Tiếng Đức</option>
+            <option value="Spanish">🇪🇸 Tiếng Tây Ban Nha</option>
+            <option value="Thai">🇹🇭 Tiếng Thái</option>
+          </select>
+        </div>
+        <div class="arrow-icon">→</div>
+        <div class="lang-group">
+          <label class="lang-label">Dịch sang</label>
+          <div class="select-static">🇻🇳 Tiếng Việt</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Preview + Result -->
+    <section class="result-section" id="resultSection" style="display:none;">
+      <div class="result-grid">
+
+        <!-- Left: Preview -->
+        <div class="panel">
+          <div class="panel-header">
+            <span class="panel-title">Ảnh gốc</span>
+            <button class="btn-ghost" id="changeImgBtn">↺ Đổi ảnh</button>
+          </div>
+          <div class="panel-body panel-img-wrap">
+            <img id="previewImg" class="preview-img" alt="Ảnh đã chọn" />
+          </div>
+          <div class="panel-footer">
+            <div class="lang-detected" id="langDetected">
+              <span class="dot dot-blue"></span>
+              <span id="langText">Đang nhận diện...</span>
+            </div>
+            <select id="sourceLang2" class="select select-sm">
+              <option value="auto">Tự động</option>
+              <option value="English">Tiếng Anh</option>
+              <option value="Japanese">Tiếng Nhật</option>
+              <option value="Korean">Tiếng Hàn</option>
+              <option value="Chinese">Tiếng Trung</option>
+              <option value="French">Tiếng Pháp</option>
+              <option value="German">Tiếng Đức</option>
+              <option value="Spanish">Tiếng Tây Ban Nha</option>
+              <option value="Thai">Tiếng Thái</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Middle: Translate Button -->
+        <div class="panel-divider">
+          <button class="btn-translate" id="translateBtn" onclick="translateImage()">
+            <span id="btnIcon">✦</span>
+            <span id="btnText">Dịch ngay</span>
+          </button>
+        </div>
+
+        <!-- Right: Translation -->
+        <div class="panel">
+          <div class="panel-header">
+            <span class="panel-title">Bản dịch tiếng Việt</span>
+            <button class="btn-ghost" id="copyBtn" onclick="copyText()" style="display:none;">📋 Sao chép</button>
+          </div>
+          <div class="panel-body" id="resultTabs">
+            <!-- Tabs -->
+            <div class="tabs" id="tabsBar" style="display:none;">
+              <button class="tab active" onclick="switchTab('translation')">Bản dịch</button>
+              <button class="tab" onclick="switchTab('original')">Văn bản gốc</button>
+            </div>
+            <div class="tab-content" id="tabTranslation">
+              <div class="result-placeholder" id="placeholder">
+                <div class="placeholder-icon">⌬</div>
+                <p>Bấm <strong>Dịch ngay</strong> để bắt đầu</p>
+              </div>
+              <div class="result-text" id="viText" style="display:none;"></div>
+            </div>
+            <div class="tab-content" id="tabOriginal" style="display:none;">
+              <div class="result-text" id="origText"></div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <p>Chạy local · API key lưu trong <code>.env</code> · Không gửi dữ liệu bên thứ ba</p>
+  </footer>
+
+  <script src="src/app.js"></script>
+</body>
+</html>

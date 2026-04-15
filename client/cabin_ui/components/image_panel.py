@@ -5,17 +5,22 @@ from PyQt6.QtWidgets import (
 )
 from PyQt6.QtGui import QPixmap, QImage
 
-from client.ui.components.helpers import card, label
+from client.cabin_ui.components.helpers import card, label
 
 
 class ImagePanel(QWidget):
     """Tab Slide — paste ảnh, chọn ngôn ngữ nguồn, dịch OCR."""
 
-    translate_requested = pyqtSignal(object, str)   # (PIL.Image, src_lang)
+    translate_requested = pyqtSignal(object, str)   # (PIL.Image, src_lang: 'auto'|'English'|...)
 
     _LANGUAGES = [
-        ("Tiếng Anh",   "eng_Latn"),
-        ("Tiếng Nhật",  "jpn_Jpan")
+        ("🔍 Tự động",    "auto"),
+        ("🇬🇧 Tiếng Anh", "English"),
+        ("🇯🇵 Tiếng Nhật", "Japanese"),
+        ("🇰🇷 Tiếng Hàn",  "Korean"),
+        ("🇨🇳 Tiếng Trung", "Chinese"),
+        ("🇫🇷 Tiếng Pháp", "French"),
+        ("🇩🇪 Tiếng Đức",  "German"),
     ]
 
     def __init__(self, parent=None):
@@ -167,25 +172,28 @@ class ImagePanel(QWidget):
         self._btn_translate.setEnabled(True)
         self._set_status("🖼  Ảnh đã tải — bấm Dịch →")
 
-    def show_result(self, pil_img):
-        """Gọi khi dịch thành công — hiển thị ảnh kết quả."""
+    def show_result(self, result):
+        """Gọi khi dịch thành công.
+        - result là dict {detected_language, original_text, vietnamese_translation}
+          hoặc string đơn giản.
+        """
         self._set_status("")
         self._result_card.show()
-        try:
-            import io
-            from PyQt6.QtCore import QByteArray
-            buf = io.BytesIO()
-            pil_img.save(buf, format="PNG")
-            ba = QByteArray(buf.getvalue())
-            qimg = QImage.fromData(ba)
-            px = QPixmap.fromImage(qimg).scaled(
-                300, 200,
-                Qt.AspectRatioMode.KeepAspectRatio,
-                Qt.TransformationMode.SmoothTransformation,
-            )
-            self._result_lbl.setPixmap(px)
-        except Exception as e:
-            self._result_lbl.setText(f"[Lỗi hiển thị: {e}]")
+        self._btn_translate.setEnabled(True)
+        if isinstance(result, dict):
+            lang = result.get("detected_language", "")
+            original = result.get("original_text", "")
+            vi_text  = result.get("vietnamese_translation", "")
+            display  = ""
+            if lang:
+                display += f"🌐 Ngôn ngữ phát hiện: {lang}\n\n"
+            if original:
+                display += f"📄 Văn bản gốc:\n{original}\n\n"
+            if vi_text:
+                display += f"🇻🇳 Bản dịch:\n{vi_text}"
+            self._result_lbl.setText(display.strip())
+        else:
+            self._result_lbl.setText(str(result))
 
     def show_error(self, msg: str):
         """Gọi khi dịch thất bại."""

@@ -5,14 +5,14 @@ from typing import Optional
 from PyQt6.QtCore import Qt, QTimer, pyqtSignal
 from PyQt6.QtGui import QKeySequence, QShortcut
 from PyQt6.QtWidgets import (
-    QApplication, QHBoxLayout, QLabel, QMainWindow,
+    QApplication, QHBoxLayout, QMainWindow,
     QPushButton, QVBoxLayout, QWidget, QMenu,
-    QSystemTrayIcon, QLineEdit, QStackedWidget, QSizePolicy, QComboBox,
+    QSystemTrayIcon, QStackedWidget, QSizePolicy, QComboBox,
     QStyle,
 )
 
 # ── Cabin UI — dùng riêng styles/imports của cabin_ui ──
-from client.cabin_ui.config import API_KEY
+from client.cabin_ui.config import GEMINI_API_KEY
 from client.cabin_ui.styles import APP_STYLE
 from client.cabin_ui.components.helpers import card, label
 from client.cabin_ui.components.splash_screen import SplashScreen
@@ -20,7 +20,8 @@ from client.cabin_ui.components.frame_trans import FrameTrans
 from client.cabin_ui.components.frame_chat import FrameChat
 from client.cabin_ui.components.frame_minutes import FrameMinutes
 from client.cabin_ui.components.image_panel import ImagePanel
-from client.cabin_ui.meeting_minutes import MeetingMinutesWorker
+from client.cabin_ui.gemini_image_worker import GeminiImageWorker
+from client.cabin_ui.meeting_minutes import MeetingMinutesWorker  # noqa: F401
 from client.audio_router.audio_manager import AudioManager
 # ── Swap: ParalineWSClient → CabinRestClient (CPU-only, không cần Gateway) ──
 from client.cabin_ui.rest_client import CabinRestClient
@@ -32,7 +33,7 @@ class ParalineMainWindow(QMainWindow):
     sig_subtitle        = pyqtSignal(str , str, float)
     sig_outbound_text   = pyqtSignal(str, str)
     sig_tts_audio       = pyqtSignal(str)
-    sig_img_result      = pyqtSignal(object)
+    sig_img_result      = pyqtSignal(object)  # dict kết quả Gemini
     sig_img_error       = pyqtSignal(str)
     sig_meeting_started = pyqtSignal(str)
     sig_meeting_ended   = pyqtSignal()
@@ -46,7 +47,8 @@ class ParalineMainWindow(QMainWindow):
         self.image_handler = None
         self._join_delay_timer: Optional[QTimer] = None
         self._active_tab = 0
-        self._selected_device: Optional[str] = None   # device chọn từ splash screen
+        self._selected_device: Optional[str] = None
+        self._gemini_worker: Optional[GeminiImageWorker] = None  # giữ ref tránh GC
 
         self._setup_window()
         self._build_ui()
@@ -225,7 +227,9 @@ class ParalineMainWindow(QMainWindow):
         for i, btn in enumerate(self._tab_btns):
             btn.setObjectName("tab_btn_active" if i == idx else "tab_btn")
             s = btn.style()
-            if s: s.unpolish(btn); s.polish(btn)
+            if s:
+                s.unpolish(btn)
+                s.polish(btn)
 
     # ── Join / Session ────────────────────────────────────────────────────────
 
@@ -354,9 +358,42 @@ class ParalineMainWindow(QMainWindow):
     def _on_tts_audio(self, audio_b64: str):
         self.audio_mgr.play_tts(audio_b64)
 
-    def _on_image_paste(self, pil_img, src_lang="eng_Latn"):
-        # Cabin không có Image Handler — hiển thị thông báo gợi ý
-        self._frame_trans.add_trans_item("", "ℹ️ Dịch ảnh chưa hỗ trợ trong Cabin Mode", 0)
+    def _on_image_paste(self, pil_img, src_lang: str = "auto"):
+        """
+        Nhận PIL.Image từ _handle_paste → hiển preview ngay + khởi chạy Gemini worker.
+        src_lang: giá trị từ combo bên ImagePanel ("auto", "English", "Japanese", ...)
+        """
+        # Hiển preview ảnh trong tab Slide
+        self._img_panel.show_input(pil_img)
+
+        # Kiểm tra API key
+        api_key = GEMINI_API_KEY
+        if not api_key:
+            self._img_panel.show_error(
+                "Chưa có GEMINI_API_KEY.\n"
+                "Thêm vào file .env: GEMINI_API_KEY=AIzaSy...\n"
+                "Lấy key miễn phí tại: https://aistudio.google.com/apikey"
+            )
+            return
+
+        # Dừng worker cũ nếu còn chạy
+        if self._gemini_worker and self._gemini_worker.isRunning():
+            self._gemini_worker.quit()
+            self._gemini_worker.wait(500)
+
+        self._gemini_worker = GeminiImageWorker(
+            pil_img=pil_img,
+            src_lang=src_lang,
+            api_key=api_key,
+        )
+        self._gemini_worker.result_ready.connect(
+            lambda result: self.sig_img_result.emit(result)
+        )
+        self._gemini_worker.error_occurred.connect(
+            lambda msg: self.sig_img_error.emit(msg)
+        )
+        self._gemini_worker.start()
+        logger.info(f"[Cabin] GeminiImageWorker khởi động — src_lang={src_lang}")
 
     def _on_meeting_started(self, join_url: str):
         # Cabin không dùng Meeting Integration — bỏ qua auto-start
@@ -383,8 +420,8 @@ class ParalineMainWindow(QMainWindow):
         self.sig_subtitle.connect(self._on_subtitle)
         self.sig_outbound_text.connect(self._on_outbound_text)
         self.sig_tts_audio.connect(self._on_tts_audio)
-        self.sig_img_result.connect(self._img_panel.show_result)
-        self.sig_img_error.connect(self._img_panel.show_error)
+        self.sig_img_result.connect(self._img_panel.show_result)  # dict → hiển kết quả
+        self.sig_img_error.connect(self._img_panel.show_error)    # str → hiển lỗi
         self.sig_meeting_started.connect(self._on_meeting_started)
         self.sig_meeting_ended.connect(self._on_meeting_ended)
         self.sig_mock_result.connect(self._on_mock_result)
@@ -414,7 +451,9 @@ class ParalineMainWindow(QMainWindow):
         self._status_pill.setText(text)
         self._status_pill.setObjectName(obj)
         s = self._status_pill.style()
-        if s: s.unpolish(self._status_pill); s.polish(self._status_pill)
+        if s:
+            s.unpolish(self._status_pill)
+            s.polish(self._status_pill)
 
     # ── Drag ─────────────────────────────────────────────────────────────────
 
@@ -436,9 +475,11 @@ class ParalineMainWindow(QMainWindow):
         import io
 
         cb = _App.clipboard()
-        if not cb: return
+        if not cb:
+            return
         m = cb.mimeData()
-        if not m: return
+        if not m:
+            return
 
         if m.hasImage():
             q = cb.image()
@@ -449,7 +490,8 @@ class ParalineMainWindow(QMainWindow):
                 q.save(buf, "PNG")
                 pil = PILImage.open(io.BytesIO(ba.data())).convert("RGB")
                 self._switch_tab(2)
-                self._on_image_paste(pil, self._img_panel._combo_lang.currentData())
+                src_lang = self._img_panel._combo_lang.currentData() or "auto"
+                self._on_image_paste(pil, src_lang)
         elif m.hasUrls():
             for url in m.urls():
                 if url.isLocalFile():
@@ -467,6 +509,7 @@ class ParalineMainWindow(QMainWindow):
     # ── Close ─────────────────────────────────────────────────────────────────
 
     def closeEvent(self, a0):
-        if self.ws_client: self.ws_client.stop()
+        if self.ws_client:
+            self.ws_client.stop()
         self.audio_mgr.stop()
         super().closeEvent(a0)

@@ -1,0 +1,6 @@
+# Quan trọng: không bao giờ commit file .env lên git!
+.env
+node_modules/
+*.log
+.DS_Store
+Thumbs.db

@@ -1,13 +1,12 @@
 import subprocess
-import sounddevice as sd
 from PyQt6.QtCore import Qt, pyqtSignal, QThread
 from PyQt6.QtWidgets import (
     QWidget, QVBoxLayout, QHBoxLayout,
     QPushButton, QLineEdit, QComboBox,
 )
 
-from client.ui.components.helpers import card, label
-from client.ui.components.pulse_dot import PulseDot
+from .helpers import card, label
+from .pulse_dot import PulseDot
 
 
 def _get_pactl_sources() -> list[tuple[str, str]]:
@@ -54,6 +53,8 @@ class DeviceLoaderThread(QThread):
                 import sounddevice as sd
                 devices = sd.query_devices()
                 for i, dev in enumerate(devices):
+                    if not isinstance(dev, dict):
+                        continue
                     if dev.get("max_input_channels", 0) > 0:
                         name = dev["name"]
                         ch   = dev["max_input_channels"]
@@ -156,12 +157,16 @@ class SplashScreen(QWidget):
         self._combo_device.setObjectName("combo_lang")
         
         # Cho phép viền bo tròn của khung dropdown
-        self._combo_device.view().window().setWindowFlags(
-            Qt.WindowType.Popup | 
-            Qt.WindowType.FramelessWindowHint | 
-            Qt.WindowType.NoDropShadowWindowHint
-        )
-        self._combo_device.view().window().setAttribute(Qt.WidgetAttribute.WA_TranslucentBackground)
+        _view = self._combo_device.view()
+        if _view is not None:
+            _view_window = _view.window()
+            if _view_window is not None:
+                _view_window.setWindowFlags(
+                    Qt.WindowType.Popup |
+                    Qt.WindowType.FramelessWindowHint |
+                    Qt.WindowType.NoDropShadowWindowHint
+                )
+                _view_window.setAttribute(Qt.WidgetAttribute.WA_TranslucentBackground)
 
         self._combo_device.setToolTip(
             "🔊 .monitor/loopback = Capture âm thanh phát ra âm thanh máy tính\n"
@@ -237,7 +242,9 @@ class SplashScreen(QWidget):
         self._btn_teams.setObjectName("btn_platform_active" if plat == "teams" else "btn_platform")
         for btn in (self._btn_meet, self._btn_teams):
             s = btn.style()
-            if s: s.unpolish(btn); s.polish(btn)
+            if s:
+                s.unpolish(btn)
+                s.polish(btn)
         self._inp.setPlaceholderText(
             "Dán link Google Meet vào đây…" if plat == "meet"
             else "Dán link Microsoft Teams vào đây…"
