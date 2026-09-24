@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Meeting AI Assistant</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="popup.css" />
+</head>
+<body>
+  <div class="app-container">
+    <!-- Header -->
+    <header class="app-header">
+      <div class="brand-group">
+        <div class="brand-icon">
+          <img src="icons/icon48.png" alt="Logo" width="24" height="24" />
+        </div>
+        <div>
+          <div class="brand-title">Meeting <span class="accent">AI</span></div>
+          <div class="brand-badge">Assistant v2.0</div>
+        </div>
+      </div>
+      <div class="bridge-status-pill" id="bridge-status-pill">
+        <span class="status-dot" id="status-dot"></span>
+        <span id="bridge-status-text">Đang kiểm tra...</span>
+      </div>
+    </header>
+
+    <!-- Active Meet Card -->
+    <div class="card meet-card">
+      <div class="card-row between">
+        <span class="card-label">Google Meet</span>
+        <span class="badge" id="badge-meet-state">Chưa phát hiện</span>
+      </div>
+      <div class="meet-info-area" id="meet-info-area">
+        <div class="meet-code-wrapper">
+          <span class="meet-code" id="meet-code">—</span>
+          <button class="btn-icon" id="btn-copy-code" title="Sao chép mã cuộc họp" style="display: none;">
+            📋
+          </button>
+        </div>
+        <button class="btn-text-link" id="btn-open-meet">Mở Google Meet ↗</button>
+      </div>
+
+      <!-- Quick Metrics Strip -->
+      <div class="metrics-strip">
+        <div class="metric-item">
+          <span class="metric-val" id="metric-sent-count">0</span>
+          <span class="metric-lbl">Bản dịch đã gửi</span>
+        </div>
+        <div class="metric-divider"></div>
+        <div class="metric-item">
+          <span class="metric-val" id="metric-ping">—</span>
+          <span class="metric-lbl">Độ trễ Bridge</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tab Bar -->
+    <div class="tab-nav">
+      <button class="tab-btn active" data-tab="controls">⚙️ Điều khiển</button>
+      <button class="tab-btn" data-tab="test">💬 Gửi thử & Lịch sử</button>
+    </div>
+
+    <!-- Tab 1: Controls & Settings -->
+    <div class="tab-content active" id="tab-controls">
+      <div class="card settings-card">
+        <div class="setting-row">
+          <div class="setting-text">
+            <div class="setting-title">Tự động gửi vào Meet Chat</div>
+            <div class="setting-desc">Inject văn bản dịch thẳng vào hộp thoại Meet</div>
+          </div>
+          <label class="switch">
+            <input type="checkbox" id="toggle-auto-chat" checked />
+            <span class="slider"></span>
+          </label>
+        </div>
+
+        <div class="setting-row">
+          <div class="setting-text">
+            <div class="setting-title">Phụ đề nổi trên video (HUD)</div>
+            <div class="setting-desc">Hiển thị chữ dịch nổi dạng rạp chiếu phim</div>
+          </div>
+          <label class="switch">
+            <input type="checkbox" id="toggle-overlay" checked />
+            <span class="slider"></span>
+          </label>
+        </div>
+
+        <div class="setting-row">
+          <div class="setting-text">
+            <div class="setting-title">Thanh trạng thái nổi</div>
+            <div class="setting-desc">Hiện badge điều khiển nhanh trên góc Meet</div>
+          </div>
+          <label class="switch">
+            <input type="checkbox" id="toggle-floating-badge" checked />
+            <span class="slider"></span>
+          </label>
+        </div>
+      </div>
+
+      <!-- Bridge URL Config -->
+      <div class="card config-card">
+        <div class="card-label mb-8">Địa chỉ Python Bridge</div>
+        <div class="input-with-btn">
+          <input type="text" id="input-bridge-url" value="http://localhost:9877" placeholder="http://localhost:9877" />
+          <button class="btn-secondary" id="btn-save-bridge">Lưu & Ping</button>
+        </div>
+        <div class="tip-box" id="tip-box">
+          Meeting AI Desktop app phải chạy đồng thời để phiên dịch hoạt động.
+        </div>
+      </div>
+    </div>
+
+    <!-- Tab 2: Test Console & History -->
+    <div class="tab-content" id="tab-test">
+      <div class="card test-card">
+        <div class="card-label mb-8">Gửi thử nghiệm vào Google Meet</div>
+        <div class="test-input-row">
+          <input type="text" id="input-test-msg" placeholder="Nhập câu dịch muốn thử..." value="[Meeting AI] 🇻🇳 Xin chào mọi người, đây là bản dịch thử nghiệm." />
+          <button class="btn-primary" id="btn-send-test">Gửi</button>
+        </div>
+      </div>
+
+      <div class="history-header">
+        <span class="card-label">Lịch sử bản dịch gần nhất</span>
+        <button class="btn-subtle" id="btn-clear-history">Xóa</button>
+      </div>
+
+      <div class="history-list" id="history-list">
+        <div class="history-empty">Chưa có tin nhắn nào được gửi trong phiên này.</div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="app-footer">
+      <span>Meeting AI Bridge • Google Meet Integration</span>
+      <button class="btn-icon-subtle" id="btn-refresh" title="Làm mới trạng thái">🔄</button>
+    </footer>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

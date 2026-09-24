@@ -1,0 +1,54 @@
+# Meeting AI Assistant .gitignore
+
+# Environment & secrets
+.env
+.env.*
+!.env.example
+
+# AI Models (large files — download separately)
+models-cache/
+*.onnx
+*.bin
+*.safetensors
+*.pt
+*.pth
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.egg-info/
+dist/
+build/
+.venv/
+venv/
+
+# Docker volumes (local dev)
+postgres-data/
+redis-data/
+session-data/
+
+# Logs
+logs/
+*.log
+*logs.txt
+gateway_logs.txt
+
+# IDE
+.vscode/
+.idea/
+*.swp
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Audio debug & Test outputs
+debug_audio/
+test_output/
+*.wav
+*.ogg
+*.png.tmp
+*.tmp

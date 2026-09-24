@@ -1,0 +1,252 @@
+version: "3.9"
+
+# ============================================================
+# Meeting AI Assistant — Docker Compose
+# Microservices pattern adapted for LAN / Localhost
+# ============================================================
+
+networks:
+  meeting-net:
+    driver: bridge
+
+volumes:
+  models-cache: # Shared AI model files (Whisper, NLLB, Piper, OCR)
+    name: meeting-models-cache
+    external: true
+  session-data:
+  postgres-data:
+  redis-data:
+
+
+services:
+
+  # ──────────────────────────────────────────────────────────
+  # API Gateway — Main entry point, WebSocket hub
+  # Port 8056 (REST) & 8765 (WS)
+  # ──────────────────────────────────────────────────────────
+  api-gateway:
+    build:
+      context: ./services/api-gateway
+      dockerfile: Dockerfile
+    container_name: meeting-api-gateway
+    ports:
+      - "8056:8056" # REST API + Swagger docs
+      - "8765:8765" # WebSocket audio stream
+    volumes:
+      - ./services/api-gateway:/app
+    environment:
+      - WHISPERLIVE_URL=http://whisperlive:8001
+      - TRANSLATION_URL=http://translation-service:8002
+      - TTS_URL=http://tts-service:8003
+      - AGENT_URL=http://agent-service:8005
+      - COLLECTOR_URL=http://transcription-collector:8006
+      - REDIS_URL=redis://redis:6379
+      - ADMIN_API_TOKEN=${ADMIN_API_TOKEN}
+      - CLIENT_API_KEY=${CLIENT_API_KEY}
+      - LOG_LEVEL=${LOG_LEVEL:-INFO}
+    depends_on:
+      - whisperlive
+      - translation-service
+      - tts-service
+      - agent-service
+      - transcription-collector
+      - redis
+    networks: [ meeting-net ]
+    restart: unless-stopped
+    healthcheck:
+      test: [ "CMD", "curl", "-f", "http://localhost:8056/health" ]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+
+  # ──────────────────────────────────────────────────────────
+  # Admin API — Server management
+  # Vexa pattern: admin-api (port 8057)
+  # ──────────────────────────────────────────────────────────
+  admin-api:
+    build:
+      context: ./services/admin-api
+      dockerfile: Dockerfile
+    container_name: meeting-admin
+    ports:
+      - "8057:8057"
+    environment:
+      - DATABASE_URL=postgresql://meeting:${DB_PASSWORD:-meeting_strong_password}@postgres:5432/meeting
+      - ADMIN_API_TOKEN=${ADMIN_API_TOKEN}
+      - REDIS_URL=redis://redis:6379
+    depends_on: [ postgres, redis ]
+    networks: [ meeting-net ]
+    restart: unless-stopped
+
+  # ──────────────────────────────────────────────────────────
+  # WhisperLive Wrapper — Faster-Whisper realtime STT
+  # Vexa pattern: WhisperLive service (port 8001)
+  # ──────────────────────────────────────────────────────────
+  whisperlive:
+    build:
+      context: ./services/whisperlive-wrapper
+      dockerfile: Dockerfile
+    container_name: meeting-whisperlive
+    ports:
+      - "8001:8001"
+    volumes:
+      - models-cache:/models
+      - ./services/whisperlive-wrapper:/app
+    environment:
+      - ASR_BACKEND=${ASR_BACKEND:-faster_whisper}
+      - WHISPER_MODEL=${WHISPER_MODEL:-large-v3}
+      - WHISPER_DEVICE=${WHISPER_DEVICE:-cuda}
+      - WHISPER_COMPUTE_TYPE=${WHISPER_COMPUTE_TYPE:-float16}
+      - MODEL_CACHE_DIR=/models/whisper
+    networks: [ meeting-net ]
+    restart: unless-stopped
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [ gpu ]
+    healthcheck:
+      test: [ "CMD", "curl", "-f", "http://localhost:8001/health" ]
+      interval: 60s
+      timeout: 10s
+      retries: 5
+      start_period: 60s # Whisper takes time to load
+
+  # ──────────────────────────────────────────────────────────
+  # Transcription Collector — Thu gom segments, lưu DB
+  # Vexa pattern: transcription-collector (port 8006)
+  # ──────────────────────────────────────────────────────────
+  transcription-collector:
+    build:
+      context: ./services/transcription-collector
+      dockerfile: Dockerfile
+    container_name: meeting-collector
+    ports:
+      - "8006:8006"
+    volumes:
+      - ./services/transcription-collector:/app
+    environment:
+      - DATABASE_URL=postgresql://meeting:${DB_PASSWORD:-meeting_strong_password}@postgres:5432/meeting
+      - REDIS_URL=redis://redis:6379
+    depends_on: [ postgres, redis ]
+    networks: [ meeting-net ]
+    restart: unless-stopped
+
+  # ──────────────────────────────────────────────────────────
+  # Translation Service — NLLB-200
+  # ──────────────────────────────────────────────────────────
+  translation-service:
+    build:
+      context: ./services/translation-service
+      dockerfile: Dockerfile
+    container_name: meeting-nllb
+    ports:
+      - "8002:8002"
+    volumes:
+      - models-cache:/models
+      - ./services/translation-service:/app
+    environment:
+      - NLLB_MODEL=${NLLB_MODEL:-facebook/nllb-200-distilled-600M}
+      - MODEL_CACHE_DIR=/models/nllb
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [ gpu ]
+    networks: [ meeting-net ]
+    restart: unless-stopped
+    healthcheck:
+      test: [ "CMD", "curl", "-f", "http://localhost:8002/health" ]
+      interval: 60s
+      start_period: 90s
+
+  # ──────────────────────────────────────────────────────────
+  # TTS Service — Piper TTS Vietnamese
+  # ──────────────────────────────────────────────────────────
+  tts-service:
+    build:
+      context: ./services/tts-service
+      dockerfile: Dockerfile
+    container_name: meeting-piper
+    ports:
+      - "8003:8003"
+    volumes:
+      - models-cache:/models
+    environment:
+      - PIPER_VOICE=${PIPER_VOICE:-vi_VN-vivos-medium}
+      - MODEL_CACHE_DIR=/models/piper
+      - SAMPLE_RATE=22050
+    networks: [ meeting-net ]
+    restart: unless-stopped
+
+  # ──────────────────────────────────────────────────────────
+  # Agent Service — LLM Meeting Summarizer
+  # Vexa pattern: MCP/agent (Ollama backend)
+  # ──────────────────────────────────────────────────────────
+  agent-service:
+    build:
+      context: ./services/agent-service
+      dockerfile: Dockerfile
+    container_name: meeting-agent
+    ports:
+      - "8005:8005"
+    environment:
+      - OLLAMA_HOST=http://ollama:11434
+      - LLM_MODEL=${LLM_MODEL:-llama3.2:3b}
+      - COLLECTOR_URL=http://transcription-collector:8006
+    depends_on: [ ollama, transcription-collector ]
+    networks: [ meeting-net ]
+    restart: unless-stopped
+
+  # ──────────────────────────────────────────────────────────
+  # Ollama — Local LLM runtime
+  # ──────────────────────────────────────────────────────────
+  ollama:
+    image: ollama/ollama:latest
+    container_name: meeting-ollama
+    volumes:
+      - models-cache:/root/.ollama
+    networks: [ meeting-net ]
+    restart: unless-stopped
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [ gpu ]
+
+  # ──────────────────────────────────────────────────────────
+  # PostgreSQL — Session, transcript, meeting minutes storage
+  # Vexa pattern: postgres backend
+  # ──────────────────────────────────────────────────────────
+  postgres:
+    image: postgres:15-alpine
+    container_name: meeting-postgres
+    ports:
+      - "5438:5432" # Vexa dev convention: expose on 5438
+    environment:
+      POSTGRES_USER: meeting
+      POSTGRES_PASSWORD: ${DB_PASSWORD:-meeting_strong_password}
+      POSTGRES_DB: meeting
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+      - ./services/database/migrations/init.sql:/docker-entrypoint-initdb.d/init.sql
+    networks: [ meeting-net ]
+    restart: unless-stopped
+
+  # ──────────────────────────────────────────────────────────
+  # Redis — Pub/Sub for realtime audio segments + caching
+  # Vexa pattern: redis for inter-service communication
+  # ──────────────────────────────────────────────────────────
+  redis:
+    image: redis:7-alpine
+    container_name: meeting-redis
+    volumes:
+      - redis-data:/data
+    networks: [ meeting-net ]
+    restart: unless-stopped
